@@ -1,0 +1,86 @@
+<ul *ngIf="menuConfig && menuConfig.length > 0" oh-menu>
+  <ng-container *ngFor="let menu of menuConfig; let i = index">
+    <li
+      class="w-100"
+      *ngIf="menu.redirectUrl"
+      oh-menu-item
+      title="{{ menu.ten }}"
+      [ohSelected]="activeRouter | activeUrlCheck: menu.redirectUrl"
+      (click)="onClick(menu)"
+    >
+      <i
+        *ngIf="menu.logo"
+        oh-icon
+        [ohSrc]="menu.logo"
+        [ohSize]="'md'"
+        [alt]="menu.ten"
+        class="h-100 p-1"
+        [style]="menu.ghiChu ? 'background:' + menu.ghiChu : ''"
+      ></i>
+      {{ menu.ten }}
+    </li>
+    <li
+      class="w-100"
+      *ngIf="menu.routerLink"
+      oh-menu-item
+      routerLink="{{ menu.routerLink }}"
+      title="{{ menu.title }}"
+      [ohSelected]="activeRouter | activeUrlCheck: menu.routerLink"
+      (click)="onClick(menu)"
+    >
+      <ng-container *ngIf="menu.iconfont; else elseTemplate">
+        <i *ngIf="menu.icon" oh-icon [ohType]="menu.icon" [ohSize]="'md'"></i>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <i
+          *ngIf="menu.icon"
+          oh-icon
+          [ohSrc]="menu.icon | assetUrl"
+          [ohSize]="'md'"
+        ></i> </ng-template
+      >{{ menu.title }}
+    </li>
+    <li
+      class="w-100"
+      *ngIf="menu.ohRouterLink"
+      oh-menu-item
+      ohRouterLink="{{ menu.ohRouterLink }}"
+      title="{{ menu.title }}"
+      [ohSelected]="activeRouter | activeUrlCheck: menu.routerLink"
+      (click)="onClick(menu)"
+    >
+      <ng-container *ngIf="menu.iconfont; else elseTemplate">
+        <i *ngIf="menu.icon" oh-icon [ohType]="menu.icon" [ohSize]="'md'"></i>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <i
+          *ngIf="menu.icon"
+          oh-icon
+          [ohSrc]="menu.icon | assetUrl"
+          [ohSize]="'md'"
+        ></i> </ng-template
+      >{{ menu.title }}
+    </li>
+    <li
+      class="w-100"
+      *ngIf="menu.href"
+      oh-menu-item
+      [ohSelected]="activeRouter | activeUrlCheck: menu.routerLink"
+    >
+      <a href="{{ menu.href }}" title="{{ menu.title }}" target="_blank">
+        <ng-container *ngIf="menu.iconfont; else elseTemplate">
+          <i *ngIf="menu.icon" oh-icon [ohType]="menu.icon" [ohSize]="'md'"></i>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <i
+            *ngIf="menu.icon"
+            oh-icon
+            [ohSrc]="menu.icon | assetUrl"
+            [ohSize]="'md'"
+          ></i>
+        </ng-template>
+        {{ menu.title }}
+      </a>
+    </li>
+  </ng-container>
+</ul>
