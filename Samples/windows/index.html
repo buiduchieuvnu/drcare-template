@@ -1,0 +1,32 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Win</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="desktop" id="desktop"></div>
+
+  <div class="taskbar">
+    <div class="taskbar-center">
+      <button class="start-btn" id="startBtn">⊞</button>
+      <div id="tasks" class="tasks"></div>
+    </div>
+    <div class="taskbar-right">
+      <!-- sau này có thể thêm đồng hồ, wifi, pin -->
+    </div>
+  </div>
+
+  <div class="start-menu" id="startMenu">
+    <div class="start-search">
+      <input type="text" placeholder="Search apps..." />
+    </div>
+    <div class="apps-grid" id="appsGrid"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

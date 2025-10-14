@@ -1,0 +1,130 @@
+:root {
+  --bg:#0f1724; --panel:#0b1220; --accent:#3b82f6;
+  --text:#e6eef8; --muted:#98a0b0;
+  --taskbar-height:52px;
+}
+html,body {
+  margin:0;height:100%;
+  background:var(--bg);color:var(--text);
+  overflow:hidden;font-family:sans-serif
+}
+.desktop {
+  position:relative;
+  height:calc(100vh - var(--taskbar-height));
+  overflow:hidden;
+  margin-top:var(--taskbar-height);
+}
+
+/* ----- Window ----- */
+.win {
+  position:absolute;
+  min-width:220px;min-height:120px;
+  width:420px;height:300px;
+  background:#1a2236;
+  border-radius:8px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.6);
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  opacity:0.7;
+  transition:opacity 0.2s;
+}
+.win.maximized {
+  left:0!important;top:0!important;
+  width:100%!important;height:100%!important;
+  border-radius:0;
+}
+.titlebar {
+  height:32px;
+  display:flex;align-items:center;
+  cursor:grab;padding:0 8px;
+}
+.titlebar:active{cursor:grabbing}
+.title {flex:1;font-size:13px;}
+.controls .btn {
+  width:28px;height:28px;
+  background:transparent;color:var(--muted);
+  border:none;cursor:pointer;
+}
+.controls .btn:hover {
+  background:rgba(255,255,255,0.1);color:var(--text)
+}
+.content {
+  flex:1;overflow:auto;
+  padding:8px;font-size:13px;color:var(--muted)
+}
+.resizer {
+  position:absolute;right:0;bottom:0;
+  width:14px;height:14px;cursor:se-resize;
+}
+
+/* ----- Taskbar ----- */
+.taskbar {
+  position:fixed;left:0;right:0;top:0;   /* đổi bottom -> top */
+  height:var(--taskbar-height);background:#0b1220;
+  display:flex;justify-content:flex-start;align-items:center; /* căn Start sang trái */
+  padding-left:12px;
+}
+.taskbar-center {
+  display:flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.02);
+  padding:4px 12px;border-radius:14px;
+}
+.taskbar-right {
+  position:absolute;right:12px;top:0;   /* đổi bottom -> top */
+  height:var(--taskbar-height);
+  display:flex;align-items:center;gap:12px;color:var(--muted);
+}
+
+/* Taskbar items as dock icons */
+.tasks {display:flex;gap:6px;}
+.task {
+  width:36px;height:36px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  background:transparent;color:var(--muted);cursor:pointer;
+}
+.task.active {outline:2px solid rgba(255,255,255,0.4);}
+.task:hover {background:rgba(255,255,255,0.1);color:var(--text)}
+.task-icon {
+  width:24px;height:24px;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:14px;
+}
+
+/* Start button */
+.start-btn {
+  width:36px;height:36px;border-radius:8px;
+  background:transparent;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text);font-size:18px;
+}
+.start-btn:hover{background:rgba(255,255,255,0.1)}
+
+/* ----- Start Menu ----- */
+.start-menu {
+  position:fixed;top:var(--taskbar-height);left:12px; /* cố định dưới taskbar */
+  transform:none;
+  width:420px;max-height:520px;
+  background:#1b2438;border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+  padding:16px;display:none;flex-direction:column;gap:12px;
+  animation:fadeIn .2s ease;
+}
+.start-menu.show{display:flex;transform:none;}
+.start-search input{
+  width:100%;padding:8px;border-radius:6px;
+  border:none;outline:none;
+}
+.apps-grid{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:12px;
+}
+.app-tile{display:flex;flex-direction:column;align-items:center;cursor:pointer}
+.app-icon{
+  width:44px;height:44px;border-radius:10px;
+  background:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+}
+.app-name{font-size:11px;color:var(--muted);margin-top:4px;text-align:center}
+@keyframes fadeIn{
+  from{opacity:0;transform:scale(0.9)}
+  to{opacity:1;transform:scale(1)}
+}
