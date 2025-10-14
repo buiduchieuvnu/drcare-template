@@ -18,3 +18,10 @@ npm run export # Export ra index.htmml
 npm run export
 ```
 
+# Dev
+## Nâng cấp giao diện
+- Đổi vị trí Application => Top-Left thay Activities
+- Left sideBar chuyển lên top (giống sample Windows)
+- Clock chuyển top-right
+- Icon desktop align left
+
