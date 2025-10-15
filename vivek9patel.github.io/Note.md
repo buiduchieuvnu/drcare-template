@@ -16,6 +16,7 @@ npm run export # Export ra index.htmml
 # Build
 ```sh
 npm run export
+npx serve out
 ```
 
 # Dev

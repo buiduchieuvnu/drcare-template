@@ -520,7 +520,10 @@ export class Desktop extends Component {
                     openAppByAppId={this.openApp} />
 
                 {/* Desktop Apps */}
-                {this.renderDesktopApps()}
+                <div className="absolute top-0 left-0 h-full w-26 flex flex-col items-center justify-start pt-10">
+                    {this.renderDesktopApps()}
+                </div>
+
 
                 {/* Context Menus */}
                 <DesktopMenu active={this.state.context_menus.desktop} openApp={this.openApp} addNewFolder={this.addNewFolder} />
