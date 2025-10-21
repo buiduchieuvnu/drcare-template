@@ -166,5 +166,15 @@ footer a:hover {
     width: 80%;
     margin: 0 auto;
   }
+    .large_img {
+    max-width: 90%;
+  }
+
+  .small_img {     
+    width: 27% !important;  /* Ảnh nhỏ chiếm tỉ lệ lớn hơn chút */
+    top: 22%;          /* Điều chỉnh lại vị trí */
+    left: 58.3%;
+    transform: rotate(0deg); /* Giữ thẳng cho dễ nhìn */
+  }
 }
 
