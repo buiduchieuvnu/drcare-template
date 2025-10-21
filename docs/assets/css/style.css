@@ -36,21 +36,30 @@ header.sticky {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.small_img{
+ .large_img {
+  width: 100%;
+  max-width: 656px;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+.relative {
+  position: relative;
+  display: inline-block;
+}
+
+.small_img {
   position: absolute;
-  height: 345px;
-  width: 210px;
+  height: 53%;
+  width: 34%;
+  top: 22%;
+  left: 60.3%;
+  transform: rotate(0deg);
   border-radius: 10px;
-  top: 139px;
-  left: 365px;
-  transform: rotate(-1deg);
 }
-.large_img{
-width: 656px;
-height: 640px;
-left: 671px;
-top: 139px;
-}
+
+
 /* FEATURE CARDS */
 .feature-card {
   background: #ffffff;
