@@ -36,7 +36,21 @@ header.sticky {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+.small_img{
+  position: absolute;
+  height: 345px;
+  width: 210px;
+  border-radius: 10px;
+  top: 139px;
+  left: 365px;
+  transform: rotate(-1deg);
+}
+.large_img{
+width: 656px;
+height: 640px;
+left: 671px;
+top: 139px;
+}
 /* FEATURE CARDS */
 .feature-card {
   background: #ffffff;
@@ -144,3 +158,4 @@ footer a:hover {
     margin: 0 auto;
   }
 }
+
