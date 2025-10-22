@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kiến thức sức khỏe</title>
+
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/health.css">
+</head>
+
+<body class="text-gray-800 font-sans">
+  <!-- HEADER -->
+  <header class="shadow-sm bg-white sticky top-0 z-50">
+    <div class="container mx-auto flex flex-wrap items-center justify-between py-3">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="assets/img/logo.png" alt="DRCARE 247" class="h-10" />
+      </a>
+
+      <nav class="hidden md:flex gap-6 text-sm font-medium">
+        <a href="index.html" class="nav-link hover:text-blue-600">Về ứng dụng</a>
+        <a href="kienthuc-suckhoe.html" class="nav-link hover:text-blue-600">Kiến thức sức khỏe</a>
+          <a href="lienhe-hoptac.html" class="nav-link hover:text-blue-600">Liên hệ hợp tác</a>
+      </nav>
+
+      <a href="#download" class="btn btn-primary px-4 py-2 text-sm rounded-full">Tải ứng dụng</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- Banner bài viết nổi bật -->
+    <section class="bg-gradient-to-r from-blue-700 to-blue-500 py-16">
+      <div class="container mx-auto grid md:grid-cols-2 items-center gap-10 px-6 text-white">
+        <div data-aos="fade-right" class="-mb-24">
+          <img src="./assets/img/banner_health.png" alt="Người cao tuổi"
+            class="rounded-2xl shadow-lg w-full max-w-lg mx-auto"/>
+        </div>
+        <div data-aos="fade-left" class="pr-12">
+          <p class="uppercase opacity-80 text-sm mb-2">Bài viết nổi bật</p>
+          <h2 class="text-3xl md:text-4xl font-bold leading-snug mb-4">
+            Người 60 tuổi có nên trồng răng không?
+          </h2>
+          <p class="opacity-90 mb-6">
+            Theo công bố mới nhất tháng 9/2022 của Viện Tiêu chuẩn và Công nghệ quốc gia Mỹ (NIST), công nghệ nhận diện và tìm kiếm khuôn mặt của VNPT (VNPT FaceID) vượt qua nhiều tên tuổi lớn trên thế giới...
+          </p>
+          <a href="baiviet.html"
+            class="inline-block btn bg-white text-blue-700 font-semibold shadow hover:text-gray-800 transition">
+            Xem chi tiết →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Danh sách bài viết -->
+    <section class="py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center text-gray-800">
+          Kiến thức sức khỏe
+        </h2>
+
+        <!-- Thanh tìm kiếm -->
+        <div class="flex justify-center mb-10">
+          <div class="relative w-full max-w-lg">
+            <input
+              type="text"
+              placeholder="Nhập tìm kiếm..."
+              class="border border-gray-300 rounded-lg px-3  py-2 w-full pr-20 focus:ring-2 focus:ring-blue-500 outline-none"
+            >
+            <button
+              class="absolute rounded-lg right-1 top-1/2 -translate-y-1/2 bg-blue-500 text-white px-2 py-2 hover:bg-blue-600 transition text-sm"
+            >
+              Tìm kiếm
+            </button>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6" data-aos="fade-up">
+          <div class="flex border rounded-xl hover:shadow-lg transition p-2">
+            <img src="assets/img/baby.png" alt="Bài viết 1" class="rounded-lg object-cover flex-shrink-0">
+            <div class="ml-4 flex flex-col justify-between">
+              <div>
+                <span class="text-xs uppercase px-2 py-1">Chăm sóc trẻ</span>
+                <a href="baiviet.html" class="font-semibold text-lg mt-1 hover:text-blue-600 cursor-pointer">
+                  Xét nghiệm vi chất cho trẻ em: Khi nào cần và lợi ích mang lại
+                </a>
+                <p class="text-sm text-gray-600 mt-1 line-clamp-2">
+                  Việc xét nghiệm giúp phát hiện sớm thiếu hụt vi chất, hỗ trợ quá trình phát triển toàn diện của trẻ.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex border rounded-xl hover:shadow-lg transition p-2">
+            <img src="assets/img/baby.png" alt="Bài viết 2" class="rounded-lg object-cover flex-shrink-0">
+            <div class="ml-4 flex flex-col justify-between">
+              <div>
+                <span class="text-xs uppercase px-2 py-1">Chăm sóc trẻ</span>
+                <a href="baiviet.html" class="font-semibold text-lg mt-1 hover:text-blue-600 cursor-pointer">
+                  Xét nghiệm vi chất cho trẻ em: Khi nào cần và lợi ích mang lại
+                </a>
+                <p class="text-sm text-gray-600 mt-1 line-clamp-2">
+                  Cân bằng dinh dưỡng giúp trẻ phát triển khỏe mạnh, nâng cao sức đề kháng tự nhiên.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex border rounded-xl hover:shadow-lg transition p-2">
+            <img src="assets/img/baby.png" alt="Bài viết 2" class="rounded-lg object-cover flex-shrink-0">
+            <div class="ml-4 flex flex-col justify-between">
+              <div>
+                <span class="text-xs uppercase px-2 py-1">Chăm sóc trẻ</span>
+                <a href="baiviet.html" class="font-semibold text-lg mt-1 hover:text-blue-600 cursor-pointer">
+                  Xét nghiệm vi chất cho trẻ em: Khi nào cần và lợi ích mang lại
+                </a>
+                <p class="text-sm text-gray-600 mt-1 line-clamp-2">
+                  Cân bằng dinh dưỡng giúp trẻ phát triển khỏe mạnh, nâng cao sức đề kháng tự nhiên.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex border rounded-xl hover:shadow-lg transition p-2">
+            <img src="assets/img/baby.png" alt="Bài viết 2" class="rounded-lg object-cover flex-shrink-0">
+            <div class="ml-4 flex flex-col justify-between">
+              <div>
+                <span class="text-xs uppercase px-2 py-1">Chăm sóc trẻ</span>
+                <a href="baiviet.html" class="font-semibold text-lg mt-1 hover:text-blue-600 cursor-pointer">
+                  Xét nghiệm vi chất cho trẻ em: Khi nào cần và lợi ích mang lại
+                </a>
+                <p class="text-sm text-gray-600 mt-1 line-clamp-2">
+                  Cân bằng dinh dưỡng giúp trẻ phát triển khỏe mạnh, nâng cao sức đề kháng tự nhiên.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Phân trang -->
+        <div class="flex justify-center items-center gap-2 mt-10">
+          <button class="px-3 py-1 border border-gray-300 rounded hover:bg-blue-50">&lt;</button>
+          <button class="px-3 py-1 bg-blue-600 text-white rounded">1</button>
+          <button class="px-3 py-1 border border-gray-300 rounded hover:bg-blue-50">2</button>
+          <button class="px-3 py-1 border border-gray-300 rounded hover:bg-blue-50">3</button>
+          <button class="px-3 py-1 border border-gray-300 rounded hover:bg-blue-50">&gt;</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="bg-blue-900 text-white py-10 text-sm">
+    <div class="container mx-auto grid md:grid-cols-3 gap-8 px-4">
+      <div>
+        <h3 class="font-semibold mb-2">DRCARE 247</h3>
+        <p>
+          Giải pháp chăm sóc sức khỏe thông minh, kết nối bệnh nhân, bác sĩ và cơ sở y tế.
+        </p>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-2">Liên kết nhanh</h3>
+        <ul>
+          <li><a href="#features" class="hover:underline">Tính năng</a></li>
+          <li><a href="#network" class="hover:underline">Mạng lưới</a></li>
+          <li><a href="#contact" class="hover:underline">Liên hệ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div>
+          <h3 class="font-semibold mb-3 text-gray-800">Theo dõi chúng tôi</h3>
+          <div class="flex items-center gap-4">
+            <a href="#" class="transition transform hover:scale-110 hover:shadow-md rounded-full bg-white p-2">
+              <img src="assets/img/facebook.png" alt="Facebook" class="h-6 w-6 object-contain" />
+            </a>
+            <a href="#" class="transition transform hover:scale-110 hover:shadow-md rounded-full bg-white p-2">
+              <img src="assets/img/youtube.png" alt="YouTube" class="h-6 w-6 object-contain" />
+            </a>
+          </div>
+        </div>
+
+      </div>
+      <div class="text-center mt-8 text-xs opacity-70">
+        © 2025 DRCARE 247. All rights reserved.
+      </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

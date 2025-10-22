@@ -1,0 +1,40 @@
+/* HERO */
+
+.banner{
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 10%, rgb(211, 229, 250) 90%);
+}
+.banner1{
+    bottom: 70%;
+    left: 8%;
+}
+.banner2{
+    bottom: 0%;
+    left: -5%;
+}
+.banner3{
+    top: -5%;
+    right: 10%;
+    line-height: normal;
+}
+.banner4{
+    bottom: 10%;
+    right: 5%;
+    line-height: normal;
+}
+.partner{
+    left: 30%;
+}   
+
+.banner1 img, .banner4 img{
+    background-color: rgb(255, 255, 255);
+    border-radius: 6px;
+}
+@media (max-width: 768px) {
+    .partner{
+        width: 45%;
+    }
+    .banner{
+        width: 20%;
+        font-size: 8px;
+    }
+}
