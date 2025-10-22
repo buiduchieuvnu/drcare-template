@@ -37,15 +37,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Cuộn mượt khi click anchor link
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-});
+// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+//   anchor.addEventListener("click", function (e) {
+//     e.preventDefault();
+//     const target = document.querySelector(this.getAttribute("href"));
+//     if (target) {
+//       target.scrollIntoView({ behavior: "smooth" });
+//     }
+//   });
+// });
 
 document.addEventListener("DOMContentLoaded", function () {
   const navLinks = document.querySelectorAll(".nav-link");

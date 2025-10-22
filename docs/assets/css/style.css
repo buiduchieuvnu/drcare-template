@@ -80,7 +80,7 @@ header.sticky {
 
 /* NETWORK CARDS */
 .network-card {
-  border-radius: 1rem;
+  border-radius: 5px;
   overflow: hidden;
   transition: all 0.3s ease;
   background-color: #f9fafb;
@@ -101,6 +101,7 @@ header.sticky {
 /* FEEDBACK */
 .feedback-card {
   background: #fff;
+  width: 60%;
   border-radius: 1rem;
   padding: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -111,7 +112,22 @@ header.sticky {
   transform: translateY(-4px);
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
 }
+.scroll-container {
+    display: flex;
+    flex-direction: column;
+    animation: scrollUp 10s linear infinite;
+  }
 
+  @keyframes scrollUp {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  /* Nhân đôi nội dung để tạo hiệu ứng cuộn liên tục */
 /* CONTACT FORM */
 #contactForm .form-control {
   border-radius: 0.75rem;
