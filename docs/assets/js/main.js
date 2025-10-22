@@ -46,3 +46,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.querySelectorAll(".nav-link");
+  const currentPath = window.location.pathname.split("/").pop();
+
+  navLinks.forEach(link => {
+    const linkPath = link.getAttribute("href");
+    if(linkPath === currentPath || (linkPath === "index.html" && currentPath === "")) {
+      link.classList.add("active");
+    }
+  });
+});
