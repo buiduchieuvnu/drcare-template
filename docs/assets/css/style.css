@@ -67,12 +67,9 @@ header.sticky {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.banner-index{
-  background-color: rgb(209, 234, 247);
-}
+
  .large_img {
-  width: 100%;
-  max-width: 656px;
+  max-width: 90%;
   height: auto;
   display: block;
   border-radius: 20px;
@@ -86,10 +83,10 @@ header.sticky {
 
 .small_img {
   position: absolute;
-  height: 53%;
-  width: 34%;
-  top: 22%;
-  left: 60.3%;
+  height: auto;
+  width: 30.8%;
+  top: 48.6%;
+  left: 69.6%;
   transform: rotate(0deg);
   border-radius: 10px;
   z-index: 1 !important;
