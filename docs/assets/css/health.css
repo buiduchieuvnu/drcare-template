@@ -2,8 +2,26 @@ span{
 color: rgba(102, 116, 139, 1);
 display: flex;
 align-items: center;
-font-size: 14px;
+font-size: 11px;
 background: #F3F5FC;
 border-radius: 4px;
 width: fit-content;
+}
+.search input {
+  /* khoảng trống để chữ không đè vào nút */
+  font-size: 13px;
+}
+
+.search button {
+  height: 90%; /* cho đẹp, thấp hơn input một chút */
+  margin-right: 3px;
+  padding: 0px 15px;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  color: white;
+  font-size: small;
+  background: linear-gradient(90deg, rgba(88, 165, 255, 1) 0%, rgba(48, 98, 254, 1) 100%);
+}
+.search button:hover {
+  background: rgb(47, 95, 239);
 }

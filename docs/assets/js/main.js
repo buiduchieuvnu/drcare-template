@@ -9,25 +9,14 @@ AOS.init({
   offset: 100,
 });
 
-// Header sticky khi scroll
-window.addEventListener("scroll", () => {
-  const header = document.querySelector("header");
-  if (window.scrollY > 50) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-});
-
 // Xử lý form liên hệ (demo)
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contactForm");
   const message = document.getElementById("formMessage");
+  if (!form) return;
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-
-    // Mô phỏng gửi email
     setTimeout(() => {
       form.reset();
       message.classList.remove("hidden");
@@ -36,25 +25,51 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Cuộn mượt khi click anchor link
-// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-//   anchor.addEventListener("click", function (e) {
-//     e.preventDefault();
-//     const target = document.querySelector(this.getAttribute("href"));
-//     if (target) {
-//       target.scrollIntoView({ behavior: "smooth" });
-//     }
-//   });
-// });
+// ===========================
+// INCLUDE HEADER / FOOTER
+// ===========================
+async function includeHTML() {
+  const elements = document.querySelectorAll('[data-include]');
+  for (const el of elements) {
+    const file = el.getAttribute('data-include');
+    const response = await fetch(file);
+    if (response.ok) {
+      el.innerHTML = await response.text();
+    } else {
+      el.innerHTML = "Không thể tải " + file;
+    }
+  }
 
-document.addEventListener("DOMContentLoaded", function () {
+  // Sau khi load xong header, khởi tạo chức năng liên quan
+  initHeaderSticky();
+  initActiveNav();
+}
+
+// Sticky header
+function initHeaderSticky() {
+  const header = document.querySelector("header");
+  if (!header) return;
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  });
+}
+
+// Active menu
+function initActiveNav() {
   const navLinks = document.querySelectorAll(".nav-link");
   const currentPath = window.location.pathname.split("/").pop();
 
   navLinks.forEach(link => {
     const linkPath = link.getAttribute("href");
-    if(linkPath === currentPath || (linkPath === "index.html" && currentPath === "")) {
+    if (linkPath === currentPath || (linkPath === "index.html" && currentPath === "")) {
       link.classList.add("active");
     }
   });
-});
+}
+
+document.addEventListener('DOMContentLoaded', includeHTML);
