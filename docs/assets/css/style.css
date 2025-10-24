@@ -217,9 +217,9 @@ footer a:hover {
   }
 
   .small_img {     
-    width: 30% !important;  /* Ảnh nhỏ chiếm tỉ lệ lớn hơn chút */
-    top: 22%;          /* Điều chỉnh lại vị trí */
-    left: 54.5%;
+    width: 27.5% !important;  /* Ảnh nhỏ chiếm tỉ lệ lớn hơn chút */
+    top: 48.5%;          /* Điều chỉnh lại vị trí */
+    left: 71.8%;
     transform: rotate(0deg); /* Giữ thẳng cho dễ nhìn */
   }
 }
