@@ -6,8 +6,12 @@
 body {
   scroll-behavior: smooth;
   background-color: #ffffff;
-
 }
+html, body {
+  overflow-x: hidden; 
+}
+ 
+
 main{
     padding-top: 65px;
 }
@@ -22,6 +26,9 @@ h4 {
 header {
   transition: all 0.3s ease;
   font-size: 13px;
+  width: 100%;
+  overflow-x: hidden;
+
 }
 /* Giúp header luôn đè lên mọi phần tử khác */
 header.sticky {
@@ -199,9 +206,6 @@ footer a:hover {
 
 /* RESPONSIVE TUNING */
 @media (max-width: 768px) {
-  header nav {
-    display: none;
-  }
 
   #hero {
     text-align: center;
@@ -216,9 +220,9 @@ footer a:hover {
   }
 
   .small_img {     
-    width: 27% !important;  /* Ảnh nhỏ chiếm tỉ lệ lớn hơn chút */
+    width: 30% !important;  /* Ảnh nhỏ chiếm tỉ lệ lớn hơn chút */
     top: 22%;          /* Điều chỉnh lại vị trí */
-    left: 58.3%;
+    left: 54.5%;
     transform: rotate(0deg); /* Giữ thẳng cho dễ nhìn */
   }
 }
