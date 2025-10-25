@@ -6,6 +6,7 @@ import { displayChrome } from './components/apps/chrome';
 import { displayTrash } from './components/apps/trash';
 import { displayGedit } from './components/apps/gedit';
 import { displayAboutVivek } from './components/apps/vivek';
+import { displayMedic247 } from './components/apps/medic247';
 import { displayTerminalCalc } from './components/apps/calc';
 
 const apps = [
@@ -35,6 +36,15 @@ const apps = [
         favourite: true,
         desktop_shortcut: true,
         screen: displayAboutVivek,
+    },
+    {
+        id: "medic247",
+        title: "Medic247",
+        icon: './themes/Yaru/system/user-home.png',
+        disabled: false,
+        favourite: true,
+        desktop_shortcut: true,
+        screen: displayMedic247,
     },
     {
         id: "vscode",
