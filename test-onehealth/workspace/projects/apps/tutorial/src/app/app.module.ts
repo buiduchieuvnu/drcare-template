@@ -7,8 +7,6 @@ import { APP_BASE_HREF, registerLocaleData } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { OnehealthCoreModule } from '@onehealth/core';
-import { OnehealthUiMobileModule } from '@onehealth/mobile';
-// import { IconHandler } from '@angular/core';
 
 import localeVi from '@angular/common/locales/vi';
 import { CommonLibraryModule, OnehealthModule  } from 'dist/commonLibrary';
@@ -25,9 +23,8 @@ registerLocaleData(localeVi);
     BrowserModule,
     AppRoutingModule,
     CommonLibraryModule,
-    OnehealthUiMobileModule,
     OnehealthModule,
-    // OnehealthCoreModule,
+    OnehealthCoreModule,
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/tutorial' }

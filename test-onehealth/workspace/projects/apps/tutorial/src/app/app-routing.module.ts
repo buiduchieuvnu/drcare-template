@@ -4,7 +4,7 @@ import { EmptyRouteComponent } from './empty-route/empty-route.component';
 import { DefaultComponent } from './components/default-component/default.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'default', pathMatch: 'full' },
+  { path: '', component: DefaultComponent, pathMatch: 'full' },
   { path: 'default', component: DefaultComponent },
   { path: '**', component: EmptyRouteComponent },
 ];

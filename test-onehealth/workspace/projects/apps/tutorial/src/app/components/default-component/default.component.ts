@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'default-component',
   standalone: false,
   templateUrl: './default.component.html',
-  styleUrl: './default.component.css'
+  styleUrls: ['./default.component.css']
 })
 export class DefaultComponent {
   checked = true;
@@ -17,9 +17,5 @@ export class DefaultComponent {
 
   onClick(event) {
     console.log(event);
-  }
-
-  renderHeader() {
-    return 'Form switch';
   }
 }
