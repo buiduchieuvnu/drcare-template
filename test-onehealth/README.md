@@ -15,12 +15,13 @@ Cài đặt
 npm install onehealth-ui-v2
 *note*: Cài đặt thư viện thông qua giải nén file rar và import vào node_modules nếu ko có quyền truy cập.
 
-
 Cài đặt các gói và khởi chạy dự án:
 # Khởi chạy Switching Layer
 
 $ cd root_html
+
 $ npm install
+
 $ npm start
 
 # Khởi chạy các MicroApp cơ sở
