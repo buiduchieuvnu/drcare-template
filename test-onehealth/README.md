@@ -6,21 +6,23 @@ OneHealth UI v2 là một thư viện component (React/Vue/…) được xây d�
 Với OneHealth UI bạn sẽ có:
 
 # Yêu cầu
-Node.js phiên bản ≥ 14
+Node.js phiên bản ≥ 14 (khuyến nghị phiên bản 20)
 Trình duyệt hỗ trợ ES6 + (Chrome, Firefox, Edge, Safari)
 (Nếu dùng React) React phiên bản ≥ 17 hoặc (Nếu dùng Vue) Vue ≥ 3
 
 Cài đặt
 # cài đặt qua npm
 npm install onehealth-ui-v2
-*note*: Cài đặt thư viện thông qua giải nén file rar và import vào node_modules nếu ko có quyền truy cập.
 
+*note khi không có quyền truy cập*: Cài đặt thư viện thông qua giải nén file rar và import vào node_modules nếu ko có quyền truy cập.
 
 Cài đặt các gói và khởi chạy dự án:
 # Khởi chạy Switching Layer
 
 $ cd root_html
+
 $ npm install
+
 $ npm start
 
 # Khởi chạy các MicroApp cơ sở
