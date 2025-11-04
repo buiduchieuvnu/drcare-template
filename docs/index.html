@@ -26,15 +26,19 @@
   <!-- HEADER -->
   <div data-include="layouts/header.html"></div>
 
-  <!-- HERO -->
-  <main>
 
+  <main>
+  <!-- HERO -->
     <section class="py-5 " id="hero">
       <div class="container d-flex flex-column flex-md-row align-items-center gap-5">
         <div class="py-2">
           <div class="row align-items-center gy-5">
+
             <!-- Cột text -->
             <div class="col-md-6" data-aos="fade-right">
+              <a class="d-flex align-items-center" href="index.html">
+                <img src="assets/img/logo.png" alt="DRCARE 247" style="height: 50%" class="ms-4 pb-4" />
+              </a>
               <h1 class=" fw-bold text-primary">
                 “Theo dõi thông minh, sống khoẻ mỗi khoảnh khắc”
               </h1>
@@ -48,10 +52,27 @@
                 chúng
                 tôi mang đến sự hỗ trợ kịp thời, đáng tin cậy.
               </p>
-              <div class="d-flex gap-3 mt-4">
-                <img src="assets/img/appstore.png" alt="App Store" height="40" />
-                <img src="assets/img/googleplay.png" alt="Google Play" height="40" />
+              <div class="mt-4">
+                <h6 class="text-uppercase text-secondary fw-semibold mb-3">Tải app ngay</h6>
+                <div class="d-flex flex-column gap-1">
+                  <!-- Google Play -->
+                  <div class="align-items-center gap-2">
+                    <img src="assets/img/qr.png" alt="QR Google Play" class="qr-banner"/>
+                    <a href="#" class="ms-1">
+                      <img src="assets/img/googleplay.png" alt="Google Play" height="40%" class="app_mobile" />
+                    </a>
+                  </div>
+
+                  <!-- App Store -->
+                  <div class="align-items-center gap-2">
+                    <img src="assets/img/qr.png" alt="QR App Store" class="qr-banner"/>
+                    <a href="#" class="ms-1">
+                      <img src="assets/img/appstore.png" alt="App Store" height="40%" class="app_mobile"/>
+                    </a>
+                  </div>
+                </div>
               </div>
+
             </div>
 
             <!-- Cột hình ảnh -->
@@ -59,7 +80,11 @@
               <div class="position-relative d-inline-block">
                 <img src="assets/img/hero-mockup.png" alt="Ứng dụng DRCARE 247" class="img-fluid large_img" />
                 <img src="assets/img/small_hero-mockup.png" alt="Logo nhỏ"
-                  class="small_img position-absolute translate-middle"/>
+                  class="small_img position-absolute translate-middle" />
+                <img src="assets/img/up_hero-mockup.png" alt="" class="up_image" />
+                <img src="assets/img/shadow_banner.png" alt="" class="shadow_up" />
+                <img src="assets/img/feature1.png" alt="" class="icon_blue">
+                <img src="assets/img/icon_banner1.png" alt="" class="icon_green p-1">
               </div>
             </div>
           </div>
@@ -69,102 +94,627 @@
     </section>
 
     <!-- FEATURES -->
-    <section id="features" class="py-5 bg-white">
-      <div class="container text-center mb-5">
-        <h2 class="h3 fw-bold text-primary mb-3">Chăm sóc sức khỏe toàn diện</h2>
-        <p class="text-secondary">
-          DRCARE 247 cung cấp đầy đủ các tính năng hỗ trợ theo dõi và quản lý sức khỏe cá nhân.
+    <section id="features" class="py-5 bg-white text-center">
+      <div class="container mb-5">
+        <h2 class="fw-bold text-dark mb-2">Chăm sóc sức khỏe toàn diện</h2>
+        <p class="text-secondary mb-5">
+          Trải nghiệm khám chữa bệnh thông minh – mọi lúc, mọi nơi.
+          Đồng hành cùng bạn trong suốt hành trình chăm sóc sức khỏe!
         </p>
-      </div>
 
-      <div class="container" data-aos="fade-up">
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="feature-card p-3" data-aos="fade-up">
-              <img src="assets/img/feature1.png" alt="Đặt lịch khám" class="mb-3 d-block mx-auto" />
-              <h5 class="fw-semibold">Đặt lịch khám</h5>
-              <p class="text-muted small">
-                Đặt lịch khám nhanh chóng, chọn bác sĩ và khung giờ phù hợp.
-              </p>
+        <div class="row align-self-start gy-4">
+          <!-- Left features -->
+          <div class="col-md-3 text-start">
+            <div class="d-flex align-items-start mb-4 bg-light p-2" data-aos="fade-right">
+              <div>
+                <img src="assets/img/feature1.png" class="me-3" alt="Đặt lịch khám" />
+                <h6 class="fw-semibold mb-1">Đặt lịch khám</h6>
+                <p class="text-muted small mb-0">
+                  Tìm và đặt lịch khám nhanh chóng tại bệnh viện, phòng khám uy tín gần bạn.
+                </p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start mb-4 bg-light p-2" data-aos="fade-right" data-aos-delay="100">
+              <div>
+                <img src="assets/img/feature4.png" class="me-3" alt="Tư vấn khám bệnh" />
+                <h6 class="fw-semibold mb-1">Tư vấn khám bệnh từ xa</h6>
+                <p class="text-muted small mb-0">
+                  Gặp bác sĩ mọi lúc, mọi nơi qua video call hoặc chat – tiện lợi, không lo chờ đợi.
+                </p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start bg-light p-2" data-aos="fade-right" data-aos-delay="200">
+              <div>
+                <img src="assets/img/feature5.png" class="me-3" alt="Quản lý lịch hẹn" />
+                <h6 class="fw-semibold mb-1">Quản lý lịch hẹn</h6>
+                <p class="text-muted small mb-0">
+                  Tự động nhắc lịch hẹn, tái khám
+                </p>
+              </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="feature-card p-3" data-aos="fade-up" data-aos-delay="100">
-              <img src="assets/img/feature2.png" alt="Hồ sơ sức khỏe" class="mb-3 d-block mx-auto" />
-              <h5 class="fw-semibold">Hồ sơ sức khỏe điện tử</h5>
-              <p class="text-muted small">
-                Lưu trữ và truy cập hồ sơ y tế, kết quả xét nghiệm dễ dàng.
-              </p>
-            </div>
+
+          <!-- Center phone image -->
+          <div class="col-md-6 d-flex justify-content-center" data-aos="zoom-in">
+            <img src="assets/img/phone.png" class="img-fluid" alt="App chăm sóc sức khỏe" />
           </div>
-          <div class="col-md-4">
-            <div class="feature-card p-3" data-aos="fade-up" data-aos-delay="200">
-              <img src="assets/img/feature3.png" alt="Nhà thuốc online" class="mb-3 d-block mx-auto" />
-              <h5 class="fw-semibold">Mua thuốc online</h5>
-              <p class="text-muted small">
-                Đặt mua thuốc và giao tận nhà, được tư vấn bởi dược sĩ.
-              </p>
+
+          <!-- Right features -->
+          <div class="col-md-3 text-start align-self-start">
+            <div class="d-flex align-items-start mb-4 bg-light p-2" data-aos="fade-left">
+              <div>
+                <img src="assets/img/feature2.png" class="me-3" alt="Hồ sơ sức khỏe" />
+                <h6 class="fw-semibold mb-1">Hồ sơ sức khỏe điện tử</h6>
+                <p class="text-muted small mb-0">
+                  Theo dõi lịch sử khám, đơn thuốc, xét nghiệm – mọi thứ được lưu trữ an toàn.
+                </p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start mb-4 bg-light p-2" data-aos="fade-left" data-aos-delay="100">
+              <div>
+                <img src="assets/img/feature3.png" class="me-3" alt="Tích hợp IMT" />
+                <h6 class="fw-semibold mb-1">Tích hợp chỉ số IoMT</h6>
+                <p class="text-muted small mb-0">
+                  Kết nối thiết bị đo huyết áp, đường huyết, nhịp tim... theo dõi liên tục.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Experience Section -->
+      <div class="container mt-5">
+        <h4 class="fw-semibold mb-4">
+          Mang đến trải nghiệm thuận tiện cho bạn và gia đình
+        </h4>
+
+        <div class="row g-4">
+          <!-- 01 -->
+          <div class="col-md-6" data-aos="fade-up">
+            <div class="d-flex align-items-center bg-light rounded-4 p-4 h-100 position-relative overflow-hidden">
+              <div class=" position-relative z-2">
+                <h1 class="number-bg">01</h1>
+                <div class="position-relative" style="margin-top: 2.5rem;">
+                  <p class="text-dark text-start fw-semibold mb-1">Tiết kiệm thời gian và chi phí đi lại.</p><br>
+                </div>
+              </div>
+              <div class="flex-shrink-0 ms-4">
+                <img src="assets/img/frame1.png" alt="Tiết kiệm thời gian"  />
+              </div>
+            </div>
+          </div>
+
+          <!-- 02 -->
+          <div class="col-md-6" data-aos="fade-up">
+            <div class="d-flex align-items-center bg-light rounded-4 p-4 h-100 position-relative overflow-hidden">
+              <div class=" position-relative z-2">
+                <h1 class="number-bg">02</h1>
+                <div class="position-relative" style="margin-top: 2.5rem;">
+                  <p class="text-dark text-start fw-semibold mb-1">Kết nối nhanh chóng với đội ngũ bác sĩ chuyên khoa uy tín.</p>
+                </div>
+              </div>
+              <div class="flex-shrink-0 ms-4">
+                <img src="assets/img/frame2.png" alt="Tiết kiệm thời gian" />
+              </div>
+            </div>
+          </div>
+
+          <!-- 03 -->
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="d-flex align-items-center bg-light rounded-4 p-2 h-100 position-relative overflow-hidden">
+              <div class="position-relative z-2">
+                <h1 class="number-bg">03</h1>
+                <div class="position-relative" style="margin-top: 2.5rem;">
+                  <p class="text-dark text-start fw-semibold mb-1">Quản lý sức khỏe chủ động, an toàn, bảo mật cao.</p>
+                </div>
+              </div>
+              <div class="flex-shrink-0 ms-4">
+                <img src="assets/img/frame3.png" alt="Quản lý hồ sơ" />
+              </div>
+            </div>
+          </div>
+
+          <!-- 04 -->
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="d-flex align-items-center bg-light rounded-4 p-4 h-100 position-relative overflow-hidden">
+              <div class="position-relative z-2">
+                <h1 class="number-bg">04</h1>
+                <div class="position-relative" style="margin-top: 2.5rem;">
+                  <p class="text-dark text-start fw-semibold mb-1">Theo dõi sức khỏe cá nhân một cách toàn diện và liên tục.</p> 
+                </div>
+              </div>
+              <div class="flex-shrink-0 ms-4">
+                <img src="assets/img/frame4.png" alt="Theo dõi gia đình" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 text-center">
+          <a href="#" class="btn btn-primary px-4 py-2 rounded-pill">
+            Trải nghiệm App ngay
+          </a>
+        </div>
+      </div>
     </section>
+
 
     <!-- STATS -->
-    <section class="bg-primary text-white py-5" id="stats">
-      <div class="container text-center">
-        <h2 class="h3 fw-bold mb-4">Những con số nổi bật</h2>
-        <div class="row g-4" data-aos="fade-up">
-          <div class="col-6 col-md-3">
-            <h3 class="fw-bold">200+</h3>
-            <p class="small">Cơ sở y tế đối tác</p>
-          </div>
-          <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="fw-bold">200,000+</h3>
-            <p class="small">Người dùng</p>
-          </div>
-          <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="fw-bold">500,000+</h3>
-            <p class="small">Lượt khám</p>
-          </div>
-          <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
-            <h3 class="fw-bold">500,000+</h3>
-            <p class="small">Hồ sơ sức khỏe</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- NETWORK -->
-    <section id="network" class="py-5 bg-white">
-      <div class="container text-center mb-5">
-        <h2 class="h3 fw-bold text-primary mb-4">Mạng lưới y tế liên kết</h2>
-      </div>
-
+    <section class="bg-gradient-stat text-dark" id="stats">
       <div class="container">
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="network-card text-center" data-aos="zoom-in">
-              <img src="assets/img/hospital1.png" alt="Bệnh viện Nguyễn Tri Phương" />
-              <h5 class="fw-semibold mt-3">Bệnh viện Nguyễn Tri Phương</h5>
+        <div class="row">
+          <!-- Left content -->
+          <div class="col-md-5 text-white" data-aos="fade-right">
+            <h3 class="fw-bold mb-5 mt-5">Những con số nổi bật</h3>
+            <div class="">
+              <img src="assets/img/doctor_stat1.png" alt="Bác sĩ" class="doctor_stat1">
+              <img src="assets/img/doctor_stat2.png" alt="Bác sĩ" class="position-absolute doctor_stat2">
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="network-card text-center" data-aos="zoom-in" data-aos-delay="100">
-              <img src="assets/img/hospital2.png" alt="Bệnh viện Gia Định" />
-              <h5 class="fw-semibold mt-3">Bệnh viện Gia Định</h5>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="network-card text-center" data-aos="zoom-in" data-aos-delay="200">
-              <img src="assets/img/hospital3.png" alt="Bệnh viện Quận 1" />
-              <h5 class="fw-semibold mt-3">Bệnh viện Quận 1</h5>
+
+          <!-- Right stats boxes -->
+          <div class="col-md-7 py-5" data-aos="fade-left">
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+                  <div class="mb-2">
+                    <img src="assets/img/icon_stat1.png" alt="Icon"/>
+                  </div>
+                  <h4 class="fw-bold mb-1">200+</h4>
+                  <p class="small text-muted mb-0">Cơ sở y tế đối tác</p>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+                  <div class="mb-2">
+                    <img src="assets/img/icon_stat2.png" alt="Icon"/>
+                  </div>
+                  <h4 class="fw-bold mb-1">200.000+</h4>
+                  <p class="small text-muted mb-0">Bác sĩ chuyên khoa tham gia</p>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+                  <div class="mb-2">
+                    <img src="assets/img/icon_stat3.png" alt="Icon"/>
+                  </div>
+                  <h4 class="fw-bold mb-1">500.000+</h4>
+                  <p class="small text-muted mb-0">Người dùng tin tưởng</p>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+                  <div class="mb-2">
+                    <img src="assets/img/icon_stat4.png" alt="Icon"/>
+                  </div>
+                  <h4 class="fw-bold mb-1">500.000+</h4>
+                  <p class="small text-muted mb-0">Lượt đặt khám đang thực hiện</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <section class="bg-light">
+    <!-- NETWORK -->
+    <div class="container py-5" data-aos="fade-up">
+      <h2 class="section-title">Mạng lưới y tế liên kết</h2>
+
+      <div class="toggle-buttons">
+        <button id="btnHospital" class="btn btn-primary">Bệnh viện</button>
+        <button id="btnDoctor" class="btn btn-outline-primary">Bác sĩ</button>
+      </div>
+
+      <!-- Carousel Bệnh viện -->
+      <div id="carouselHospital" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-indicators custom-indicators">
+          <button type="button" data-bs-target="#carouselHospital" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#carouselHospital" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#carouselHospital" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="row g-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/hospital1.png" class="card-img-top" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Bệnh viện Nguyễn Trãi</h6>
+                    <p class="text-muted mb-0">314 Nguyễn Trãi, Quận 5</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/hospital2.png" class="card-img-top" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Bệnh viện Bưu Điện</h6>
+                    <p class="text-muted mb-0">Số 2 Nguyễn Thông, Quận 3</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/hospital3.png" class="card-img-top" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Bệnh viện Tâm Đức</h6>
+                    <p class="text-muted mb-0">4 Nguyễn Lương Bằng, Quận 7</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/hospital4.png" class="card-img-top" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Bệnh viện Nhi Đồng 1</h6>
+                    <p class="text-muted mb-0">341 Sư Vạn Hạnh, Quận 10</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="row g-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/hospital1.png" class="card-img-top" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Bệnh viện Pháp Việt</h6>
+                    <p class="text-muted mb-0">6 Nguyễn Lương Bằng, Quận 7</p>
+                  </div>
+                </div>
+              </div>
+              <!-- thêm 3 mục nữa -->
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/hospital1.png" class="card-img-top" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Bệnh viện 115</h6>
+                    <p class="text-muted mb-0">527 Sư Vạn Hạnh, Quận 10</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/hospital1.png" class="card-img-top" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Bệnh viện Đại học Y Dược</h6>
+                    <p class="text-muted mb-0">215 Hồng Bàng, Quận 5</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/hospital1.png" class="card-img-top" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Bệnh viện Chợ Rẫy</h6>
+                    <p class="text-muted mb-0">201B Nguyễn Chí Thanh, Quận 5</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item">
+            <div class="row g-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/hospital1.png" class="card-img-top" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Bệnh viện Hòa Hảo</h6>
+                    <p class="text-muted mb-0">254 Hòa Hảo, Quận 10</p>
+                  </div>
+                </div>
+              </div>
+              <!-- thêm 3 mục tương tự -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Bác sĩ -->
+      <div id="carouselDoctor" class="carousel slide d-none" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-indicators custom-indicators">
+          <button type="button" data-bs-target="#carouselDoctor" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#carouselDoctor" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#carouselDoctor" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row g-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/doctor_slide.png" class="card-img-top" alt="Doctor" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">BS. Nguyễn Văn A</h6>
+                    <p class="mb-0 text-muted">Chuyên khoa: Nội tổng quát</p>
+                    <small>Kinh nghiệm: 10 năm</small>
+                  </div>
+                </div>
+              </div>
+              <!-- thêm 3 bác sĩ khác -->
+               <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/doctor_slide.png" class="card-img-top" alt="Doctor" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">BS. Nguyễn Văn A</h6>
+                    <p class="mb-0 text-muted">Chuyên khoa: Nội tổng quát</p>
+                    <small>Kinh nghiệm: 10 năm</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/doctor_slide.png" class="card-img-top" alt="Doctor" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">BS. Nguyễn Văn A</h6>
+                    <p class="mb-0 text-muted">Chuyên khoa: Nội tổng quát</p>
+                    <small>Kinh nghiệm: 10 năm</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/doctor_slide.png" class="card-img-top" alt="Doctor" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">BS. Nguyễn Văn A</h6>
+                    <p class="mb-0 text-muted">Chuyên khoa: Nội tổng quát</p>
+                    <small>Kinh nghiệm: 10 năm</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="row g-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/doctor_slide.png" class="card-img-top" alt="Doctor" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">BS. Nguyễn Văn A</h6>
+                    <p class="mb-0 text-muted">Chuyên khoa: Nội tổng quát</p>
+                    <small>Kinh nghiệm: 10 năm</small>
+                  </div>
+                </div>
+              </div>
+              <!-- thêm 3 bác sĩ khác -->
+               <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/doctor_slide.png" class="card-img-top" alt="Doctor" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">BS. Nguyễn Văn A</h6>
+                    <p class="mb-0 text-muted">Chuyên khoa: Nội tổng quát</p>
+                    <small>Kinh nghiệm: 10 năm</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/doctor_slide.png" class="card-img-top" alt="Doctor" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">BS. Nguyễn Văn A</h6>
+                    <p class="mb-0 text-muted">Chuyên khoa: Nội tổng quát</p>
+                    <small>Kinh nghiệm: 10 năm</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/doctor_slide.png" class="card-img-top" alt="Doctor" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">BS. Nguyễn Văn A</h6>
+                    <p class="mb-0 text-muted">Chuyên khoa: Nội tổng quát</p>
+                    <small>Kinh nghiệm: 10 năm</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="row g-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/doctor_slide.png" class="card-img-top" alt="Doctor" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">BS. Nguyễn Văn A</h6>
+                    <p class="mb-0 text-muted">Chuyên khoa: Nội tổng quát</p>
+                    <small>Kinh nghiệm: 10 năm</small>
+                  </div>
+                </div>
+              </div>
+              <!-- thêm 3 bác sĩ khác -->
+               <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/doctor_slide.png" class="card-img-top" alt="Doctor" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">BS. Nguyễn Văn A</h6>
+                    <p class="mb-0 text-muted">Chuyên khoa: Nội tổng quát</p>
+                    <small>Kinh nghiệm: 10 năm</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/doctor_slide.png" class="card-img-top" alt="Doctor" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">BS. Nguyễn Văn A</h6>
+                    <p class="mb-0 text-muted">Chuyên khoa: Nội tổng quát</p>
+                    <small>Kinh nghiệm: 10 năm</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/doctor_slide.png" class="card-img-top" alt="Doctor" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">BS. Nguyễn Văn A</h6>
+                    <p class="mb-0 text-muted">Chuyên khoa: Nội tổng quát</p>
+                    <small>Kinh nghiệm: 10 năm</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <!-- HEALTH CARE -->
+    <div class="container py-5" data-aos="fade-down">
+      <h2 class="section-title">Chuyên khoa, chăm sóc sức khỏe y tế</h2>
+      <div id="carouselHealthcare" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-indicators custom-indicators">
+          <button type="button" data-bs-target="#carouselHealthcare" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#carouselHealthcare" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#carouselHealthcare" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="row g-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/healthcare1.png" class="card-img-top w-auto d-block mx-auto pt-3" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Cơ Xương Khớp</h6>
+                    <p class="text-muted px-4">Phòng khám Điều trị Cơ Xương Khớp</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/healthcare2.png" class="card-img-top w-auto d-block mx-auto pt-3" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Da Liễu</h6>
+                    <p class="text-muted px-4">Phòng khám chuyên khoa Da Liễu</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/healthcare3.png" class="card-img-top w-auto d-block mx-auto pt-3" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Nha Khoa</h6>
+                    <p class="text-muted px-4">Phòng khám chuyên khoa Răng - Hàm - Mặt</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/healthcare4.png" class="card-img-top w-auto d-block mx-auto pt-3" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Vật Lý Trị Liệu</h6>
+                    <p class="text-muted px-4">Phòng khám Điều trị Vật Lý Trị Liệu</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="row g-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/healthcare1.png" class="card-img-top w-auto d-block mx-auto pt-3" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Cơ Xương Khớp</h6>
+                    <p class="text-muted px-4">Phòng khám Điều trị Cơ Xương Khớp</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/healthcare2.png" class="card-img-top w-auto d-block mx-auto pt-3" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Da Liễu</h6>
+                    <p class="text-muted px-4">Phòng khám chuyên khoa Da Liễu</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/healthcare3.png" class="card-img-top w-auto d-block mx-auto pt-3" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Nha Khoa</h6>
+                    <p class="text-muted px-4">Phòng khám chuyên khoa Răng - Hàm - Mặt</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/healthcare4.png" class="card-img-top w-auto d-block mx-auto pt-3" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Vật Lý Trị Liệu</h6>
+                    <p class="text-muted px-4">Phòng khám Điều trị Vật Lý Trị Liệu</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item">
+            <div class="row g-3">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/healthcare1.png" class="card-img-top w-auto d-block mx-auto pt-3" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Cơ Xương Khớp</h6>
+                    <p class="text-muted px-4">Phòng khám Điều trị Cơ Xương Khớp</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/healthcare2.png" class="card-img-top w-auto d-block mx-auto pt-3" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Da Liễu</h6>
+                    <p class="text-muted px-4">Phòng khám chuyên khoa Da Liễu</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/healthcare3.png" class="card-img-top w-auto d-block mx-auto pt-3" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Nha Khoa</h6>
+                    <p class="text-muted px-4">Phòng khám chuyên khoa Răng - Hàm - Mặt</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="assets/img/healthcare4.png" class="card-img-top w-auto d-block mx-auto pt-3" alt="Hospital" />
+                  <div class="card-body text-center">
+                    <h6 class="fw-bold">Vật Lý Trị Liệu</h6>
+                    <p class="text-muted px-4">Phòng khám Điều trị Vật Lý Trị Liệu</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    </section>
+     
     <!-- FEEDBACK -->
     <section id="feedback" class="py-5 bg-primary text-white">
       <div class="container">
@@ -203,6 +753,26 @@
         </div>
       </div>
     </section>
+
+    <!-- VIDEO -->
+    <div class="video-container d-flex flex-column align-items-center">
+      <div class="py-4 text-center" data-aos="fade-down">
+        <h1 class="fw-bold text-dark pt-5 text-center">
+          Video hướng dẫn, <br> giới thiệu ứng dụng, nền tảng
+        </h1>
+
+        <div class="image-wrapper position-relative mx-auto mt-4" data-aos="fade-up">
+          <img src="assets/img/phone_video.png"
+              alt="Ảnh Màn hình Điện thoại"
+              class="phone-video rounded-4 img-fluid" />
+              
+          <img src="assets/img/pause_video.png"
+              class="pause-video position-absolute"
+              alt="Pause icon">
+        </div>
+      </div>
+    </div>
+
 
     <!-- CONTACT -->
     <section id="contact" class="py-5 bg-white" data-aos="fade-up">

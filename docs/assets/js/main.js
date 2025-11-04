@@ -73,3 +73,28 @@ function initActiveNav() {
 }
 
 document.addEventListener('DOMContentLoaded', includeHTML);
+
+
+const btnHospital = document.getElementById("btnHospital");
+      const btnDoctor = document.getElementById("btnDoctor");
+      const hospitalCarousel = document.getElementById("carouselHospital");
+      const doctorCarousel = document.getElementById("carouselDoctor");
+
+      btnHospital.addEventListener("click", () => {
+        btnHospital.classList.add("btn-primary");
+        btnHospital.classList.remove("btn-outline-primary");
+        btnDoctor.classList.remove("btn-primary");
+        btnDoctor.classList.add("btn-outline-primary");
+        hospitalCarousel.classList.remove("d-none");
+        doctorCarousel.classList.add("d-none");
+      });
+
+      btnDoctor.addEventListener("click", () => {
+        btnDoctor.classList.add("btn-primary");
+        btnDoctor.classList.remove("btn-outline-primary");
+        btnHospital.classList.remove("btn-primary");
+        btnHospital.classList.add("btn-outline-primary");
+        doctorCarousel.classList.remove("d-none");
+        hospitalCarousel.classList.add("d-none");
+      });
+

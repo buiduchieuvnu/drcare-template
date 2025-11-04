@@ -7,14 +7,17 @@ body {
   scroll-behavior: smooth;
   background-color: #ffffff;
 }
-html, body {
-  overflow-x: hidden; 
-}
- 
 
-main{
-    padding-top: 65px;
+html,
+body {
+  overflow-x: hidden;
 }
+
+
+main {
+  padding-top: 89px;
+}
+
 h1,
 h2,
 h3,
@@ -30,22 +33,34 @@ header {
   overflow-x: hidden;
 
 }
+
+header span {
+  background-color: #dddfe1;
+  border-radius: 8px;
+}
+
 /* Giúp header luôn đè lên mọi phần tử khác */
 header.sticky {
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
-.nav-link{
+
+.nav-link {
   color: rgb(0, 0, 0);
 }
+
 .nav-link.active {
-  color: #2563eb !important; /* xanh lam của Tailwind: blue-600 */
+  color: #2563eb !important;
+  /* xanh lam của Tailwind: blue-600 */
   font-weight: 600;
 }
+
 .nav-link:hover {
-  color: #2563eb !important; /* xanh lam của Tailwind: blue-600 */
+  color: #2563eb !important;
+  /* xanh lam của Tailwind: blue-600 */
   font-weight: 600;
 }
+
 .btn.btn-primary {
   font-size: 13px;
   border-radius: 20px;
@@ -55,6 +70,46 @@ header.sticky {
 .btn.btn-primary:hover {
   box-shadow: 0 4px 8px rgba(13, 110, 253, 0.4);
 }
+
+.btn-register {
+  display: inline-block;
+  border: 1px solid #007bff;
+  /* viền xanh */
+  color: #007bff;
+  /* chữ xanh */
+  background-color: #fff;
+  /* nền trắng */
+  border-radius: 7px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-register:hover {
+  background-color: #007bff;
+  /* nền xanh */
+  color: white;
+  /* chữ trắng */
+}
+
+.btn-login {
+  display: inline-block;
+  border: 1px solid #007bff;
+  /* viền xanh */
+  color: white;
+  /* chữ xanh */
+  background-color: #007bff;
+  /* nền trắng */
+  border-radius: 7px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #0056b3;
+}
+
 /* HERO SECTION */
 #hero {
   overflow: hidden;
@@ -68,7 +123,11 @@ header.sticky {
   -webkit-text-fill-color: transparent;
 }
 
- .large_img {
+.qr-banner {
+  width: 8.7%;
+}
+
+.large_img {
   max-width: 90%;
   height: auto;
   display: block;
@@ -83,28 +142,80 @@ header.sticky {
 
 .small_img {
   position: absolute;
+  z-index: 20;
   height: auto;
   width: 30.8%;
-  top: 48.6%;
+  top: 48.5%;
   left: 69.6%;
   transform: rotate(0deg);
   border-radius: 10px;
   z-index: 1 !important;
 }
 
-
-/* FEATURE CARDS */
-.feature-card {
-  background: #f7f7f7;
-  border-radius: 1rem;
-  padding: 2rem 1.5rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+.up_image {
+  position: absolute;
+  z-index: 50;
+  width: 41%;
+  top: 23%;
+  left: 53%;
 }
 
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+.shadow_up {
+  position: absolute;
+  z-index: 50;
+  width: 20%;
+  top: 40%;
+  left: 58%;
+}
+
+.icon_blue {
+  position: absolute;
+  z-index: 50;
+  width: 20%;
+  top: 60%;
+  left: 5%;
+}
+
+.icon_green {
+  position: absolute;
+  z-index: 50;
+  background-color: white;
+  border-radius: 6px;
+  width: 8%;
+  top: 10%;
+  left: 75%;
+}
+
+/* FEATURE CARDS */
+
+
+/* Experience Section */
+.number-bg {
+  position: absolute;
+  top: -40%;
+  font-size: 6rem;
+  font-weight: 600;
+  color: rgb(183, 213, 245);
+
+  /* Làm mờ dần phần dưới */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+/* STAT */
+.bg-gradient-stat {
+  background: linear-gradient(90deg, #1e73be 0%, #0b5ed7 100%);
+}
+
+.doctor_stat1 {
+  max-width: 35%;
+  margin-top: 20%;
+}
+
+.doctor_stat2 {
+  max-width: 52%;
+  left: 20%;
+  bottom: 0%;
 }
 
 /* NETWORK CARDS */
@@ -127,6 +238,81 @@ header.sticky {
   transform: scale(1.05);
 }
 
+
+.section-title {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.toggle-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.toggle-buttons .btn {
+  border-radius: 20px;
+  margin: 0 5px;
+}
+
+.carousel-item .card {
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.carousel-item .card:hover {
+  transform: translateY(-5px);
+}
+
+.progress-bar-container {
+  width: 150px;
+  height: 4px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  margin: 10px auto 0;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #0d6efd;
+  border-radius: 5px;
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+
+/* vị trí và căn giữa nhóm chỉ báo */
+.carousel-indicators.custom-indicators {
+  position: absolute;
+  bottom: -40px;
+}
+
+/* Ghi đè toàn bộ style mặc định của Bootstrap cho các nút */
+.carousel-indicators.custom-indicators button {
+  width: 30px;
+  /* chiều dài thanh */
+  height: 4px;
+  border: none;
+  border-radius: 3px;
+  background-color: #ccc !important;
+  opacity: 1 !important;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+/* Active */
+.carousel-indicators.custom-indicators .active {
+  background-color: #0d6efd !important;
+  /* chấm xanh khi active */
+  transform: scale(1.05);
+}
+
+/* HEALTHCARE */
+
+
 /* FEEDBACK */
 .feedback-card {
   background: #fff;
@@ -141,22 +327,24 @@ header.sticky {
   transform: translateY(-4px);
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
 }
+
 .scroll-container {
-    display: flex;
-    flex-direction: column;
-    animation: scrollUp 10s linear infinite;
+  display: flex;
+  flex-direction: column;
+  animation: scrollUp 10s linear infinite;
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
   }
 
-  @keyframes scrollUp {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-50%);
-    }
+  100% {
+    transform: translateY(-50%);
   }
+}
 
-  /* Nhân đôi nội dung để tạo hiệu ứng cuộn liên tục */
+/* Nhân đôi nội dung để tạo hiệu ứng cuộn liên tục */
 /* CONTACT FORM */
 #contactForm .form-control {
   border-radius: 0.75rem;
@@ -176,6 +364,29 @@ header.sticky {
   letter-spacing: 0.5px;
 }
 
+/* VIDEO */
+.video-container {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, rgb(216, 234, 253) 10%, #ffffff 100%);
+    padding-bottom: 50px;
+}
+
+/* 2. Thiết lập Khung chứa Hình ảnh và Nút */
+.image-wrapper {
+  display: inline-block;
+}
+
+.phone-video {
+   /* hoặc w-50 nếu bạn muốn dùng Bootstrap */
+}
+
+.pause-video {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; /* kích thước nút pause */
+  cursor: pointer;
+}
 /* FOOTER */
 footer {
   background: linear-gradient(180deg, #1e3a8a, #0d6efd);
@@ -204,6 +415,15 @@ footer a:hover {
 /* RESPONSIVE TUNING */
 @media (max-width: 768px) {
 
+  .qr-banner {
+    max-width: 50px;
+  }
+
+  .btn-register,
+  .btn-login {
+    margin-top: 5px;
+  }
+
   #hero {
     text-align: center;
   }
@@ -212,15 +432,62 @@ footer a:hover {
     width: 80%;
     margin: 0 auto;
   }
-    .large_img {
+
+  .app_mobile {
+    max-width: 40%;
+  }
+
+  .large_img {
     max-width: 90%;
   }
 
-  .small_img {     
-    width: 27.5% !important;  /* Ảnh nhỏ chiếm tỉ lệ lớn hơn chút */
-    top: 48.5%;          /* Điều chỉnh lại vị trí */
+  .small_img {
+    width: 27.5% !important;
+    /* Ảnh nhỏ chiếm tỉ lệ lớn hơn chút */
+    top: 48.5%;
+    /* Điều chỉnh lại vị trí */
     left: 71.8%;
-    transform: rotate(0deg); /* Giữ thẳng cho dễ nhìn */
+    transform: rotate(0deg);
+    /* Giữ thẳng cho dễ nhìn */
+  }
+
+  .up_image {
+    position: absolute;
+    z-index: 50;
+    max-width: 41%;
+    top: 23%;
+    left: 53%;
+  }
+
+  .shadow_up {
+    position: absolute;
+    z-index: 50;
+    max-width: 20%;
+    top: 43%;
+    left: 58.5%;
+  }
+
+  .icon_blue {
+    position: absolute;
+    z-index: 50;
+    max-width: 20%;
+    top: 55%;
+    left: 12%;
+  }
+
+  .icon_green {
+    position: absolute;
+    z-index: 50;
+    max-width: 10%;
+    background-color: white;
+    border-radius: 6px;
+    width: 5px;
+    top: 8%;
+    left: 75%;
+  }
+
+  .number-bg {
+    top: -20%;
+    font-size: 5rem;
   }
 }
-
