@@ -1,0 +1,18 @@
+// This file can be replaced during build by using the `fileReplacements` array.
+// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
+// The list of file replacements can be found in `angular.json`.
+export const environment = {
+    production: false,
+    serverURL: '/',
+    restApiUrl: 'https://his-dev.vncare.vn/',
+    dreportApiUrl: 'https://test-onehealth.vncare.vn/',
+};
+/*
+ * For easier debugging in development mode, you can import the following file
+ * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
+ *
+ * This import should be commented out in production mode because it will have a negative impact
+ * on performance if an error is thrown.
+ */
+// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZW52aXJvbm1lbnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9wcm9qZWN0cy9jb21tb25MaWJyYXJ5L3NyYy9saWIvZW52aXJvbm1lbnRzL2Vudmlyb25tZW50LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGdGQUFnRjtBQUNoRiwwRUFBMEU7QUFDMUUsZ0VBQWdFO0FBRWhFLE1BQU0sQ0FBQyxNQUFNLFdBQVcsR0FBRztJQUN6QixVQUFVLEVBQUUsS0FBSztJQUNqQixTQUFTLEVBQUUsR0FBRztJQUNkLFVBQVUsRUFBRSw0QkFBNEI7SUFDeEMsYUFBYSxFQUFFLG1DQUFtQztDQUNuRCxDQUFDO0FBRUY7Ozs7OztHQU1HO0FBQ0gsbUVBQW1FIiwic291cmNlc0NvbnRlbnQiOlsiLy8gVGhpcyBmaWxlIGNhbiBiZSByZXBsYWNlZCBkdXJpbmcgYnVpbGQgYnkgdXNpbmcgdGhlIGBmaWxlUmVwbGFjZW1lbnRzYCBhcnJheS5cclxuLy8gYG5nIGJ1aWxkIC0tcHJvZGAgcmVwbGFjZXMgYGVudmlyb25tZW50LnRzYCB3aXRoIGBlbnZpcm9ubWVudC5wcm9kLnRzYC5cclxuLy8gVGhlIGxpc3Qgb2YgZmlsZSByZXBsYWNlbWVudHMgY2FuIGJlIGZvdW5kIGluIGBhbmd1bGFyLmpzb25gLlxyXG5cclxuZXhwb3J0IGNvbnN0IGVudmlyb25tZW50ID0ge1xyXG4gIHByb2R1Y3Rpb246IGZhbHNlLFxyXG4gIHNlcnZlclVSTDogJy8nLFxyXG4gIHJlc3RBcGlVcmw6ICdodHRwczovL2hpcy1kZXYudm5jYXJlLnZuLycsXHJcbiAgZHJlcG9ydEFwaVVybDogJ2h0dHBzOi8vdGVzdC1vbmVoZWFsdGgudm5jYXJlLnZuLycsXHJcbn07XHJcblxyXG4vKlxyXG4gKiBGb3IgZWFzaWVyIGRlYnVnZ2luZyBpbiBkZXZlbG9wbWVudCBtb2RlLCB5b3UgY2FuIGltcG9ydCB0aGUgZm9sbG93aW5nIGZpbGVcclxuICogdG8gaWdub3JlIHpvbmUgcmVsYXRlZCBlcnJvciBzdGFjayBmcmFtZXMgc3VjaCBhcyBgem9uZS5ydW5gLCBgem9uZURlbGVnYXRlLmludm9rZVRhc2tgLlxyXG4gKlxyXG4gKiBUaGlzIGltcG9ydCBzaG91bGQgYmUgY29tbWVudGVkIG91dCBpbiBwcm9kdWN0aW9uIG1vZGUgYmVjYXVzZSBpdCB3aWxsIGhhdmUgYSBuZWdhdGl2ZSBpbXBhY3RcclxuICogb24gcGVyZm9ybWFuY2UgaWYgYW4gZXJyb3IgaXMgdGhyb3duLlxyXG4gKi9cclxuLy8gaW1wb3J0ICd6b25lLmpzL2Rpc3Qvem9uZS1lcnJvcic7ICAvLyBJbmNsdWRlZCB3aXRoIEFuZ3VsYXIgQ0xJLlxyXG4iXX0=

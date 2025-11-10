@@ -1,0 +1,16 @@
+import { HttpParams } from '@angular/common/http';
+import { Constants } from './constants';
+export class RequestOptions extends HttpParams {
+    cache;
+    ttl;
+    errorPassing;
+    noToken;
+    constructor(cache = false, ttl = Constants.CACHE_REQUESTS_TTL, errorPassing = false, noToken = false) {
+        super();
+        this.cache = cache;
+        this.ttl = ttl;
+        this.errorPassing = errorPassing;
+        this.noToken = noToken;
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicmVxdWVzdC1vcHRpb25zLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vcHJvamVjdHMvY29tbW9uTGlicmFyeS9zcmMvbGliL3JlcXVlc3Qtb3B0aW9ucy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsVUFBVSxFQUFFLE1BQU0sc0JBQXNCLENBQUM7QUFDbEQsT0FBTyxFQUFFLFNBQVMsRUFBRSxNQUFNLGFBQWEsQ0FBQztBQUV4QyxNQUFNLE9BQU8sY0FBZSxTQUFRLFVBQVU7SUFFbkM7SUFDQTtJQUNBO0lBQ0E7SUFKVCxZQUNTLFFBQWlCLEtBQUssRUFDdEIsTUFBYyxTQUFTLENBQUMsa0JBQWtCLEVBQzFDLGVBQXdCLEtBQUssRUFDN0IsVUFBbUIsS0FBSztRQUUvQixLQUFLLEVBQUUsQ0FBQztRQUxELFVBQUssR0FBTCxLQUFLLENBQWlCO1FBQ3RCLFFBQUcsR0FBSCxHQUFHLENBQXVDO1FBQzFDLGlCQUFZLEdBQVosWUFBWSxDQUFpQjtRQUM3QixZQUFPLEdBQVAsT0FBTyxDQUFpQjtJQUdqQyxDQUFDO0NBQ0YiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBIdHRwUGFyYW1zIH0gZnJvbSAnQGFuZ3VsYXIvY29tbW9uL2h0dHAnO1xyXG5pbXBvcnQgeyBDb25zdGFudHMgfSBmcm9tICcuL2NvbnN0YW50cyc7XHJcblxyXG5leHBvcnQgY2xhc3MgUmVxdWVzdE9wdGlvbnMgZXh0ZW5kcyBIdHRwUGFyYW1zIHtcclxuICBjb25zdHJ1Y3RvcihcclxuICAgIHB1YmxpYyBjYWNoZTogYm9vbGVhbiA9IGZhbHNlLFxyXG4gICAgcHVibGljIHR0bDogbnVtYmVyID0gQ29uc3RhbnRzLkNBQ0hFX1JFUVVFU1RTX1RUTCxcclxuICAgIHB1YmxpYyBlcnJvclBhc3Npbmc6IGJvb2xlYW4gPSBmYWxzZSxcclxuICAgIHB1YmxpYyBub1Rva2VuOiBib29sZWFuID0gZmFsc2VcclxuICApIHtcclxuICAgIHN1cGVyKCk7XHJcbiAgfVxyXG59XHJcbiJdfQ==

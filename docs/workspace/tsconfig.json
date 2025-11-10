@@ -1,0 +1,20 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2020",
+    "module": "es2020",
+    "lib": ["es2020", "dom"],
+    "paths": {
+      "common": ["dist/common/common", "dist/common"],
+      "my-common": ["dist/my-common/my-common", "dist/my-common"]
+    }
+  }
+}
