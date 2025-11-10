@@ -1,0 +1,52 @@
+<section class="section-banner p-10">
+  <div class="d-xl-flex d-xs-none position-relative banner">
+    <div class="ui-col-xl-11 text-center" data-aos="fade-right">
+      <img src="/assets/img/banner_health.png" alt="Người cao tuổi" class="" />
+    </div>
+    <div class="ui-col-xl-10 text-white" data-aos="fade-left">
+      <p class="text-uppercase opacity-75 small mb-2">Bài viết nổi bật</p>
+      <h2 class="text-white font-size-xl-11 lh-sm mb-3">
+        Người 60 tuổi có nên trồng răng không?
+      </h2>
+      <p class="opacity-90 mb-4">
+        Theo công bố mới nhất tháng 9/2022 của Viện Tiêu chuẩn và Công nghệ quốc gia Mỹ (NIST),
+        công nghệ nhận diện và tìm kiếm khuôn mặt của VNPT (VNPT FaceID) vượt qua nhiều tên tuổi
+        lớn trên thế giới...
+      </p>
+      <a routerLink="/news" class="btn-banner">
+        Xem chi tiết →
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="news-section">
+  <p class="font-size-xl-11 font-size-xl-9 mb-7 font-weight-bold">Kiến thức sức khỏe</p>
+
+  <!-- Thanh tìm kiếm -->
+  <div class="search-bar d-flex mb-8">
+    <input type="text" placeholder="Nhập tìm kiếm..." />
+    <button>Tìm kiếm</button>
+  </div>
+
+  <!-- Danh sách bài viết -->
+  <div class="news-grid px-xl-7">
+    <div class="news-item" *ngFor="let item of articles">
+      <img [src]="item.image" [alt]="item.title" />
+      <div class="news-content">
+        <span class="category">{{ item.category }}</span>
+        <a routerLink="/news" class="title font-size-xl-5 font-size-xs-4">{{ item.title }}</a>
+        <p class="desc">{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phân trang -->
+  <div class="pagination">
+    <button>&lt;</button>
+    <button class="active">1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>&gt;</button>
+  </div>
+</section>
