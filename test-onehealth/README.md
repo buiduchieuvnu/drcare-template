@@ -41,5 +41,9 @@ $ npm run build commonLibrary
 $ npm run start:all
 
 # Chạy trên http-server
-# Chuyển folder tutorial từ build dist của workspace vào dist của root-html
+
+*note* Chuyển folder tutorial(hoặc thêm các mini-app khác nếu có) từ build dist của workspace vào dist của root-html
+
+$npm i -g http-server
+
 $ http-server
