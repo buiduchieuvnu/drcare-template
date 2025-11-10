@@ -25,6 +25,9 @@ $ npm install
 
 $ npm start
 
+# Chạy build root-html
+$ npm run build
+
 # Khởi chạy các MicroApp cơ sở
 $ cd workspace
 
@@ -36,3 +39,7 @@ $ npm run build commonLibrary
 
 # khởi chạy tất cả microapp đang có trong workspace
 $ npm run start:all
+
+# Chạy trên http-server
+# Chuyển folder tutorial từ build dist của workspace vào dist của root-html
+$ http-server
