@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DRCARE 247 – Chăm sóc sức khỏe toàn diện</title>
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS Animation -->
+    <link
+      href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body class="text-gray-800 font-sans">
+    <!-- HEADER -->
+    <header class="shadow-sm bg-white sticky top-0 z-50">
+      <div class="container mx-auto flex flex-wrap items-center justify-between py-3">
+        <a href="#" class="flex items-center gap-2">
+          <img src="/assets/img/logo.png" alt="DRCARE 247" class="h-10" />
+          <span class="font-bold text-blue-700 text-lg">DRCARE 247</span>
+        </a>
+
+        <nav class="hidden md:flex gap-6 text-sm font-medium">
+          <a href="#features" class="hover:text-blue-600">Tính năng</a>
+          <a href="#network" class="hover:text-blue-600">Mạng lưới</a>
+          <a href="#specialties" class="hover:text-blue-600">Chuyên khoa</a>
+          <a href="#feedback" class="hover:text-blue-600">Khách hàng</a>
+          <a href="#contact" class="hover:text-blue-600">Liên hệ</a>
+        </nav>
+
+        <a
+          href="#download"
+          class="btn btn-primary px-4 py-2 text-sm rounded-full"
+          >Tải ứng dụng</a
+        >
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="bg-gradient-to-r from-blue-50 to-blue-100 py-16" id="hero">
+      <div class="container mx-auto flex flex-col md:flex-row items-center gap-10">
+        <div class="flex-1" data-aos="fade-right">
+          <h1 class="text-3xl md:text-5xl font-bold text-blue-800 leading-snug">
+            “MỘT CHẠM – Cả hành trình sức khỏe”
+          </h1>
+          <p class="mt-4 text-gray-600">
+            Ứng dụng chăm sóc sức khỏe toàn diện giúp kết nối người dùng với bác sĩ,
+            bệnh viện và nhà thuốc mọi lúc mọi nơi.
+          </p>
+          <div class="flex gap-3 mt-6">
+            <img src="/assets/img/appstore.png" alt="App Store" class="h-10" />
+            <img src="/assets/img/googleplay.png" alt="Google Play" class="h-10" />
+          </div>
+        </div>
+        <div class="flex-1 flex justify-center" data-aos="fade-left">
+          <img
+            src="/assets/img/hero-mockup.png"
+            alt="Ứng dụng DRCARE 247"
+            class="w-72 md:w-96"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="py-16 bg-white">
+      <div class="container mx-auto text-center mb-12">
+        <h2 class="text-3xl font-bold text-blue-700 mb-4">
+          Chăm sóc sức khỏe toàn diện
+        </h2>
+        <p class="text-gray-600">
+          DRCARE 247 cung cấp đầy đủ các tính năng hỗ trợ theo dõi và quản lý sức khỏe cá nhân.
+        </p>
+      </div>
+
+      <div class="container mx-auto grid md:grid-cols-3 gap-8 px-4">
+        <div class="feature-card" data-aos="fade-up">
+          <img src="/assets/img/feature1.png" alt="Đặt lịch khám" class="h-20 mx-auto" />
+          <h3 class="text-lg font-semibold mt-4">Đặt lịch khám</h3>
+          <p class="text-gray-600 text-sm">
+            Đặt lịch khám nhanh chóng, chọn bác sĩ và khung giờ phù hợp.
+          </p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="/assets/img/feature2.png" alt="Hồ sơ sức khỏe" class="h-20 mx-auto" />
+          <h3 class="text-lg font-semibold mt-4">Hồ sơ sức khỏe điện tử</h3>
+          <p class="text-gray-600 text-sm">
+            Lưu trữ và truy cập hồ sơ y tế, kết quả xét nghiệm dễ dàng.
+          </p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="/assets/img/feature3.png" alt="Nhà thuốc online" class="h-20 mx-auto" />
+          <h3 class="text-lg font-semibold mt-4">Mua thuốc online</h3>
+          <p class="text-gray-600 text-sm">
+            Đặt mua thuốc và giao tận nhà, được tư vấn bởi dược sĩ.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="bg-blue-700 text-white py-16" id="stats">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-10">Những con số nổi bật</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div data-aos="fade-up">
+            <p class="text-4xl font-bold">200+</p>
+            <p class="text-sm mt-2">Cơ sở y tế đối tác</p>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="100">
+            <p class="text-4xl font-bold">200,000+</p>
+            <p class="text-sm mt-2">Người dùng</p>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="200">
+            <p class="text-4xl font-bold">500,000+</p>
+            <p class="text-sm mt-2">Lượt khám</p>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="300">
+            <p class="text-4xl font-bold">500,000+</p>
+            <p class="text-sm mt-2">Hồ sơ sức khỏe</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NETWORK -->
+    <section id="network" class="py-16 bg-white">
+      <div class="container mx-auto text-center mb-10">
+        <h2 class="text-3xl font-bold text-blue-700 mb-4">Mạng lưới y tế liên kết</h2>
+      </div>
+
+      <div class="container mx-auto grid md:grid-cols-3 gap-6 px-4">
+        <div class="network-card" data-aos="zoom-in">
+          <img src="/assets/img/hospital1.jpg" alt="Bệnh viện Nguyễn Tri Phương" />
+          <h3 class="font-semibold mt-3">Bệnh viện Nguyễn Tri Phương</h3>
+        </div>
+        <div class="network-card" data-aos="zoom-in" data-aos-delay="100">
+          <img src="/assets/img/hospital2.jpg" alt="Bệnh viện Gia Định" />
+          <h3 class="font-semibold mt-3">Bệnh viện Gia Định</h3>
+        </div>
+        <div class="network-card" data-aos="zoom-in" data-aos-delay="200">
+          <img src="/assets/img/hospital3.jpg" alt="Bệnh viện Quận 1" />
+          <h3 class="font-semibold mt-3">Bệnh viện Quận 1</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEEDBACK -->
+    <section id="feedback" class="py-16 bg-blue-50">
+      <div class="container mx-auto text-center mb-12">
+        <h2 class="text-3xl font-bold text-blue-700 mb-4">Cảm nhận từ khách hàng</h2>
+      </div>
+      <div class="container mx-auto grid md:grid-cols-3 gap-6 px-4">
+        <div class="feedback-card" data-aos="fade-up">
+          <p class="italic">
+            “Ứng dụng rất tiện lợi, tôi có thể đặt lịch khám và nhận kết quả ngay trên điện thoại.”
+          </p>
+          <p class="mt-3 font-semibold">Nguyễn Văn A</p>
+        </div>
+        <div class="feedback-card" data-aos="fade-up" data-aos-delay="100">
+          <p class="italic">
+            “Giao diện thân thiện, bác sĩ tư vấn tận tâm, rất đáng tin cậy.”
+          </p>
+          <p class="mt-3 font-semibold">Trần Thị B</p>
+        </div>
+        <div class="feedback-card" data-aos="fade-up" data-aos-delay="200">
+          <p class="italic">
+            “Tôi quản lý hồ sơ sức khỏe cho cả gia đình rất dễ dàng.”
+          </p>
+          <p class="mt-3 font-semibold">Phạm C</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-16 bg-white">
+      <div class="container mx-auto text-center mb-10">
+        <h2 class="text-3xl font-bold text-blue-700 mb-4">Liên hệ hợp tác</h2>
+        <p class="text-gray-600">
+          Gửi thông tin để đội ngũ DRCARE 247 liên hệ hỗ trợ sớm nhất.
+        </p>
+      </div>
+      <div class="container mx-auto max-w-xl">
+        <form id="contactForm" class="space-y-4" data-aos="fade-up">
+          <input type="text" placeholder="Họ và tên" class="form-control" required />
+          <input type="email" placeholder="Email" class="form-control" required />
+          <textarea placeholder="Nội dung liên hệ" class="form-control" rows="4" required></textarea>
+          <button type="submit" class="btn btn-primary w-full">Gửi thông tin</button>
+        </form>
+        <p id="formMessage" class="text-green-600 mt-3 hidden">Cảm ơn bạn đã gửi thông tin!</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-blue-900 text-white py-10 text-sm">
+      <div class="container mx-auto grid md:grid-cols-3 gap-8 px-4">
+        <div>
+          <h3 class="font-semibold mb-2">DRCARE 247</h3>
+          <p>
+            Giải pháp chăm sóc sức khỏe thông minh, kết nối bệnh nhân, bác sĩ và cơ sở y tế.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Liên kết nhanh</h3>
+          <ul>
+            <li><a href="#features" class="hover:underline">Tính năng</a></li>
+            <li><a href="#network" class="hover:underline">Mạng lưới</a></li>
+            <li><a href="#contact" class="hover:underline">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Theo dõi chúng tôi</h3>
+          <div class="flex gap-3">
+            <img src="/assets/img/facebook.png" alt="Facebook" class="h-6" />
+            <img src="/assets/img/youtube.png" alt="YouTube" class="h-6" />
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-8 text-xs opacity-70">
+        © 2025 DRCARE 247. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

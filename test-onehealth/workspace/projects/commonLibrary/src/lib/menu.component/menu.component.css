@@ -1,0 +1,19 @@
+:host ::ng-deep .ui-menu-inline .ui-menu-item {
+  margin-bottom: 15px;
+  margin-top: 6px;
+  padding-right: 21px;
+  padding-left: 16px !important;
+}
+
+:host ::ng-deep .ui-menu-inline .ui-menu-item i {
+  margin-right: 12px;
+}
+
+:host ::ng-deep .ui-menu:not(.ui-menu-horizontal) .ui-menu-item-selected {
+  background-color: #e7e8e9;
+}
+
+:host ::ng-deep .ui-menu-inline > .ui-menu-submenu > .ui-menu-submenu-title {
+  font-weight: 600;
+  padding-left: 10px !important;
+}

@@ -1,0 +1,23 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { EmptyRouteComponent } from './empty-route/empty-route.component';
+import { DefaultComponent } from './components/default-component/default.component';
+import { ContactComponent } from './components/contact-component/contact.component';
+import { NewsComponent } from './components/news-component/news.component';
+import { HealthComponent } from './components/health-component/health.component';
+
+const routes: Routes = [
+  { path: '', component: DefaultComponent, pathMatch: 'full' },
+  { path: 'default', component: DefaultComponent },
+  // { path: '**', component: EmptyRouteComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'news', component: NewsComponent },
+  { path: 'health', component: HealthComponent },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
+        
