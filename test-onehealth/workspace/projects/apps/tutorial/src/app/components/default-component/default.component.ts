@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'default-component',
@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   templateUrl: './default.component.html',
   styleUrls: ['./default.component.css']
 })
-export class DefaultComponent implements OnInit, OnDestroy {
+export class DefaultComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor() { }
 
@@ -20,41 +20,93 @@ export class DefaultComponent implements OnInit, OnDestroy {
   timers: any[] = [];
 
   hospitals = [
-    { name: 'Bệnh viện A', address: 'Hà Nội', image: '/assets/img/hospital1.png' },
-    { name: 'Bệnh viện B', address: 'Đà Nẵng', image: '/assets/img/hospital2.png' },
-    { name: 'Bệnh viện C', address: 'Hồ Chí Minh', image: '/assets/img/hospital3.png' },
-    { name: 'Bệnh viện D', address: 'Huế', image: '/assets/img/hospital4.png' },
-    { name: 'Bệnh viện E', address: 'Hải Phòng', image: '/assets/img/hospital3.png' },
-    { name: 'Bệnh viện F', address: 'Cần Thơ', image: '/assets/img/hospital2.png' },
-    { name: 'Bệnh viện G', address: 'Nghệ An', image: '/assets/img/hospital1.png' },
-    { name: 'Bệnh viện H', address: 'Thanh Hóa', image: '/assets/img/hospital4.png' }
+    { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital1.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital2.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital3.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Bưu điện', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital4.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital1.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital2.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital3.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Bưu điện', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital4.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital1.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital2.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital3.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Bưu điện', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital4.png', logo: '/assets/img/logo-benhvien.png' },
   ];
 
 
   doctors = [
-    { name: 'BS. Nguyễn Văn A', specialty: 'Tim mạch', experience: 10, image: '/assets/img/doctor_slide.png' },
-    { name: 'BS. Trần Thị B', specialty: 'Nhi khoa', experience: 7, image: '/assets/img/doctor_slide.png' },
-    { name: 'BS. Lê Văn C', specialty: 'Da liễu', experience: 5, image: '/assets/img/doctor_slide.png' },
-    { name: 'BS. Phạm Thị D', specialty: 'Tai Mũi Họng', experience: 8, image: '/assets/img/doctor_slide.png' },
-    { name: 'BS. Vũ Văn E', specialty: 'Nội tiết', experience: 12, image: '/assets/img/doctor_slide.png' },
-    { name: 'BS. Hoàng Thị F', specialty: 'Phụ sản', experience: 6, image: '/assets/img/doctor_slide.png' },
-    { name: 'BS. Đỗ Văn G', specialty: 'Ngoại tổng hợp', experience: 9, image: '/assets/img/doctor_slide.png' },
-    { name: 'BS. Nguyễn Thị H', specialty: 'Thần kinh', experience: 11, image: '/assets/img/doctor_slide.png' }
+    { name: 'BS. Nguyễn Văn Minh', specialty: 'Nội tổng quát, Bệnh viện Bạch Mai',
+      experience: [
+        '8 năm kinh nghiệm nội tổng quát',
+        'Trưởng khoa bệnh viện Bạch Mai'
+      ],
+      image: '/assets/img/doctor_slide.png'
+    },
+    { name: 'BS. Nguyễn Văn Minh', specialty: 'Nội tổng quát, Bệnh viện Bạch Mai',
+      experience: [
+        '8 năm kinh nghiệm nội tổng quát',
+        'Trưởng khoa bệnh viện Bạch Mai'
+      ],
+      image: '/assets/img/doctor_slide.png'
+    }, 
+    { name: 'BS. Nguyễn Văn Minh', specialty: 'Nội tổng quát, Bệnh viện Bạch Mai',
+      experience: [
+        '8 năm kinh nghiệm nội tổng quát',
+        'Trưởng khoa bệnh viện Bạch Mai'
+      ],
+      image: '/assets/img/doctor_slide.png'
+    },
+    { name: 'BS. Nguyễn Văn Minh', specialty: 'Nội tổng quát, Bệnh viện Bạch Mai',
+      experience: [
+        '8 năm kinh nghiệm nội tổng quát',
+        'Trưởng khoa bệnh viện Bạch Mai'
+      ],
+      image: '/assets/img/doctor_slide.png'
+    },
+    { name: 'BS. Nguyễn Văn Minh', specialty: 'Nội tổng quát, Bệnh viện Bạch Mai',
+      experience: [
+        '8 năm kinh nghiệm nội tổng quát',
+        'Trưởng khoa bệnh viện Bạch Mai'
+      ],
+      image: '/assets/img/doctor_slide.png'
+    },
+    { name: 'BS. Nguyễn Văn Minh', specialty: 'Nội tổng quát, Bệnh viện Bạch Mai',
+      experience: [
+        '8 năm kinh nghiệm nội tổng quát',
+        'Trưởng khoa bệnh viện Bạch Mai'
+      ],
+      image: '/assets/img/doctor_slide.png'
+    }, 
+    { name: 'BS. Nguyễn Văn Minh', specialty: 'Nội tổng quát, Bệnh viện Bạch Mai',
+      experience: [
+        '8 năm kinh nghiệm nội tổng quát',
+        'Trưởng khoa bệnh viện Bạch Mai'
+      ],
+      image: '/assets/img/doctor_slide.png'
+    },
+    { name: 'BS. Nguyễn Văn Minh', specialty: 'Nội tổng quát, Bệnh viện Bạch Mai',
+      experience: [
+        '8 năm kinh nghiệm nội tổng quát',
+        'Trưởng khoa bệnh viện Bạch Mai'
+      ],
+      image: '/assets/img/doctor_slide.png'
+    },
   ];
 
 
   healthcareList = [
-    { name: 'Cơ xương khớp', image: '/assets/img/healthcare1.png', room:"Phòng khám Điều trị Cơ Xương Khớp" },
-    { name: 'Da liễu', image: '/assets/img/healthcare2.png', room:"Phòng khám chuyên khoa Da Liễu" },
-    { name: 'Nha Khoa', image: '/assets/img/healthcare3.png', room:"Phòng khám chuyên khoa Răng - Hàm - Mặt" },
-    { name: 'Vật lý trị liệu', image: '/assets/img/healthcare4.png', room:"Phòng khám Điều trị Vật Lý Trị Liệu" },
-    { name: 'Cơ xương khớp', image: '/assets/img/healthcare1.png', room:"Phòng khám Điều trị Cơ Xương Khớp" },
-    { name: 'Da liễu', image: '/assets/img/healthcare2.png', room:"Phòng khám chuyên khoa Da Liễu" },
-    { name: 'Nha Khoa', image: '/assets/img/healthcare3.png', room:"Phòng khám chuyên khoa Răng - Hàm - Mặt" },
-    { name: 'Vật lý trị liệu', image: '/assets/img/healthcare4.png', room:"Phòng khám Điều trị Vật Lý Trị Liệu" },
+    { name: 'Cơ xương khớp', image: '/assets/img/healthcare1.png', room: "Phòng khám Điều trị Cơ Xương Khớp" },
+    { name: 'Da liễu', image: '/assets/img/healthcare2.png', room: "Phòng khám chuyên khoa Da Liễu" },
+    { name: 'Nha Khoa', image: '/assets/img/healthcare3.png', room: "Phòng khám chuyên khoa Răng - Hàm - Mặt" },
+    { name: 'Vật lý trị liệu', image: '/assets/img/healthcare4.png', room: "Phòng khám Điều trị Vật Lý Trị Liệu" },
+    { name: 'Cơ xương khớp', image: '/assets/img/healthcare1.png', room: "Phòng khám Điều trị Cơ Xương Khớp" },
+    { name: 'Da liễu', image: '/assets/img/healthcare2.png', room: "Phòng khám chuyên khoa Da Liễu" },
+    { name: 'Nha Khoa', image: '/assets/img/healthcare3.png', room: "Phòng khám chuyên khoa Răng - Hàm - Mặt" },
+    { name: 'Vật lý trị liệu', image: '/assets/img/healthcare4.png', room: "Phòng khám Điều trị Vật Lý Trị Liệu" },
   ];
 
-    newsList = [
+  newsList = [
     {
       image: '/assets/img/baby.png',
       category: 'CHĂM SÓC TRẺ',
@@ -80,6 +132,40 @@ export class DefaultComponent implements OnInit, OnDestroy {
       describe: 'Create, enable and use across your team in hendrerit urna. Create, enable and use'
     }
   ];
+
+  feedbackList = [
+    {
+      content: 'Từ khi tích hợp đặt lịch trên DRCARE247, số lượng bệnh nhân đến đều và ổn định hơn, giảm hẳn tình trạng trùng lịch. Hệ thống cũng giúp lưu hồ sơ bệnh nhân đồng bộ, tiện theo dõi lâu dài',
+      name: 'Phùng Thị Yến – 35 Tuổi',
+      desc: 'Sống tại Hà Nội',
+      avatar: '/assets/img/avatar_feedback.png'
+    },
+    {
+      content: 'Từ khi tích hợp đặt lịch trên DRCARE247, số lượng bệnh nhân đến đều và ổn định hơn, giảm hẳn tình trạng trùng lịch. Hệ thống cũng giúp lưu hồ sơ bệnh nhân đồng bộ, tiện theo dõi lâu dài',
+      name: 'Phùng Thị Yến – 35 Tuổi',
+      desc: 'Đại diện Phòng khám Đa Khoa TTYTQ8',
+      avatar: '/assets/img/avatar_feedback.png'
+    },
+    {
+      content: 'Từ khi tích hợp đặt lịch trên DRCARE247, số lượng bệnh nhân đến đều và ổn định hơn, giảm hẳn tình trạng trùng lịch. Hệ thống cũng giúp lưu hồ sơ bệnh nhân đồng bộ, tiện theo dõi lâu dài',
+      name: 'Phùng Thị Yến – 35 Tuổi',
+      desc: 'Sống tại Hà Nội',
+      avatar: '/assets/img/avatar_feedback.png'
+    },
+    {
+      content: 'Từ khi tích hợp đặt lịch trên DRCARE247, số lượng bệnh nhân đến đều và ổn định hơn, giảm hẳn tình trạng trùng lịch. Hệ thống cũng giúp lưu hồ sơ bệnh nhân đồng bộ, tiện theo dõi lâu dài',
+      name: 'Phùng Thị Yến – 35 Tuổi',
+      desc: 'Đại diện Phòng khám Đa Khoa TTYTQ8',
+      avatar: '/assets/img/avatar_feedback.png'
+    },
+    {
+      content: 'Từ khi tích hợp đặt lịch trên DRCARE247, số lượng bệnh nhân đến đều và ổn định hơn, giảm hẳn tình trạng trùng lịch. Hệ thống cũng giúp lưu hồ sơ bệnh nhân đồng bộ, tiện theo dõi lâu dài',
+      name: 'Phùng Thị Yến – 35 Tuổi',
+      desc: 'Sống tại Hà Nội',
+      avatar: '/assets/img/avatar_feedback.png'
+    }
+  ];
+
   ngOnInit() {
     this.hospitalSlides = this.chunk(this.hospitals, 4);
     this.doctorSlides = this.chunk(this.doctors, 4);
@@ -133,5 +219,45 @@ export class DefaultComponent implements OnInit, OnDestroy {
     else this.currentHealthcareSlide = index;
   }
 
+  // Số tăng dần
+  @ViewChild('counter1', { static: false }) counter1!: ElementRef;
+  @ViewChild('counter2', { static: false }) counter2!: ElementRef;
+  @ViewChild('counter3', { static: false }) counter3!: ElementRef;
+  @ViewChild('counter4', { static: false }) counter4!: ElementRef;
 
+  ngAfterViewInit() {
+    // startContinuousIncrease(element, startValue, step, speed, increase)
+    this.startContinuousIncrease(this.counter1.nativeElement, 200, 1, 2000, 600);
+    this.startContinuousIncrease(this.counter2.nativeElement, 500000, 30, 100, 300000);
+    this.startContinuousIncrease(this.counter3.nativeElement, 200000, 3, 400, 100000);
+    this.startContinuousIncrease(this.counter4.nativeElement, 500000, 50, 100, 300000);
+  }
+
+  /**
+   * Hiệu ứng tăng dần từ giá trị ban đầu
+   * @param element   Phần tử HTML hiển thị số
+   * @param start     Giá trị ban đầu
+   * @param step      Mỗi lần tăng bao nhiêu đơn vị
+   * @param speed     Tốc độ (ms giữa mỗi lần tăng)
+   * @param increase  Tổng số đơn vị muốn tăng thêm
+   */
+  private startContinuousIncrease(
+    element: HTMLElement,
+    start: number,
+    step: number,
+    speed: number,
+    increase: number
+  ) {
+    let current = start;
+    const target = start + increase;
+
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target; // dừng chính xác tại đích
+        clearInterval(timer);
+      }
+      element.textContent = current.toLocaleString('vi-VN') + '+'; // thêm dấu +
+    }, speed);
+  }
 }

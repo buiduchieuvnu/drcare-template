@@ -18,6 +18,7 @@ header .icon {
   align-items: center;
   background-color: #dddfe1;
   border-radius: 8px;
+  padding: 0px 10px;
 }
 
 /* Giúp header luôn đè lên mọi phần tử khác */
@@ -35,6 +36,7 @@ header.sticky {
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
+  padding: 0px 7px;
 }
 
 .btn-register:hover {
@@ -51,6 +53,7 @@ header.sticky {
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
+  padding: 0px 7px;
 }
 
 .btn-login:hover {
@@ -106,6 +109,9 @@ header.sticky {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
+  header .icon{
+    padding: 3px;
+  }
   .distance{
     gap: 0.2rem;
   }
@@ -137,10 +143,7 @@ header.sticky {
     display: block;
 
   }
-  .btn-register{
-    padding: 3px;
-  }
-  .btn-login{
-    padding: 3px;
+  .btn-register, .btn-login{
+    padding: 0px;
   }
 }

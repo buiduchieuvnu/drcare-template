@@ -26,7 +26,7 @@ registerLocaleData(localeVi);
     FooterComponent,
     HealthComponent,
     ContactComponent,
-    NewsComponent
+    NewsComponent,
   ],
   imports: [
     BrowserAnimationsModule,

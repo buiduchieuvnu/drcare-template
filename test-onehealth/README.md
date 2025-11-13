@@ -34,6 +34,8 @@ $ cd workspace
 # tiến hành cài đặt các gói thư viện còn lại
 $ npm install
 
+# build tất cả các app
+npm run build:all
 # build thư viện common
 $ npm run build commonLibrary
 
@@ -42,7 +44,7 @@ $ npm run start:all
 
 # Chạy trên http-server
 
-*note* Chuyển folder tutorial(hoặc thêm các mini-app khác nếu có) từ build dist của workspace vào dist của root-html
+*note* Chuyển folder tutorial(hoặc thêm các micro-app khác nếu có) từ build dist của workspace vào dist của root-html
 
 $npm i -g http-server
 

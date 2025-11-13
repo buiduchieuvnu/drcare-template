@@ -1,9 +1,20 @@
 /* HERO */
 .banner-contact {
-    background: linear-gradient(to right, #1e3a8a, #3b82f6);
+    background: linear-gradient(111.91deg, #2356BB 1.09%, #214EBE 100%);
     height: auto;
+    z-index: 1;
+}
+.banner-contact .ellipse1,
+.banner-contact .ellipse2,
+.banner-contact .ellipse3,
+.banner-contact .ellipse4 {
+  position: absolute;
+  z-index: -1;
 }
 
+.ellipse1 { bottom: 0; left: 0;}
+.ellipse2 { bottom: 0; left: 0;}
+.ellipse3 { bottom: 0; right: 12%;}
 .btn-banner {
     background-color: white;
     border-radius: 5px;
@@ -45,13 +56,13 @@
 }
 
 .banner.top-right {
-    bottom: 65%;
+    bottom: 70%;
     right: 18%;
     width: 9rem;
 }
 
 .banner.bottom-right {
-    bottom: 10%;
+    bottom: 30%;
     right: 8%;
     width: 9rem;
 }

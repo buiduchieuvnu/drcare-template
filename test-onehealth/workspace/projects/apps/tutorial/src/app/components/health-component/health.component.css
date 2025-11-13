@@ -1,15 +1,33 @@
 /* BANNER */
 .section-banner {
-  background: linear-gradient(135deg, #58A5FF 0%, #3062FE 100%);
+  position: relative; 
+  background: linear-gradient(111.91deg, #2356BB 1.09%, #214EBE 100%);
+  overflow: visible;
+  z-index: 1;
 }
+.section-banner .ellipse1,
+.section-banner .ellipse2,
+.section-banner .ellipse3,
+.section-banner .ellipse4 {
+  position: absolute;
+  z-index: -1;
+}
+
+.ellipse1 { bottom: -40px; left: -5%; max-width: 200px;}
+.ellipse2 { top: 80px; right: 10%; max-width: 320px;}
+.ellipse3 { top: 0; right: 0%; max-width: 110px;}
+.ellipse4 { top: 0; right: 0%; max-width: 180px;}
 
 .banner img {
   position: absolute;
-  z-index: 10;
-  left: 0;
-  width: 40%;
+  left: 8%;
+  max-width: 450px;
+  z-index: 2;
 }
-
+.banner-text{
+  position: relative;
+  z-index: 3;
+}
 .btn-banner {
   background-color: white;
   color: #1661b6;
@@ -24,12 +42,13 @@
   transition: background 0.3s;
 }
 
+/* NEWS */
 .news-section {
-  background-color: #fff;
-  padding: 60px 20px;
+  position: relative;
+  z-index: 3;
+  padding: 80px 50px;
   text-align: center;
 }
-/* NEWS */
 .search-bar {
   position: relative;
   width: 30%;
@@ -162,6 +181,9 @@
 @media (max-width: 768px) {
   .news-grid {
     grid-template-columns: 1fr;
+  }
+  .news-section{
+    padding: 40px;
   }
   .search-bar{
     width: 68%;
