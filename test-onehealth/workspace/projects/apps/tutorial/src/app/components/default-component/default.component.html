@@ -1,6 +1,14 @@
 <main>
   <!-- HERO -->
   <section class="py-10 px-6" id="hero">
+    <!-- Cuộn lên đầu -->
+    <button 
+      class="scroll-top" 
+      [class.show]="showScrollTop"
+      (click)="scrollToTop()">
+      ↑
+    </button>
+
     <div class="d-xl-flex d-xs-none">
       <!-- Cột text -->
       <div class="ui-col-xl-11 ui-col-xs-24 ui-col-xxl-12 pl-xl-6" data-aos="fade-right">

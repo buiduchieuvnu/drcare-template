@@ -188,6 +188,9 @@
   .search-bar{
     width: 68%;
   }
+  .search-bar input, .search-bar button{
+    font-size: 12px;
+  }
   .banner img {
     position: static;
     width: 100%;

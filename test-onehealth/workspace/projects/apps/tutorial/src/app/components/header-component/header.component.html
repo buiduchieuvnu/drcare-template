@@ -4,21 +4,21 @@
     <div class="d-flex header-top">
       <div class="d-flex distance">
         <div class="icon">
-          <span oh-icon ohType="mail" ohTheme="outline"></span>
-          <span class="ml-1">vnptit&#64;vnpt.vn</span>
+          <span oh-icon ohType="mail" ohTheme="outline" class="icon-mail"></span>
+          <span class="ml-1 font-size-xl-3">vnptit&#64;vnpt.vn</span>
         </div>
         <div class="icon">
-          <span oh-icon ohType="phone" ohTheme="outline"></span>
-          <span class="ml-1">0243.553.3388</span>
+          <span oh-icon ohType="phone" ohTheme="outline" class="icon-phone"></span>
+        <span class="ml-1 font-size-xl-3">0243.553.3388</span>
         </div>
         
         
       </div>
       <div class="d-flex distance">
-        <a href="https://dangkykham.vncare.vn/login" class="btn-register">
+        <a href="https://dangkykham.vncare.vn/login" class="btn-register font-size-xl-3">
           Đăng ký
         </a>
-        <a href="https://dangkykham.vncare.vn/sign-up" class="btn-login">
+        <a href="https://dangkykham.vncare.vn/sign-up" class="btn-login font-size-xl-3">
           Đăng nhập
         </a>
       </div>
@@ -35,12 +35,12 @@
     </a>
 
     <!-- Nút toggle (hiện khi mobile) -->
-    <button class="navbar-toggle" (click)="toggleMenu()" aria-label="Toggle navigation">
+    <button class="navbar-toggle" (click)="toggleMenu(); $event.stopPropagation()" aria-label="Toggle navigation">
       ☰
     </button>
 
     <!-- Menu -->
-    <div class="navbar-menu pr-3" [class.active]="menuOpen">
+    <div class="navbar-menu pr-3" [class.active]="menuOpen" (click)="$event.stopPropagation()">
       <ul>
         <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Về ứng dụng</a></li>
         <li><a routerLink="/health" routerLinkActive="active">Kiến thức sức khỏe</a></li>

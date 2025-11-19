@@ -1,6 +1,5 @@
 header {
   transition: all 0.3s ease;
-  font-size: 13px;
   width: 100%;
   overflow-x: hidden;
   position: fixed;
@@ -20,7 +19,9 @@ header .icon {
   border-radius: 8px;
   padding: 0px 10px;
 }
-
+.icon-phone{
+  rotate: 90deg;
+}
 /* Giúp header luôn đè lên mọi phần tử khác */
 header.sticky {
   background-color: rgba(255, 255, 255, 0.95);
@@ -36,7 +37,7 @@ header.sticky {
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
-  padding: 0px 7px;
+  padding: 2px 12px;
 }
 
 .btn-register:hover {
@@ -53,7 +54,7 @@ header.sticky {
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
-  padding: 0px 7px;
+  padding: 2px 12px;
 }
 
 .btn-login:hover {
@@ -109,20 +110,27 @@ header.sticky {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
+
   header .icon{
     padding: 3px;
+    font-size: 10px;
+  }
+  .icon-mail, .icon-phone{
+    width: 15%;
   }
   .distance{
     gap: 0.2rem;
   }
   .navbar {
     flex-wrap: wrap;
+    font-size: 12px;
   }
   .navbar-menu {
-    display: none;
     width: 100%;
     max-height: 0;
+    overflow: hidden;
     background: white;
+    transition: max-height 0.35s ease-in-out;
   }
 
   .navbar-menu.active {
@@ -144,6 +152,7 @@ header.sticky {
 
   }
   .btn-register, .btn-login{
-    padding: 0px;
+    padding: 2px;
+    font-size: 10px;
   }
 }

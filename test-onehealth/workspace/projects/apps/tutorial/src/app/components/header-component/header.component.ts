@@ -1,4 +1,4 @@
-import { Component, HostListener, AfterViewInit } from '@angular/core';
+import { Component, HostListener, ElementRef } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -11,8 +11,7 @@ import { filter } from 'rxjs/operators';
 export class HeaderComponent {
   menuOpen = false;
 
-  constructor(private router: Router) {
-    // Khi chuyển trang xong thì tự đóng menu
+  constructor(private router: Router, private eRef: ElementRef) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -22,6 +21,15 @@ export class HeaderComponent {
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
+  }
+
+  // 🔥 Bắt sự kiện click toàn trang
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    // Nếu click nằm ngoài phần navbar thì đóng menu
+    if (!this.eRef.nativeElement.contains(event.target)) {
+      this.menuOpen = false;
+    }
   }
 
 }

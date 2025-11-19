@@ -240,9 +240,12 @@
         margin-left: 13px;
         width: 35%;
     }
-
+    .btn-banner{
+        font-size: 14px;
+    }
     .banner {
         max-width: 30%;
+        font-size: 12px;
     }
 
     .banner.top-left {
@@ -257,7 +260,7 @@
 
     .banner.top-right {
         bottom: 58%;
-        right: 0;
+        right: -8%;
         width: 9rem;
     }
 

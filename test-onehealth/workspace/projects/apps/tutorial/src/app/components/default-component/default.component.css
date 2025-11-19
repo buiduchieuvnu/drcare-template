@@ -5,6 +5,42 @@
 .al-center {
   align-items: center;
 }
+/* Nút cuộn lên đầu trang */
+.scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  background: #4297f2;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.4);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  z-index: 9999;
+}
+
+/* Khi nút hiển thị */
+.scroll-top.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hover: phóng to + tăng bóng */
+.scroll-top:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.55);
+}
+
 
 /* HERO SECTION */
 #hero {
@@ -752,7 +788,13 @@
 
 
 @media (max-width: 768px) {
-
+  /* Nút cuộn */
+  .scroll-top{
+    bottom: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+  }
   /* HERO SECTION */
   .qr-banner {
     max-width: 13%;
@@ -874,6 +916,9 @@
   }
 
   /* BANNER NEWS */
+  .banner-map a{
+    font-size: 11px;
+  }
   .banner-tap {
     align-items: center;
     flex-direction: column;
@@ -882,6 +927,7 @@
   .banner-btn{
     width: 45%;
     margin-bottom: 10px;
+    font-size: 11.5px;
   }
 
   .news-container {

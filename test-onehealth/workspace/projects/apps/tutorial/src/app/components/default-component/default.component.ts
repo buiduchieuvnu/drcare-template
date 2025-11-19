@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, AfterViewInit, ViewChild, HostListener } from '@angular/core';
 
 @Component({
   selector: 'default-component',
@@ -9,6 +9,7 @@ import { Component, OnInit, OnDestroy, ElementRef, AfterViewInit, ViewChild } fr
 export class DefaultComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor() { }
+  showScrollTop = false;
 
   activeSection: 'hospital' | 'doctor' = 'hospital';
   hospitalSlides: any[][] = [];
@@ -165,7 +166,21 @@ export class DefaultComponent implements OnInit, OnDestroy, AfterViewInit {
       avatar: '/assets/img/avatar_feedback.png'
     }
   ];
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollY = window.scrollY || document.documentElement.scrollTop;
 
+    // Hiện nút nếu cuộn > 350px
+    this.showScrollTop = scrollY > 350;
+  }
+
+  // Cuộn lên đầu trang
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
   ngOnInit() {
     this.hospitalSlides = this.chunk(this.hospitals, 4);
     this.doctorSlides = this.chunk(this.doctors, 4);
