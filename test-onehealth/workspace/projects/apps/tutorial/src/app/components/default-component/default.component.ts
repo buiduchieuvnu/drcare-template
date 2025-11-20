@@ -242,10 +242,10 @@ export class DefaultComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit() {
     // startContinuousIncrease(element, startValue, step, speed, increase)
-    this.startContinuousIncrease(this.counter1.nativeElement, 200, 1, 2000, 600);
-    this.startContinuousIncrease(this.counter2.nativeElement, 500000, 30, 100, 300000);
-    this.startContinuousIncrease(this.counter3.nativeElement, 200000, 3, 400, 100000);
-    this.startContinuousIncrease(this.counter4.nativeElement, 500000, 50, 100, 300000);
+    this.startContinuousIncrease(this.counter1.nativeElement, 200, 13, 80, 100);
+    this.startContinuousIncrease(this.counter2.nativeElement, 500000, 52, 15, 12000);
+    this.startContinuousIncrease(this.counter3.nativeElement, 200000, 16, 40, 1000);
+    this.startContinuousIncrease(this.counter4.nativeElement, 500000, 58, 11, 24000);
   }
 
   /**

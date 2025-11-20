@@ -44,7 +44,7 @@ $ npm run start:all
 
 # Chạy trên http-server
 
-*note* Chuyển folder tutorial(hoặc thêm các micro-app khác nếu có) từ build dist của workspace vào dist của root-html
+*note: Chuyển folder tutorial(hoặc thêm các micro-app khác nếu có) từ build dist của workspace vào dist của root-html*
 
 $npm i -g http-server
 
