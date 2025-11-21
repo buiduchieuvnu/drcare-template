@@ -552,10 +552,10 @@
 }
 
 .banner-btn {
-  width: 30%;
+  max-width: 142px;
   border-radius: 7px;
   border: solid 1px rgb(133, 171, 253);
-  padding: 8px;
+  padding: 8px 12px;
 }
 
 .banner-btn:hover {
@@ -856,9 +856,7 @@
     flex-direction: column;
   }
   .banner-btn{
-    width: 45%;
     margin-bottom: 10px;
-    font-size: 11.5px;
   }
   .news-container {
     grid-template-columns: 1fr;

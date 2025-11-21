@@ -235,19 +235,33 @@ export class DefaultComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   // Số tăng dần
+  private statsStarted = false;
+  @ViewChild('statSection', { static: false }) statSection!: ElementRef;
+
   @ViewChild('counter1', { static: false }) counter1!: ElementRef;
   @ViewChild('counter2', { static: false }) counter2!: ElementRef;
   @ViewChild('counter3', { static: false }) counter3!: ElementRef;
   @ViewChild('counter4', { static: false }) counter4!: ElementRef;
 
   ngAfterViewInit() {
-    // startContinuousIncrease(element, startValue, step, speed, increase)
-    this.startContinuousIncrease(this.counter1.nativeElement, 200, 13, 80, 100);
+    this.observeStatsSection();
+  }
+  private observeStatsSection() {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !this.statsStarted) {
+        this.statsStarted = true; 
+        this.startCounters();
+      }
+    }, { threshold: 0.25 });
+
+    observer.observe(this.statSection.nativeElement);
+  }
+  private startCounters() {
+    this.startContinuousIncrease(this.counter1.nativeElement, 100, 19, 80, 200);
     this.startContinuousIncrease(this.counter2.nativeElement, 500000, 52, 15, 12000);
-    this.startContinuousIncrease(this.counter3.nativeElement, 200000, 16, 40, 1000);
+    this.startContinuousIncrease(this.counter3.nativeElement, 50, 14, 90, 250);
     this.startContinuousIncrease(this.counter4.nativeElement, 500000, 58, 11, 24000);
   }
-
   /**
    * Hiệu ứng tăng dần từ giá trị ban đầu
    * @param element   Phần tử HTML hiển thị số
