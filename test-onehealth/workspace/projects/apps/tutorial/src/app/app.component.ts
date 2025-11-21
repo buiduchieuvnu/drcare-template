@@ -9,12 +9,12 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class AppComponent {
     constructor(private router: Router) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        window.scrollTo({ top: 0 });
-      }
-    });
-  }
+      this.router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    }
   ngAfterViewInit() {
     // Đảm bảo header đã render xong
     setTimeout(() => this.updateBodyPadding(), 100);
