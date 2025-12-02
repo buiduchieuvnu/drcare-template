@@ -127,10 +127,11 @@
 
 .icon_green {
   position: absolute;
+  padding: 8px;
   z-index: 50;
   background-color: white;
-  border-radius: 6px;
-  width: 8%;
+  border-radius: 15px;
+  width: 10%;
   top: 10%;
   left: 75%;
 }
@@ -785,13 +786,10 @@
     left: 12%;
   }
   .icon_green {
-    position: absolute;
-    z-index: 50;
-    max-width: 10%;
+    max-width: 14%;
     background-color: white;
-    border-radius: 6px;
     width: 5px;
-    top: 8%;
+    top: 5%;
     left: 75%;
   }
 

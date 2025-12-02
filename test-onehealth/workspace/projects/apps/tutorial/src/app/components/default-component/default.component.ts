@@ -21,18 +21,18 @@ export class DefaultComponent implements OnInit, OnDestroy, AfterViewInit {
   timers: any[] = [];
 
   hospitals = [
-    { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital1.png', logo: '/assets/img/logo-benhvien.png' },
-    { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital2.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Bưu điện Hà Nội', address: 'Số 49 Trần Điền Định Công, Hoàng Mai, Hà Nội', image: '/assets/img/hospital1.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Đa khoa Bưu điện', address: 'Lô B9 Thành Thái, Phường Hòa Hưng, Tp. Hồ Chí Minh.', image: '/assets/img/hospital2.png', logo: '/assets/img/logo-benhvien.png' },
     { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital3.png', logo: '/assets/img/logo-benhvien.png' },
-    { name: 'Bệnh viện Bưu điện', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital4.png', logo: '/assets/img/logo-benhvien.png' },
-    { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital1.png', logo: '/assets/img/logo-benhvien.png' },
-    { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital2.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Đa khoa Long An', address: '211 Nguyễn Thông, Phường 3, Tân An, Long An', image: '/assets/img/hospital4.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Bưu điện Hà Nội', address: 'Số 49 Trần Điền Định Công, Hoàng Mai, Hà Nội', image: '/assets/img/hospital1.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Đa khoa Bưu điện', address: 'Lô B9 Thành Thái, Phường Hòa Hưng, Tp. Hồ Chí Minh.', image: '/assets/img/hospital2.png', logo: '/assets/img/logo-benhvien.png' },
     { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital3.png', logo: '/assets/img/logo-benhvien.png' },
-    { name: 'Bệnh viện Bưu điện', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital4.png', logo: '/assets/img/logo-benhvien.png' },
-    { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital1.png', logo: '/assets/img/logo-benhvien.png' },
-    { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital2.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Đa khoa Long An', address: '211 Nguyễn Thông, Phường 3, Tân An, Long An', image: '/assets/img/hospital4.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Bưu điện Hà Nội', address: 'Số 49 Trần Điền Định Công, Hoàng Mai, Hà Nội', image: '/assets/img/hospital1.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Đa khoa Bưu điện', address: 'Lô B9 Thành Thái, Phường Hòa Hưng, Tp. Hồ Chí Minh.', image: '/assets/img/hospital2.png', logo: '/assets/img/logo-benhvien.png' },
     { name: 'Bệnh viện Nguyễn Trãi', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital3.png', logo: '/assets/img/logo-benhvien.png' },
-    { name: 'Bệnh viện Bưu điện', address: '314 Nguyễn Trãi, Phường 8, Quận 5, Thành phố Hồ Chí Minh', image: '/assets/img/hospital4.png', logo: '/assets/img/logo-benhvien.png' },
+    { name: 'Bệnh viện Đa khoa Long An', address: '211 Nguyễn Thông, Phường 3, Tân An, Long An', image: '/assets/img/hospital4.png', logo: '/assets/img/logo-benhvien.png' },
   ];
 
 
@@ -258,9 +258,9 @@ export class DefaultComponent implements OnInit, OnDestroy, AfterViewInit {
   }
   private startCounters() {
     this.startContinuousIncrease(this.counter1.nativeElement, 100, 19, 80, 200);
-    this.startContinuousIncrease(this.counter2.nativeElement, 500000, 52, 15, 12000);
+    this.startContinuousIncrease(this.counter2.nativeElement, 500000, 61, 10, 12000);
     this.startContinuousIncrease(this.counter3.nativeElement, 50, 14, 90, 250);
-    this.startContinuousIncrease(this.counter4.nativeElement, 500000, 58, 11, 24000);
+    this.startContinuousIncrease(this.counter4.nativeElement, 50000, 23, 22, 2400);
   }
   /**
    * Hiệu ứng tăng dần từ giá trị ban đầu
