@@ -1,0 +1,16 @@
+<aside class="app-sidebar">
+
+  <a routerLink="/news"
+     routerLinkActive="active"
+     [class.active-custom]="activeRoute === '/news'"
+     class="side-item">
+     Tin tức
+  </a>
+
+  <a routerLink="/calendar"
+     routerLinkActive="active"
+     [class.active-custom]="activeRoute === '/calendar'"
+     class="side-item">
+     Lịch
+  </a>
+</aside>

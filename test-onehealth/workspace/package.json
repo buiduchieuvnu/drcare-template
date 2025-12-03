@@ -11,7 +11,9 @@
         "start:all": "concurrently -n w: npm:serve:single-spa:*",
         "build:all": "concurrently -m 3 -n w: npm:build:single-spa:*",
         "serve:single-spa:tutorial": "ng s --project tutorial --port 15568",
-        "build:single-spa:tutorial": "ng build tutorial --deploy-url /apps/tutorial/ --configuration=production"
+        "build:single-spa:tutorial": "ng build tutorial --deploy-url /apps/tutorial/ --configuration=production",
+        "serve:single-spa:admin": "ng s --project admin --port 15569",
+        "build:single-spa:admin": "ng build admin --deploy-url /apps/admin/news/ --configuration=production"
     },
     "dependencies": {
         "@angular/animations": "^18.0.0",

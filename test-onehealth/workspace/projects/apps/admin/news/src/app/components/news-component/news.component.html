@@ -1,0 +1,85 @@
+<div class="page-header">
+
+  <!-- Toolbar trên -->
+  <div class="toolbar-top">
+    <span oh-icon ohType="menu" ohTheme="outline" class="menu-toolbar" (click)="toggleMenu()"></span>
+    <button 
+      class="tool-btn" 
+      [class.active]="activeTab === 'file'"
+      (click)="selectTab('file')">
+      File
+    </button>
+
+    <button 
+      class="tool-btn" 
+      [class.active]="activeTab === 'home'"
+      (click)="selectTab('home')">
+      Home
+    </button>
+
+    <button 
+      class="tool-btn" 
+      [class.active]="activeTab === 'view'"
+      (click)="selectTab('view')">
+      View
+    </button>
+
+    <button 
+      class="tool-btn" 
+      [class.active]="activeTab === 'help'"
+      (click)="selectTab('help')">
+      Help
+    </button>
+  </div>
+
+  <!-- Toolbar dưới - dynamic -->
+  <div class="toolbar-bottom">
+
+    <!-- FILE -->
+    <ng-container *ngIf="activeTab === 'file'">
+      <button class="sub-btn">New</button>
+      <button class="sub-btn">Open</button>
+      <button class="sub-btn">Save</button>
+      <button class="sub-btn">Export</button>
+    </ng-container>
+
+    <!-- HOME -->
+    <ng-container *ngIf="activeTab === 'home'">
+      <button class="sub-btn">Copy</button>
+      <button class="sub-btn">Paste</button>
+      <button class="sub-btn">Delete</button>
+      <button class="sub-btn">Refresh</button>
+    </ng-container>
+
+    <!-- VIEW -->
+    <ng-container *ngIf="activeTab === 'view'">
+      <button class="sub-btn">Zoom In</button>
+      <button class="sub-btn">Zoom Out</button>
+      <button class="sub-btn">Full Screen</button>
+    </ng-container>
+
+    <!-- HELP -->
+    <ng-container *ngIf="activeTab === 'help'">
+      <button class="sub-btn">User Guide</button>
+      <button class="sub-btn">About</button>
+    </ng-container>
+
+  </div>
+</div>
+
+<div class="content" [class.menu-collapsed]="isMenuCollapsed">
+  <div class="left-menu">
+    <a 
+      *ngFor="let item of menuItems"
+      class="menu-item"
+      [routerLink]="item.path"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }">
+      {{ item.label }}
+    </a>
+  </div>
+
+  <div class="right-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
