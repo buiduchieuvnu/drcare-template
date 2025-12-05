@@ -2,78 +2,43 @@
 
   <!-- Toolbar trên -->
   <div class="toolbar-top">
-    <span oh-icon ohType="menu" ohTheme="outline" class="menu-toolbar" (click)="toggleMenu()"></span>
-    <button 
-      class="tool-btn" 
-      [class.active]="activeTab === 'file'"
-      (click)="selectTab('file')">
-      File
-    </button>
-
-    <button 
-      class="tool-btn" 
-      [class.active]="activeTab === 'home'"
-      (click)="selectTab('home')">
-      Home
-    </button>
-
-    <button 
-      class="tool-btn" 
-      [class.active]="activeTab === 'view'"
-      (click)="selectTab('view')">
-      View
-    </button>
-
-    <button 
-      class="tool-btn" 
-      [class.active]="activeTab === 'help'"
-      (click)="selectTab('help')">
-      Help
-    </button>
+    <span oh-icon ohType="menu" ohTheme="outline" class="menu-toolbar" (click)="toggleMenu()">
+    </span>
   </div>
 
-  <!-- Toolbar dưới - dynamic -->
+  <!-- Toolbar dưới - luôn hiện -->
   <div class="toolbar-bottom">
+    <div class="new-btn-wrapper" >
 
-    <!-- FILE -->
-    <ng-container *ngIf="activeTab === 'file'">
-      <button class="sub-btn">New</button>
-      <button class="sub-btn">Open</button>
-      <button class="sub-btn">Save</button>
-      <button class="sub-btn">Export</button>
-    </ng-container>
+      <!-- Nút chính -->
+      <button class="new-btn" [routerLink]="['news-create']">
+        <span oh-icon ohType="form" ohTheme="outline"></span> Thêm tin mới
+      </button>
 
-    <!-- HOME -->
-    <ng-container *ngIf="activeTab === 'home'">
-      <button class="sub-btn">Copy</button>
-      <button class="sub-btn">Paste</button>
-      <button class="sub-btn">Delete</button>
-      <button class="sub-btn">Refresh</button>
-    </ng-container>
+      <!-- Mũi tên -->
+      <button #dropdownRef class="arrow-btn" (click)="toggleDropdown()">
+        <span oh-icon ohType="caret-down" ohTheme="outline"></span>
+      </button>
 
-    <!-- VIEW -->
-    <ng-container *ngIf="activeTab === 'view'">
-      <button class="sub-btn">Zoom In</button>
-      <button class="sub-btn">Zoom Out</button>
-      <button class="sub-btn">Full Screen</button>
-    </ng-container>
+      <!-- Popup -->
+      <div class="dropdown-menu" *ngIf="isOpen">
+        <div class="item" [routerLink]="['news-create']"><span oh-icon ohType="form" ohTheme="outline"></span> Tin mới</div>
+        <div class="item"><span oh-icon ohType="alert" ohTheme="outline"></span> Sự kiện</div>
+        <div class="item"><span oh-icon ohType="container" ohTheme="outline"></span> Tài liệu</div>
+      </div>
 
-    <!-- HELP -->
-    <ng-container *ngIf="activeTab === 'help'">
-      <button class="sub-btn">User Guide</button>
-      <button class="sub-btn">About</button>
-    </ng-container>
+    </div>
+
+    <button class="sub-btn"><span oh-icon ohType="delete" ohTheme="outline"></span>Xóa</button>
+    <button class="sub-btn"><span oh-icon ohType="save" ohTheme="outline"></span>Lưu trữ</button>
 
   </div>
 </div>
 
+
 <div class="content" [class.menu-collapsed]="isMenuCollapsed">
   <div class="left-menu">
-    <a 
-      *ngFor="let item of menuItems"
-      class="menu-item"
-      [routerLink]="item.path"
-      routerLinkActive="active"
+    <a *ngFor="let item of menuItems" class="menu-item" [routerLink]="item.path" routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }">
       {{ item.label }}
     </a>

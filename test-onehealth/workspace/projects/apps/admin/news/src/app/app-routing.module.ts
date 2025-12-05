@@ -5,6 +5,7 @@ import { NewsComponent } from './components/news-component/news.component';
 import { CalendarComponent } from './components/calendar-component/calendar.component';
 import { NewsListComponent } from './components/news-list-component/news-list.component';
 import { NewsSectionComponent } from './components/news-section-component/news-section.component';
+import { NewsCreateComponent } from './components/news-create-component/news-createcomponent';
 
 const routes: Routes = [
   { path: '', component: NewsComponent, pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'news-list', pathMatch: 'full' },
       { path: 'news-list', component: NewsListComponent },
       { path: 'news-section', component: NewsSectionComponent },
+      { path: 'news-create', component: NewsCreateComponent },
     ]
   },
   { path: 'calendar', component: CalendarComponent },

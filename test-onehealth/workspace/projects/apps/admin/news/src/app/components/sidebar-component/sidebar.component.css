@@ -1,43 +1,35 @@
 .app-sidebar {
   position: fixed;
-  top: 42px; /* dưới header */
+  top: 50px;
   left: 0;
-  width: 100px;
+  width: 50px;
   height: calc(100vh - 42px);
-  background: #f7f7f7;
-  border-right: 1px solid #ddd;
+  background: #f0f0f0;
   display: flex;
   flex-direction: column;
   padding-top: 10px;
+  z-index: 10;
 }
-
-/* Mặc định chữ màu xám */
 .side-item {
   width: 100%;
-  text-align: left;
   padding: 10px 12px;
   font-size: 12px;
   border: none;
   background: transparent;
   cursor: pointer;
   transition: 0.2s;
-  color: #777;              /* chữ xám mặc định */
-  text-decoration: none;    /* bỏ underline */
+  color: #777;
+  text-decoration: none;
 }
 
 /* Hover đổi màu chữ */
 .side-item:hover {
-  background: #e1f0ff;
-  padding-left: 8px;
-  color: #0b74c9;           /* đổi màu chữ khi hover */
+  color: #0b74c9;
 }
 
-/* Active từ Angular + custom */
 .active,
 .active-custom {
-  background: #d5e9ff;
-  border-left: 4px solid #0b74c9;
-  padding-left: 16px;
+  border-left: 2px solid #0b74c9;
   font-weight: 600;
-  color: #0b74c9 !important;  /* chữ xanh khi active */
+  color: #0b74c9 !important;
 }

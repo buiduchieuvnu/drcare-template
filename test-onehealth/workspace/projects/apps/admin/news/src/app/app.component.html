@@ -1,7 +1,33 @@
-
-  <header-component></header-component>
-      <sidebar-component></sidebar-component>
-<!-- Khu vực hiển thị nội dung -->
-<div class="content-wrapper">
+<header-component [active]="isRightbarOpen" (toggleRightbar)="onToggleRightbar()"></header-component>
+<sidebar-component></sidebar-component>
+<div class="layout">
+  <div class="content-wrapper" [class.push-left]="isRightbarOpen">
     <router-outlet></router-outlet>
+  </div>
+
+  <div class="rightbar" [class.open]="isRightbarOpen">
+
+    <!-- Header của rightbar -->
+    <div class="rightbar-header">
+      <span class="title">Thông báo</span>
+
+      <div class="actions">
+        <button class="icon-btn">
+          <span oh-icon ohType="setting" ohTheme="outline"></span>
+        </button>
+
+        <button class="icon-btn close-btn" (click)="onToggleRightbar()">
+          <span oh-icon ohType="close" ohTheme="outline"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Nội dung -->
+    <div class="rightbar-content">
+      <p>Chưa có thông báo mới...</p>
+    </div>
+
+  </div>
+
+
 </div>

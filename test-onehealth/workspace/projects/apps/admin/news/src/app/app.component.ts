@@ -8,34 +8,12 @@ import { NavigationEnd, Router } from '@angular/router';
   standalone: false,
 })
 export class AppComponent {
-    constructor(private router: Router) {
-      this.router.events.subscribe(event => {
-        if (event instanceof NavigationEnd) {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      });
-    }
-  ngAfterViewInit() {
-    // Đảm bảo header đã render xong
-    setTimeout(() => this.updateBodyPadding(), 100);
-  }
 
-  @HostListener('window:resize')
-  onResize() {
-    this.updateBodyPadding();
-  }
+isRightbarOpen = false;
 
-  private updateBodyPadding() {
-    const header = document.getElementById('main-header');
-    const pageContent = document.querySelector('.page-content');
+onToggleRightbar() {
+  this.isRightbarOpen = !this.isRightbarOpen;
+}
 
-    if (header && pageContent) {
-      const headerHeight = header.offsetHeight;
-      (pageContent as HTMLElement).style.paddingTop = `${headerHeight}px`;
-      console.log('Header height:', headerHeight);
-    } else {
-      console.warn('Không tìm thấy header hoặc page-content');
-    }
-  }
-
+  
 }

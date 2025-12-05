@@ -1,29 +1,92 @@
 <header class="app-header">
-  <!-- Logo -->
   <div class="header-left">
-    <!-- <img src="/assets/img/logo.png" alt="Logo" class="logo ui-col-xl-12" /> -->
-    <img src="" alt="Logo" class="logo ui-col-xl-12" />
-    <!-- Search box -->
-    <div class="search-box ui-col-xl-12">
-      <span oh-icon ohType="search" ohTheme="outline" class="search-icon"></span>
-      <input type="text" placeholder="Search" />
+    <div class="logo">
+      <span class="logo-label">DRCARE247</span>
+    </div>
+
+    <div class="search" #searchWrapper>
+      <!-- Category dropdown -->
+      <div class="category" *ngIf="isFocus">
+        <button class="category-btn" (click)="toggleCategoryMenu($event)">
+          {{ selectedCategory }}
+          <span oh-icon ohType="down" ohTheme="outline" [class.open]="showCategoryMenu" class="arrow"></span>
+        </button>
+
+        <ul class="category-menu" *ngIf="showCategoryMenu">
+          <li (click)="selectCategory('Tất cả', $event)">Tất cả</li>
+          <li (click)="selectCategory('Tin tức', $event)">Tin tức</li>
+          <li (click)="selectCategory('Khác', $event)">Khác</li>
+        </ul>
+      </div>
+
+      <!-- Search box -->
+      <div class="search-box" [class.focused]="isFocus">
+        <button class="clear-btn" *ngIf="isFocus" (pointerdown)="clearFocus($event)">
+          <span oh-icon ohType="arrow-left" ohTheme="outline"></span>
+        </button>
+
+        <input #searchInput type="text" placeholder="Search" (focus)="onFocus()" />
+
+        <span oh-icon ohType="search" ohTheme="outline" class="search-icon"></span>
+      </div>
     </div>
   </div>
 
   <!-- Right Icons -->
   <div class="header-right">
-    <button class="icon-btn">
+    <button class="icon-btn" (click)="onBellClick()" [class.active]="active">
       <span oh-icon ohType="bell" ohTheme="outline"></span>
     </button>
 
-    <button class="icon-btn">
+    <button class="icon-btn" (click)="onSettingClick()">
       <span oh-icon ohType="setting" ohTheme="outline"></span>
     </button>
 
-    <!-- Account -->
-    <div class="account">
-      <img src="assets/avatar-default.png" alt="User" class="avatar" />
-      <span class="username">Thắng</span>
+    <div class="account-wrapper" >
+      <div class="account" #accountBtn (click)="toggleAccountMenu()">
+        <oh-avatar ohIcon="Contact"></oh-avatar>
+      </div>
+
+      <div class="account-popup" *ngIf="isAccountOpen" #accountPopup>
+
+        <div class="user-info">
+          <oh-avatar ohIcon="Contact"></oh-avatar>
+          <div class="info-text">
+            <div class="name">Thắng Nguyễn</div>
+            <div class="email">thang&#64;example.com</div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="menu-item">Thông tin tài khoản</div>
+        <div class="menu-item">Đổi mật khẩu</div>
+        <div class="menu-item">Đăng xuất</div>
+
+      </div>
     </div>
   </div>
+
+  <!-- Nền đen toàn màn hình -->
+  <div class="modal-backdrop" *ngIf="isSettingOpen"></div>
+
+  <!-- Bắt sự kiện click ngoài popup -->
+  <div class="modal-container" *ngIf="isSettingOpen" (click)="closeSetting()">
+
+    <!-- Popup -->
+    <div class="modal" (click)="$event.stopPropagation()">
+
+      <div class="modal-header">
+        <h2>Cài đặt</h2>
+        <button class="close-icon" (click)="closeSetting($event)">✕</button>
+      </div>
+
+      <div class="modal-body">
+        Setting
+      </div>
+
+    </div>
+
+  </div>
+
 </header>
