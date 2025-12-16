@@ -3,7 +3,7 @@ import { OHDropDownModule } from '@onehealth/ui/dropdown';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { OHLogoModule } from '@onehealth/ui/logo';
-import { AuthService } from '../../service/auth.service';
+import { AuthService } from '../../../service/auth.service';
 @Component({
   selector: 'header-component',
   standalone: false,

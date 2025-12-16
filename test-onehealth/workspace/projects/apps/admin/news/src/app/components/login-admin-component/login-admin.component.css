@@ -8,91 +8,21 @@
 }
 
 .login-wrapper {
-  width: 320px;
+  width: 370px;
 }
 
 .login-logo {
   text-align: center;
   margin-bottom: 16px;
 }
-
-.login-logo img {
-}
-
 .login-card {
+  display: block;
+  align-items: center;
+  justify-content: center;
   background: #fff;
   padding: 26px 24px 30px;
   border: 1px solid #c3c4c7;
   box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-}
-
-.form-group {
-  margin-bottom: 16px;
-}
-
-.form-group label {
-  display: block;
-  font-size: 13px;
-  margin-bottom: 6px;
-  color: #4f4f4f;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 6px 8px;
-  font-size: 14px;
-  border: 1px solid #8c8f94;
-  border-radius: 4px;
-  outline: none;
-}
-
-.form-group input:focus {
-  border-color: #2271b1;
-  box-shadow: 0 0 0 1px #2271b1;
-}
-
-.password-wrapper {
-  position: relative;
-}
-
-.password-wrapper .eye {
-  position: absolute;
-  right: 8px;
-  top: 11px;
-  cursor: pointer;
-  font-size: 14px;
-  color: #50575e;
-}
-
-.form-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.remember {
-  font-size: 13px;
-  color: #50575e;
-}
-
-.login-btn {
-  background: #2271b1;
-  border: 1px solid #2271b1;
-  color: #fff;
-  padding: 6px 12px;
-  font-size: 13px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.login-btn:hover {
-  background: #135e96;
-}
-
-.error {
-  margin-top: 10px;
-  font-size: 13px;
-  color: #b32d2e;
 }
 
 .login-links {
@@ -109,4 +39,13 @@
 
 .login-links a:hover {
   color: #2271b1;
+}
+.login-form-margin {
+  margin-bottom: 16px;
+}
+.login-form-forgot {
+  float: right;
+}
+.login-form-button {
+  width: 100%;
 }

@@ -22,32 +22,7 @@
   color: #777;
   text-decoration: none;
 }
-.side-item:hover {
-  color: #0b74c9;
-}
-.side-item::after {
-  content: attr(data-title);
-  position: absolute;
-  left: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #ffffff;
-  color: #303030;
-  padding: 6px 8px;
-  font-size: 12px;
-  white-space: nowrap;
-  border-radius: 4px;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.side-item:hover::after {
-  opacity: 1;
-}
 
 .active {
   border-left: 2px solid #0b74c9;
-  color: #0b74c9 !important;
 }

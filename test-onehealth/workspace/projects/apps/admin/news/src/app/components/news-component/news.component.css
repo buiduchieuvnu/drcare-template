@@ -20,9 +20,10 @@
 .toolbar-bottom {
   display: flex;
   gap: 8px;
-  padding: 8px 12px;
+  padding: 3px 8px;
   background: #ffffff;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
   margin-bottom: 6px;
 }
 
@@ -51,7 +52,7 @@
 }
 
 .new-btn, .arrow-btn {
-  padding: 6px 12px;
+  padding: 5px 8px;
   border: 1px solid #0d6efd;
   background: #0d6efd;
   color: white;
@@ -67,8 +68,9 @@
   align-items: center;
   justify-content: center;
   border-radius: 0 4px 4px 0;
+  padding: 8px 8px;
+  margin-left: 1px;
   width: 32px;
-  height: 100%;
 }
 
 .new-btn:hover,
@@ -100,8 +102,26 @@
 .dropdown-menu .item:hover {
   background: #f2f2f2;
 }
-
-
+.menu-second{
+  display: block;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 7px 5px 7px;
+  border-radius: 4px;
+}
+.menu-second:hover{
+  background: #e2e2e2;
+}
+.menu-second.active {
+  background-color: #e2e2e2;
+}
+[oh-dropdown]{
+  color: black;
+}
+[oh-menu]{
+  top: 5px;
+  left: -10px
+}
 /* MENU */
 .content {
   display: flex;
@@ -115,6 +135,19 @@
   padding: 10px 0;
   transition: width 0.2s ease, opacity 0.2s ease;
 }
+[oh-menu]{
+  background: #f5f5f5;
+}
+[oh-menu-item]::after{
+  border: none;
+}
+/* [oh-submenu].active{
+  color: #2f9cff;
+}
+[oh-menu-item].active{
+  color: #2f9cff;
+  background: #e6f7ff;
+} */
 .menu-collapsed .left-menu {
   width: 0;
   opacity: 0;

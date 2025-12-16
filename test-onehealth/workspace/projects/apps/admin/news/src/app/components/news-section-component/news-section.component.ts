@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'news-component',
+  selector: 'news-section-component',
   standalone: false,
   templateUrl: './news-section.component.html',
   styleUrls: ['./news-section.component.css']

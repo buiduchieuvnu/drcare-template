@@ -1,1 +1,67 @@
-Danh sách tin tức
+<div class="table-toolbar">
+    <div class="toolbar-left">
+        <div class="toolbar-right">
+            <div class="search-wrapper">
+                <input #searchInput oh-input placeholder="Search news..." [(ngModel)]="keyword"
+                    (ngModelChange)="onKeywordChange()" (keyup.enter)="onSearch()" />
+                <span *ngIf="!keyword" class="search-icon" oh-icon ohType="search">
+                </span>
+                <span *ngIf="keyword" class="clear-icon" oh-icon ohType="close" (click)="clearSearch(searchInput)">
+                </span>
+            </div>
+        </div>
+        <button oh-button ohType="primary" (click)="onSearch()">
+            Search
+        </button>
+    </div>
+    <div class="toolbar-right">
+
+        <button *ngIf="hasSelected" oh-button ohDanger (click)="onDeleteSelected()">
+            Delete ({{ setOfCheckedId.size }})
+        </button>
+    </div>
+</div>
+
+<oh-table #newsTable [ohData]="listOfDisplayData" ohShowSizeChanger
+    (ohCurrentPageDataChange)="onCurrentPageDataChange($event)">
+    <thead>
+        <tr>
+            <th [ohSelections]="listOfSelection" [(ohChecked)]="checked" [ohIndeterminate]="indeterminate"
+                (ohCheckedChange)="onAllChecked($event)"></th>
+
+            <th>Title</th>
+            <th>Author</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Created At</th>
+            <th>Active</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let item of newsTable.data">
+            <td [ohChecked]="setOfCheckedId.has(item.id)" (ohCheckedChange)="onItemChecked(item.id, $event)"></td>
+            <td class="link" (click)="goToEdit(item.id)">
+                {{ item.title }}
+            </td>
+            <td>{{ item.author }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.createdAt | date: 'dd/MM/yyyy' }}</td>
+            <td>
+                <label oh-checkbox [ngModel]="item.active" (ngModelChange)="onActiveChange(item, $event)">
+                </label>
+            </td>
+
+            <td class="actions">
+                <button oh-button ohType="link" (click)="goToEdit(item.id)">
+                    Update
+                </button>
+                <button oh-button ohType="link" ohDanger (click)="onDeleteSingle(item)">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</oh-table>

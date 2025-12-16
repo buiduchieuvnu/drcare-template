@@ -11,29 +11,46 @@ import { Routes } from '@angular/router';
   styleUrls: ['./news.component.css'],
 })
 export class NewsComponent {
-isMenuCollapsed: boolean = false;
+  isMenuCollapsed: boolean = false;
 
-toggleMenu() {
-  this.isMenuCollapsed = !this.isMenuCollapsed;
-}
+  toggleMenu() {
+    this.isMenuCollapsed = !this.isMenuCollapsed;
+  }
 
-menuItems = [
-  { path: 'news-list', label: 'Danh sách tin tức' },
-  { path: 'news-section', label: 'Chuyên mục tin' },
-];
-
+  menuItems = [
+    { path: 'news-list', label: 'Danh sách tin tức' },
+    { path: 'news-section', label: 'Chuyên mục tin' },
+  ];
   isOpen = false;
   @ViewChild('dropdownRef') dropdownRef!: ElementRef;
 
   toggleDropdown() {
     this.isOpen = !this.isOpen;
   }
+  isActive = false;
 
-  // Đóng popup khi click ra ngoài
+toggleActive(): void {
+  this.isActive = true;
+}
   @HostListener('document:click', ['$event'])
   onClickOutside(event: Event) {
-    if (this.dropdownRef && !this.dropdownRef.nativeElement.contains(event.target)) {
+    const target = event.target as HTMLElement;
+
+    /* đóng dropdown arrow */
+    if (
+      this.dropdownRef &&
+      !this.dropdownRef.nativeElement.contains(target)
+    ) {
       this.isOpen = false;
     }
+
+    /* đóng menu-second */
+    const menuSecond = document.querySelector('.menu-second');
+    if (menuSecond && !menuSecond.contains(target)) {
+      this.isActive = false;
+    }
+    
   }
+
+
 }

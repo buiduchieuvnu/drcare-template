@@ -1,11 +1,11 @@
 <header class="app-header">
   <div class="header-left">
     <div class="logo">
+    <oh-logo [ohColor]="'#ffffff'" class="custom-logo" [ohSize]="{'size':'lg'}"></oh-logo>
       <span class="logo-label">DRCARE247</span>
     </div>
 
     <div class="search" #searchWrapper>
-      <!-- Category dropdown -->
       <div class="category" *ngIf="isFocus">
         <button class="category-btn" (click)="toggleCategoryMenu($event)">
           {{ selectedCategory }}
@@ -19,7 +19,6 @@
         </ul>
       </div>
 
-      <!-- Search box -->
       <div class="search-box" [class.focused]="isFocus">
         <button class="clear-btn" *ngIf="isFocus" (pointerdown)="clearFocus($event)">
           <span oh-icon ohType="arrow-left" ohTheme="outline"></span>

@@ -1,60 +1,42 @@
 <div class="login-page">
   <div class="login-wrapper">
 
-    <!-- Logo -->
     <div class="login-logo">
       <img src="/assets/img/logo.png" alt="Logo" />
     </div>
 
-    <!-- Card -->
     <div class="login-card">
 
-      <form (ngSubmit)="onLogin()">
-
-        <div class="form-group">
-          <label>Tên người dùng hoặc Địa chỉ Email</label>
-          <input
-            type="text"
-            [(ngModel)]="username"
-            name="username"
-            required
-          />
-        </div>
-
-        <div class="form-group password-group">
-          <label>Mật khẩu</label>
-          <div class="password-wrapper">
-            <input
-              [type]="showPassword ? 'text' : 'password'"
-              [(ngModel)]="password"
-              name="password"
-              required
-            />
-            <span oh-icon ohType="eye" ohTheme="outline" (click)="showPassword = !showPassword" class="eye"></span>
+      <form oh-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+        <oh-form-item>
+          <oh-form-control ohErrorTip="Please input your username!">
+            <oh-input-group ohPrefixIcon="user">
+              <input type="text" oh-input formControlName="username" placeholder="Username" />
+            </oh-input-group>
+          </oh-form-control>
+        </oh-form-item>
+        <oh-form-item>
+          <oh-form-control ohErrorTip="Please input your Password!">
+            <oh-input-group ohPrefixIcon="lock">
+              <input type="password" oh-input formControlName="password" placeholder="Password" />
+            </oh-input-group>
+          </oh-form-control>
+        </oh-form-item>
+        <div oh-row class="login-form-margin">
+          <div oh-col [ohSpan]="12">
+            <label oh-checkbox formControlName="remember">
+              <span>Remember me</span>
+            </label>
+          </div>
+          <div oh-col [ohSpan]="12">
+            <a class="login-form-forgot">Forgot password</a>
           </div>
         </div>
-
-        <div class="form-footer">
-          <label class="remember">
-            <input type="checkbox" />
-            Tự động đăng nhập
-          </label>
-
-          <button type="submit" class="login-btn">
-            Đăng nhập
-          </button>
-        </div>
-
-        <div class="error" *ngIf="error">
-          {{ error }}
-        </div>
-
+        <button oh-button class="login-form-button" [ohType]="'primary'">Log in</button>
       </form>
     </div>
 
-    <!-- Links -->
     <div class="login-links">
-      <a href="#">Bạn quên mật khẩu?</a>
       <a href="/tutorial">← Quay lại DRCARE247</a>
     </div>
 

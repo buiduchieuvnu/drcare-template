@@ -3,7 +3,7 @@
     <span oh-icon ohType="menu" ohTheme="outline" class="menu-toolbar" (click)="toggleMenu()"></span>
   </div>
   <div class="toolbar-bottom">
-    <div class="new-btn-wrapper" >
+    <div class="new-btn-wrapper">
       <button class="new-btn" [routerLink]="['news-create']">
         <span oh-icon ohType="form" ohTheme="outline"></span> Thêm tin mới
       </button>
@@ -11,26 +11,63 @@
         <span oh-icon ohType="caret-down" ohTheme="outline"></span>
       </button>
       <div class="dropdown-menu" *ngIf="isOpen">
-        <div class="item" [routerLink]="['news-create']"><span oh-icon ohType="form" ohTheme="outline"></span> Tin mới</div>
+        <div class="item" [routerLink]="['news-create']"><span oh-icon ohType="form" ohTheme="outline"></span> Tin mới
+        </div>
         <div class="item"><span oh-icon ohType="alert" ohTheme="outline"></span> Sự kiện</div>
         <div class="item"><span oh-icon ohType="container" ohTheme="outline"></span> Tài liệu</div>
       </div>
 
     </div>
 
-    <button class="sub-btn"><span oh-icon ohType="delete" ohTheme="outline"></span>Xóa</button>
-    <button class="sub-btn"><span oh-icon ohType="save" ohTheme="outline"></span>Lưu trữ</button>
+    <button class="sub-btn"><span oh-icon ohType="edit" ohTheme="outline"></span>Sửa</button>
+    <button class="sub-btn"><span oh-icon ohType="delete" ohTheme="fabric"></span>Xóa</button>
+    <button class="sub-btn"><span oh-icon ohType="save" ohTheme="fabric"></span>Lưu</button>
 
+    <div class="menu-second" [class.active]="isActive" (click)="toggleActive()">
+      <a oh-dropdown ohTrigger="click" [ohDropdownMenu]="menu">
+        <span oh-icon ohType="ellipsis" ohTheme="outline" ohColor="red"></span>
+      </a>
+      <oh-dropdown-menu #menu="ohDropdownMenu">
+        <ul oh-menu>
+          <li oh-menu-item>1st menu item</li>
+          <li oh-menu-item>2nd menu item</li>
+          <li oh-menu-divider></li>
+          <li oh-menu-item ohDisabled>disabled menu item</li>
+          <li oh-submenu ohTitle="sub menu">
+            <ul>
+              <li oh-menu-item>3rd menu item</li>
+              <li oh-menu-item>4th menu item</li>
+            </ul>
+          </li>
+          <li oh-submenu ohDisabled ohTitle="disabled sub menu">
+            <ul>
+              <li oh-menu-item>3rd menu item</li>
+              <li oh-menu-item>4th menu item</li>
+            </ul>
+          </li>
+        </ul>
+      </oh-dropdown-menu>
+    </div>
   </div>
 </div>
 
 
 <div class="content" [class.menu-collapsed]="isMenuCollapsed">
   <div class="left-menu">
-    <a *ngFor="let item of menuItems" class="menu-item" [routerLink]="item.path" routerLinkActive="active"
+    <!-- <a *ngFor="let item of menuItems" class="menu-item" [routerLink]="item.path" routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }">
       {{ item.label }}
-    </a>
+    </a> -->
+    <ul oh-menu ohMode="inline">
+      <li oh-submenu ohTitle="Tin tức" ohIcon="appstore">
+        <ul>
+          <li oh-menu-item *ngFor="let item of menuItems" [routerLink]="item.path">
+            {{ item.label }}
+          </li>
+
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="right-content">

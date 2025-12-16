@@ -1,0 +1,45 @@
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.toolbar-left {
+  display: flex;
+  gap: 8px;
+}
+.search-wrapper {
+  position: relative;
+  width: 260px;
+
+  input {
+    padding-right: 36px;
+  }
+}
+
+.search-icon,
+.clear-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #999;
+}
+
+.clear-icon:hover {
+  color: #0061bc;
+}
+
+.toolbar-left input, button{
+    border-radius: 4px;
+}
+.link {
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
