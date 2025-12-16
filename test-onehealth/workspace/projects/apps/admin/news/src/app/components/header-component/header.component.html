@@ -42,7 +42,7 @@
       <span oh-icon ohType="setting" ohTheme="outline"></span>
     </button>
 
-    <div class="account-wrapper" >
+    <div class="account-wrapper" *ngIf="auth.isLoggedIn()">
       <div class="account" #accountBtn (click)="toggleAccountMenu()">
         <oh-avatar ohIcon="Contact"></oh-avatar>
       </div>
@@ -52,8 +52,8 @@
         <div class="user-info">
           <oh-avatar ohIcon="Contact"></oh-avatar>
           <div class="info-text">
-            <div class="name">Thắng Nguyễn</div>
-            <div class="email">thang&#64;example.com</div>
+            <div class="name">{{ user?.name }}</div>
+            <div class="email">{{ user?.email }}</div>
           </div>
         </div>
 
@@ -61,7 +61,7 @@
 
         <div class="menu-item">Thông tin tài khoản</div>
         <div class="menu-item">Đổi mật khẩu</div>
-        <div class="menu-item">Đăng xuất</div>
+        <div class="menu-item" (click)="logout()">Đăng xuất</div>
 
       </div>
     </div>

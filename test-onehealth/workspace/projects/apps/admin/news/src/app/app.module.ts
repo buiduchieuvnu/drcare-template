@@ -18,6 +18,9 @@ import { NewsSectionComponent } from './components/news-section-component/news-s
 
 import { OH_CONFIG, OHConfig } from '@onehealth/ui/core/config';
 import { NewsCreateComponent } from './components/news-create-component/news-createcomponent';
+import { LayoutAdminComponent } from './components/layout-admin-component/layout-admincomponent';
+import { LoginAdminComponent } from './components/login-admin-component/login-admin.component';
+import { FormsModule } from '@angular/forms';
 registerLocaleData(localeVi);
 
 @NgModule({
@@ -28,7 +31,9 @@ registerLocaleData(localeVi);
     NewsComponent,
     NewsListComponent,
     NewsSectionComponent,
-    NewsCreateComponent
+    NewsCreateComponent,
+    LayoutAdminComponent,
+    LoginAdminComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -37,7 +42,8 @@ registerLocaleData(localeVi);
     CommonLibraryModule,
     OnehealthModule,
     OnehealthCoreModule,
-    OHIconModule
+    OHIconModule,
+    FormsModule
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/admin' }

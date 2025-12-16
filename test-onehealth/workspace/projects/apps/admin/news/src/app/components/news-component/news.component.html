@@ -1,26 +1,15 @@
 <div class="page-header">
-
-  <!-- Toolbar trên -->
   <div class="toolbar-top">
-    <span oh-icon ohType="menu" ohTheme="outline" class="menu-toolbar" (click)="toggleMenu()">
-    </span>
+    <span oh-icon ohType="menu" ohTheme="outline" class="menu-toolbar" (click)="toggleMenu()"></span>
   </div>
-
-  <!-- Toolbar dưới - luôn hiện -->
   <div class="toolbar-bottom">
     <div class="new-btn-wrapper" >
-
-      <!-- Nút chính -->
       <button class="new-btn" [routerLink]="['news-create']">
         <span oh-icon ohType="form" ohTheme="outline"></span> Thêm tin mới
       </button>
-
-      <!-- Mũi tên -->
       <button #dropdownRef class="arrow-btn" (click)="toggleDropdown()">
         <span oh-icon ohType="caret-down" ohTheme="outline"></span>
       </button>
-
-      <!-- Popup -->
       <div class="dropdown-menu" *ngIf="isOpen">
         <div class="item" [routerLink]="['news-create']"><span oh-icon ohType="form" ohTheme="outline"></span> Tin mới</div>
         <div class="item"><span oh-icon ohType="alert" ohTheme="outline"></span> Sự kiện</div>

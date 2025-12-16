@@ -1,0 +1,62 @@
+<div class="login-page">
+  <div class="login-wrapper">
+
+    <!-- Logo -->
+    <div class="login-logo">
+      <img src="/assets/img/logo.png" alt="Logo" />
+    </div>
+
+    <!-- Card -->
+    <div class="login-card">
+
+      <form (ngSubmit)="onLogin()">
+
+        <div class="form-group">
+          <label>Tên người dùng hoặc Địa chỉ Email</label>
+          <input
+            type="text"
+            [(ngModel)]="username"
+            name="username"
+            required
+          />
+        </div>
+
+        <div class="form-group password-group">
+          <label>Mật khẩu</label>
+          <div class="password-wrapper">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              [(ngModel)]="password"
+              name="password"
+              required
+            />
+            <span oh-icon ohType="eye" ohTheme="outline" (click)="showPassword = !showPassword" class="eye"></span>
+          </div>
+        </div>
+
+        <div class="form-footer">
+          <label class="remember">
+            <input type="checkbox" />
+            Tự động đăng nhập
+          </label>
+
+          <button type="submit" class="login-btn">
+            Đăng nhập
+          </button>
+        </div>
+
+        <div class="error" *ngIf="error">
+          {{ error }}
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Links -->
+    <div class="login-links">
+      <a href="#">Bạn quên mật khẩu?</a>
+      <a href="/tutorial">← Quay lại DRCARE247</a>
+    </div>
+
+  </div>
+</div>

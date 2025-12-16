@@ -3,6 +3,7 @@ import { OHDropDownModule } from '@onehealth/ui/dropdown';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { OHLogoModule } from '@onehealth/ui/logo';
+import { AuthService } from '../../service/auth.service';
 @Component({
   selector: 'header-component',
   standalone: false,
@@ -17,6 +18,15 @@ export class HeaderComponent {
   isFocus = false;
   showCategoryMenu = false;
   selectedCategory = 'Tất cả';
+
+  user: any;
+  constructor(
+    public auth: AuthService,
+    private router: Router
+  ) {}
+  ngOnInit() {
+    this.user = this.auth.getUser();
+  }
 
   onFocus() {
     this.isFocus = true;
@@ -91,5 +101,9 @@ export class HeaderComponent {
       const overlayClicked = (target.classList.contains('modal-container'));
       if (overlayClicked) this.isSettingOpen = false;
     }
+  }
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['/login']);
   }
 }

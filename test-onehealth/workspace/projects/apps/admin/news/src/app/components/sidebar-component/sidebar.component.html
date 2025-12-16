@@ -3,14 +3,17 @@
   <a routerLink="/news"
      routerLinkActive="active"
      [class.active-custom]="activeRoute === '/news'"
-     class="side-item">
+     class="side-item"
+     data-title="Tin tức">
      <span oh-icon ohType="book" ohTheme="outline"></span>
   </a>
 
   <a routerLink="/calendar"
      routerLinkActive="active"
      [class.active-custom]="activeRoute === '/calendar'"
-     class="side-item">
+     class="side-item"
+     data-title="Lịch làm việc">
      <span oh-icon ohType="calendar" ohTheme="outline"></span>
   </a>
+
 </aside>
