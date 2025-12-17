@@ -1,19 +1,36 @@
 <aside class="app-sidebar">
 
-  <a routerLink="/news"
-     routerLinkActive="active"
-     [class.active-custom]="activeRoute === '/news'"
-     class="side-item"
-     data-title="Tin tức">
-     <span oh-icon ohType="book" ohTheme="fill" [ohColor]="'primary'"></span>
-  </a>
+   <div class="sidebar-top">
+      <a routerLink="/news" routerLinkActive="active" class="side-item" data-title="Tin tức">
+         <span oh-icon ohType="book" ohTheme="fill" [ohColor]="'primary'"></span>
+      </a>
 
-  <a routerLink="/calendar"
-     routerLinkActive="active"
-     [class.active-custom]="activeRoute === '/calendar'"
-     class="side-item"
-     data-title="Lịch làm việc">
-     <span oh-icon ohType="calendar" ohTheme="fill" [ohColor]="'warning'"></span>
-  </a>
+      <a routerLink="/calendar" routerLinkActive="active" class="side-item" data-title="Lịch làm việc">
+         <span oh-icon ohType="calendar" ohTheme="fill" [ohColor]="'warning'"></span>
+      </a>
+   </div>
+
+   <div class="sidebar-bottom">
+      <span oh-icon ohType="all-apps" ohTheme="fabric" [ohSize]="'md'" class="apps" [class.active]="showApps"
+         (click)="toggleApps()"></span>
+   </div>
+   <div class="apps-panel" *ngIf="showApps" #appsPanel>
+      <div class="apps-search">
+         <input type="text" placeholder="Tìm một ứng dụng" />
+      </div>
+      <div class="apps-grid">
+         <div class="app-item">
+            <div class="app-icon"><span oh-icon ohType="access-logo" ohTheme="fabric" [ohColor]="'success'"></span></div>
+            <div class="app-label">Nhóm</div>
+         </div>
+
+         <div class="app-item">
+            <div class="app-icon"><span oh-icon ohType="admin-e-logo-inverse32" ohTheme="fabric" [ohColor]="'danger'"></span></div>
+            <div class="app-label">OneNote</div>
+         </div>
+      </div>
+
+   </div>
+
 
 </aside>

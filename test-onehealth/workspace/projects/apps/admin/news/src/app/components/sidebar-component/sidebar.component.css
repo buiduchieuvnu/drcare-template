@@ -2,27 +2,133 @@
   position: fixed;
   top: 50px;
   left: 0;
-  width: 50px;
-  height: calc(100vh - 42px);
+  width: 45px;
+  height: calc(100vh - 50px);
   background: #f0f0f0;
   display: flex;
   flex-direction: column;
-  padding-top: 10px;
+  justify-content: space-between; /* QUAN TRỌNG */
+  padding: 10px 0;
   z-index: 10;
+}
+
+/* TOP */
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+}
+
+/* BOTTOM */
+.sidebar-bottom {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
 }
 .side-item {
   position: relative;
   width: 100%;
   padding: 10px 12px;
-  font-size: 12px;
-  border: none;
-  background: transparent;
   cursor: pointer;
-  transition: 0.2s;
   color: #777;
   text-decoration: none;
 }
 
-.active {
+.side-item:hover {
+  background: #e8e8e8;
+}
+
+.side-item::after {
+  content: attr(data-title);
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffffff;
+  padding: 6px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 999;
+  transition: 0.2s;
+}
+
+.side-item:hover::after {
+  opacity: 1;
+}
+
+.side-item.active {
   border-left: 2px solid #0b74c9;
 }
+
+.apps {
+  cursor: pointer;
+}
+
+.apps:hover {
+  color: #0b74c9;
+}
+.apps.active {
+  background: #e6f0fb;
+  color: #0b74c9;
+}
+.apps-panel {
+  position: fixed;
+  left: 45px;
+  bottom: 20px;
+  width: 260px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  z-index: 20;
+}
+
+.apps-search input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #d0d0d0;
+  font-size: 13px;
+  outline: none;
+}
+
+.apps-search input:focus {
+  border-color: #0b74c9;
+}
+
+.apps-grid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  text-align: center;
+}
+.app-item {
+  cursor: pointer;
+}
+
+.app-item:hover .app-icon {
+  background: #f0f6ff;
+}
+
+.app-icon {
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: #f5f5f5;
+}
+
+.app-label {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #333;
+}
+
+

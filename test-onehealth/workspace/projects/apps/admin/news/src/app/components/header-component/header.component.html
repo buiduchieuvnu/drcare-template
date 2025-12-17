@@ -1,7 +1,7 @@
 <header class="app-header">
   <div class="header-left">
     <div class="logo">
-    <oh-logo [ohColor]="'#ffffff'" class="custom-logo" [ohSize]="{'size':'lg'}"></oh-logo>
+      <oh-logo [ohColor]="'#ffffff'" class="custom-logo" [ohSize]="{'size':'lg'}"></oh-logo>
       <span class="logo-label">DRCARE247</span>
     </div>
 
@@ -72,18 +72,53 @@
   <!-- Bắt sự kiện click ngoài popup -->
   <div class="modal-container" *ngIf="isSettingOpen" (click)="closeSetting()">
 
-    <!-- Popup -->
     <div class="modal" (click)="$event.stopPropagation()">
-
-      <div class="modal-header">
-        <h2>Cài đặt</h2>
-        <button class="close-icon" (click)="closeSetting($event)">✕</button>
-      </div>
-
       <div class="modal-body">
-        Setting
-      </div>
+        <div class="d-flex setting-layout">
 
+          <!-- ===== CẤP 1 ===== -->
+          <div class="ui-col-xl-5 setting-col left">
+            <h2>Thiết đặt</h2>
+
+            <input type="text" class="search-setting" placeholder="Tìm kiếm thiết đặt" />
+
+            <ul class="menu">
+              <li *ngFor="let item of level1" [class.active]="item.key === selectedLevel1?.key"
+                (click)="selectLevel1(item)">
+                <span oh-icon [ohType]="item.icon" ohTheme="outline" class="menu-icon"></span>
+                {{ item.label }}
+              </li>
+            </ul>
+          </div>
+
+          <!-- ===== CẤP 2 ===== -->
+          <div class="ui-col-xl-4 setting-col middle">
+            <ul class="submenu" *ngIf="selectedLevel1">
+              <li *ngFor="let child of selectedLevel1.children" [class.active]="child.key === selectedLevel2?.key"
+                (click)="selectLevel2(child)">
+                {{ child.label }}
+              </li>
+            </ul>
+          </div>
+
+          <!-- ===== CẤP 3 ===== -->
+          <div class="ui-col-xl-15 setting-col right">
+            <!-- Header -->
+            <div class="content-header">
+              <h2>{{ selectedLevel2?.label }}</h2>
+
+              <span oh-icon ohType="close" ohTheme="outline" class="close-icon" (click)="closeSetting($event)"></span>
+            </div>
+
+            <!-- Content -->
+            <div class="content-body" *ngIf="selectedLevel2">
+              <!-- demo content -->
+              <p>Nội dung của {{ selectedLevel2.label }}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
 
   </div>

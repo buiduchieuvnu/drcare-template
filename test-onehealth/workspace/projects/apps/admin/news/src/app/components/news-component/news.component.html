@@ -1,6 +1,6 @@
 <div class="page-header">
   <div class="toolbar-top">
-    <span oh-icon ohType="menu" ohTheme="outline" class="menu-toolbar" (click)="toggleMenu()"></span>
+    <h2>Quản lý tin tức</h2>
   </div>
   <div class="toolbar-bottom">
     <div class="new-btn-wrapper">
@@ -23,9 +23,9 @@
     <button class="sub-btn"><span oh-icon ohType="delete" ohTheme="fabric"></span>Xóa</button>
     <button class="sub-btn"><span oh-icon ohType="save" ohTheme="fabric"></span>Lưu</button>
 
-    <div class="menu-second" [class.active]="isActive" (click)="toggleActive()">
-      <a oh-dropdown ohTrigger="click" [ohDropdownMenu]="menu">
-        <span oh-icon ohType="ellipsis" ohTheme="outline" ohColor="red"></span>
+    <div class="menu-second" [class.active]="isActive">
+      <a oh-dropdown ohTrigger="click" [ohDropdownMenu]="menu" (click)="onMenuSecondClick($event)">
+        <span oh-icon ohType="ellipsis" ohTheme="outline"></span>
       </a>
       <oh-dropdown-menu #menu="ohDropdownMenu">
         <ul oh-menu>
@@ -39,12 +39,6 @@
               <li oh-menu-item>4th menu item</li>
             </ul>
           </li>
-          <li oh-submenu ohDisabled ohTitle="disabled sub menu">
-            <ul>
-              <li oh-menu-item>3rd menu item</li>
-              <li oh-menu-item>4th menu item</li>
-            </ul>
-          </li>
         </ul>
       </oh-dropdown-menu>
     </div>
@@ -53,21 +47,22 @@
 
 
 <div class="content" [class.menu-collapsed]="isMenuCollapsed">
+
   <div class="left-menu">
-    <!-- <a *ngFor="let item of menuItems" class="menu-item" [routerLink]="item.path" routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }">
-      {{ item.label }}
-    </a> -->
     <ul oh-menu ohMode="inline">
       <li oh-submenu ohTitle="Tin tức" ohIcon="appstore">
         <ul>
-          <li oh-menu-item *ngFor="let item of menuItems" [routerLink]="item.path">
-            {{ item.label }}
+          <li oh-menu-item *ngFor="let item of menuItems" [routerLink]="item.path" class="menu-item-custom">
+            <span oh-icon [ohType]="item.icon" ohTheme="outline"></span>
+            <span class="menu-text">{{ item.label }}</span>
           </li>
 
         </ul>
       </li>
     </ul>
+  </div>
+  <div class="menu-toggle-wrapper">
+    <span oh-icon [ohType]="isMenuCollapsed ? 'right' : 'left'" ohTheme="outline" class="menu-toolbar" (click)="toggleMenu()"></span>
   </div>
 
   <div class="right-content">

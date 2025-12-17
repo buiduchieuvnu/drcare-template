@@ -18,8 +18,8 @@ export class NewsComponent {
   }
 
   menuItems = [
-    { path: 'news-list', label: 'Danh sách tin tức' },
-    { path: 'news-section', label: 'Chuyên mục tin' },
+    { path: 'news-list', label: 'Danh sách tin tức', icon: "ordered-list" },
+    { path: 'news-section', label: 'Chuyên mục tin', icon: "folder-open" },
   ];
   isOpen = false;
   @ViewChild('dropdownRef') dropdownRef!: ElementRef;
@@ -29,9 +29,10 @@ export class NewsComponent {
   }
   isActive = false;
 
-toggleActive(): void {
-  this.isActive = true;
-}
+  onMenuSecondClick(event: Event) {
+    event.stopPropagation();
+    this.isActive = !this.isActive;
+  }
   @HostListener('document:click', ['$event'])
   onClickOutside(event: Event) {
     const target = event.target as HTMLElement;
@@ -44,12 +45,8 @@ toggleActive(): void {
       this.isOpen = false;
     }
 
-    /* đóng menu-second */
-    const menuSecond = document.querySelector('.menu-second');
-    if (menuSecond && !menuSecond.contains(target)) {
-      this.isActive = false;
-    }
-    
+    this.isActive = false;
+
   }
 
 
