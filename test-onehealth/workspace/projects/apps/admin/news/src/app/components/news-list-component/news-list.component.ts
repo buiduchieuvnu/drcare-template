@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { News } from '../../../models/news.model';
 import { Router } from '@angular/router';
+import { ColumnItem } from '../../../models/columnItem.model';
 
 @Component({
   selector: 'news-list-component',
@@ -9,39 +10,85 @@ import { Router } from '@angular/router';
   styleUrls: ['./news-list.component.css']
 })
 export class NewsListComponent implements OnInit {
+  @Output() selectionChange = new EventEmitter<number[]>();
+  
   listOfData: News[] = [];
   listOfDisplayData: News[] = [];
-  listOfCurrentPageData: readonly News[] = [];
-
   checked = false;
   indeterminate = false;
-  setOfCheckedId = new Set<number>();
+  keyword = '';
 
-  listOfSelection = [
+  setOfCheckedId = new Set<number>();
+  listOfCurrentPageData: readonly News[] = [];
+
+  listOfColumns: ColumnItem<News>[] = [
     {
-      text: 'Select All',
-      onSelect: () => this.onAllChecked(true)
+      name: 'Title',
+      sortOrder: null,
+      sortFn: (a, b) => a.title.localeCompare(b.title),
+      sortDirections: ['ascend', 'descend', null],
+      listOfFilter: [],
+      filterFn: null,
+      filterMultiple: true
+    },
+    {
+      name: 'Author',
+      sortOrder: null,
+      sortFn: (a, b) => a.author.localeCompare(b.author),
+      sortDirections: ['ascend', 'descend', null],
+      listOfFilter: [],
+      filterFn: null,
+      filterMultiple: true
+    },
+    {
+      name: 'Description',
+      sortOrder: null,
+      sortFn: null,
+      sortDirections: [null],
+      listOfFilter: [],
+      filterFn: null,
+      filterMultiple: true
+    },
+    {
+      name: 'Category',
+      sortOrder: null,
+      sortFn: (a, b) => a.category.localeCompare(b.category),
+      sortDirections: ['ascend', 'descend', null],
+      listOfFilter: [
+        { text: 'Health', value: 'Health' }
+      ],
+      filterFn: (category: string, item) =>
+        item.category.indexOf(category) !== -1,
+      filterMultiple: false
+    },
+    {
+      name: 'Created At',
+      sortOrder: null,
+      sortFn: (a, b) =>
+        new Date(a.createdAt).getTime() -
+        new Date(b.createdAt).getTime(),
+      sortDirections: ['ascend', 'descend', null],
+      listOfFilter: [],
+      filterFn: null,
+      filterMultiple: true
     }
   ];
-
-
-  keyword = '';
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.listOfData = new Array(30).fill(0).map((_, i) => ({
+    this.listOfData = Array.from({ length: 30 }).map((_, i) => ({
       id: i,
       title: `News title ${i}`,
       author: 'Admin',
       description: 'Short description',
       category: 'Health',
-      createdAt: new Date(),
-      active: i % 2 === 0
+      createdAt: new Date()
     }));
 
     this.listOfDisplayData = [...this.listOfData];
   }
+
   onKeywordChange(): void {
     if (!this.keyword) {
       this.listOfDisplayData = [...this.listOfData];
@@ -64,66 +111,42 @@ export class NewsListComponent implements OnInit {
     );
   }
 
-  onDeleteSelected(): void {
-    this.listOfData = this.listOfData.filter(
-      item => !this.setOfCheckedId.has(item.id)
-    );
-
-    this.listOfDisplayData = [...this.listOfData];
-    this.setOfCheckedId.clear();
-    this.refreshCheckedStatus();
-  }
-
-  onDeleteSingle(news: News): void {
-    this.listOfData = this.listOfData.filter(item => item.id !== news.id);
-    this.listOfDisplayData = [...this.listOfData];
-  }
-
-  goToEdit(id: number): void {
-    this.router.navigate(['/news/edit', id]);
-  }
-
-  onActiveChange(news: News, value: boolean): void {
-    news.active = value;
-    console.log('Update active:', news.id, value);
-  }
-
-  updateCheckedSet(id: number, checked: boolean): void {
-    checked ? this.setOfCheckedId.add(id) : this.setOfCheckedId.delete(id);
-  }
-
   onItemChecked(id: number, checked: boolean): void {
-    this.updateCheckedSet(id, checked);
+    checked
+      ? this.setOfCheckedId.add(id)
+      : this.setOfCheckedId.delete(id);
     this.refreshCheckedStatus();
   }
-
+  /** Check all */
   onAllChecked(value: boolean): void {
-    this.listOfCurrentPageData.forEach(item =>
-      this.updateCheckedSet(item.id, value)
-    );
+    this.listOfCurrentPageData.forEach(item => {
+      value
+        ? this.setOfCheckedId.add(item.id)
+        : this.setOfCheckedId.delete(item.id);
+    });
+
     this.refreshCheckedStatus();
   }
-
+  /** Bắt data trang hiện tại */
   onCurrentPageDataChange(data: readonly News[]): void {
     this.listOfCurrentPageData = data;
     this.refreshCheckedStatus();
   }
 
+  /** Đồng bộ trạng thái checkbox header */
   refreshCheckedStatus(): void {
-    this.checked =
-      this.listOfCurrentPageData.length > 0 &&
-      this.listOfCurrentPageData.every(item =>
-        this.setOfCheckedId.has(item.id)
-      );
+    const total = this.listOfCurrentPageData.length;
+    const checkedCount = this.listOfCurrentPageData.filter(item =>
+      this.setOfCheckedId.has(item.id)
+    ).length;
 
-    this.indeterminate =
-      this.listOfCurrentPageData.some(item =>
-        this.setOfCheckedId.has(item.id)
-      ) && !this.checked;
+    this.checked = total > 0 && checkedCount === total;
+    this.indeterminate = checkedCount > 0 && checkedCount < total;
+    
+    this.selectionChange.emit( Array.from(this.setOfCheckedId));
   }
-
-  get hasSelected(): boolean {
-    return this.setOfCheckedId.size > 0;
+  goToEdit(id: number): void {
+    this.router.navigate(['/news/edit', id]);
   }
 
 }

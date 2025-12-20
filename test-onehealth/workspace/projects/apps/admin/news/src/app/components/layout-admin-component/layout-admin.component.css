@@ -1,3 +1,7 @@
+.sidebar{
+position: fixed;
+  z-index: 800;
+}
 .layout {
   display: flex;
   position: relative;

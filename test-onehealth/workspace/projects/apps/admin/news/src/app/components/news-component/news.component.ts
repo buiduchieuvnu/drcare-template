@@ -1,9 +1,5 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { OHActionBarModule } from '@onehealth/ui/action-bar';
-import { NewsListComponent } from '../news-list-component/news-list.component';
-import { NewsSectionComponent } from '../news-section-component/news-section.component';
-import { Routes } from '@angular/router';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'news-component',
   standalone: false,
@@ -12,6 +8,59 @@ import { Routes } from '@angular/router';
 })
 export class NewsComponent {
   isMenuCollapsed: boolean = false;
+  isOpen = false;
+  isActive = false;
+
+  canEdit = false;
+  canDelete = false;
+  canSave = false;
+  isEditRoute = false;
+  selectedIds: number[] = [];
+  constructor(private router: Router) { }
+
+  updateActionState(): void {
+    this.canEdit = this.selectedIds.length === 1;
+    this.canDelete = this.selectedIds.length >= 1;
+    this.canSave = this.isEditRoute;
+  }
+
+  onEdit() {
+    if (this.selectedIds.length === 1) {
+      this.router.navigate(['/news/edit', this.selectedIds[0]]);
+    }
+  }
+  onDelete() {
+    if (!this.canDelete) return;
+    const confirmDelete = alert(
+      `Xóa ${this.selectedIds.length} tin tức đã chọn`
+    );
+    this.selectedIds = [];
+    this.router.navigate(['/news/news-list']);
+  }
+
+  onSave() {
+    if (!this.isEditRoute) return;
+
+    alert('Lưu tin tức thành công');
+    this.router.navigate(['/news/news-list']);
+  }
+
+
+  onActivate(component: any) {
+    Promise.resolve().then(() => {
+      if (component.selectionChange) {
+        component.selectionChange.subscribe((ids: number[]) => {
+          this.selectedIds = ids;
+          this.updateActionState();
+        });
+      }
+
+      this.isEditRoute =
+        component.constructor.name === 'NewsEditComponent';
+
+      this.updateActionState();
+    });
+  }
 
   toggleMenu() {
     this.isMenuCollapsed = !this.isMenuCollapsed;
@@ -19,20 +68,19 @@ export class NewsComponent {
 
   menuItems = [
     { path: 'news-list', label: 'Danh sách tin tức', icon: "ordered-list" },
-    { path: 'news-section', label: 'Chuyên mục tin', icon: "folder-open" },
+    { path: 'news-category', label: 'Chuyên mục tin', icon: "folder-open" },
   ];
-  isOpen = false;
   @ViewChild('dropdownRef') dropdownRef!: ElementRef;
 
   toggleDropdown() {
     this.isOpen = !this.isOpen;
   }
-  isActive = false;
 
   onMenuSecondClick(event: Event) {
     event.stopPropagation();
     this.isActive = !this.isActive;
   }
+
   @HostListener('document:click', ['$event'])
   onClickOutside(event: Event) {
     const target = event.target as HTMLElement;

@@ -5,5 +5,4 @@ export interface News {
   description: string;
   category: string;
   createdAt: Date;
-  active: boolean;
 }

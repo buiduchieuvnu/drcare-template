@@ -14,7 +14,7 @@ import { NewsComponent } from './components/news-component/news.component';
 import { HeaderComponent } from './components/header-component/header.component';
 import { SideBarComponent } from './components/sidebar-component/sidebar.component';
 import { NewsListComponent } from './components/news-list-component/news-list.component';
-import { NewsSectionComponent } from './components/news-section-component/news-section.component';
+import { NewsCategoryComponent } from './components/news-category-component/news-category.component';
 
 import { OH_CONFIG, OHConfig } from '@onehealth/ui/core/config';
 import { NewsCreateComponent } from './components/news-create-component/news-create.component';
@@ -23,6 +23,8 @@ import { LoginAdminComponent } from './components/login-admin-component/login-ad
 import { FormsModule } from '@angular/forms';
 
 import { ReactiveFormsModule } from '@angular/forms';
+// import { OHCkeditorModule } from '@onehealth/ui/ckeditor';
+import { NewsEditComponent } from './components/news-edit-component/news-edit.component';
 registerLocaleData(localeVi);
 
 @NgModule({
@@ -32,10 +34,11 @@ registerLocaleData(localeVi);
     SideBarComponent,
     NewsComponent,
     NewsListComponent,
-    NewsSectionComponent,
+    NewsCategoryComponent,
+    NewsEditComponent,
     NewsCreateComponent,
     LayoutAdminComponent,
-    LoginAdminComponent
+    LoginAdminComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -45,6 +48,7 @@ registerLocaleData(localeVi);
     OnehealthModule,
     OnehealthCoreModule,
     OHIconModule,
+    // OHCkeditorModule,
     FormsModule,
     ReactiveFormsModule
   ],
@@ -52,6 +56,6 @@ registerLocaleData(localeVi);
     { provide: APP_BASE_HREF, useValue: '/admin' }
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  // schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}

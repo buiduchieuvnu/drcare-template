@@ -4,35 +4,18 @@ import { EmptyRouteComponent } from './empty-route/empty-route.component';
 import { NewsComponent } from './components/news-component/news.component';
 import { CalendarComponent } from './components/calendar-component/calendar.component';
 import { NewsListComponent } from './components/news-list-component/news-list.component';
-import { NewsSectionComponent } from './components/news-section-component/news-section.component';
+import { NewsCategoryComponent } from './components/news-category-component/news-category.component';
 import { NewsCreateComponent } from './components/news-create-component/news-create.component';
 import { LoginAdminComponent } from './components/login-admin-component/login-admin.component';
 import { LayoutAdminComponent } from './components/layout-admin-component/layout-admin.component';
 import { AuthGuard } from './auth.guard';
+import { NewsEditComponent } from './components/news-edit-component/news-edit.component';
 
-// const routes: Routes = [
-  // { path: '', component: NewsComponent, pathMatch: 'full' },
-  // {
-  //   path: 'news', component: NewsComponent,
-  //   children: [
-  //     { path: '', redirectTo: 'news-list', pathMatch: 'full' },
-  //     { path: 'news-list', component: NewsListComponent },
-  //     { path: 'news-section', component: NewsSectionComponent },
-  //     { path: 'news-create', component: NewsCreateComponent },
-  //   ]
-  // },
-  // { path: 'calendar', component: CalendarComponent },
-  // { path: 'login', component: LoginAdminComponent },
-  // ];
 const routes: Routes = [
-
-  // LOGIN
   {
     path: 'login',
     component: LoginAdminComponent
   },
-
-  // ADMIN (BỊ GUARD)
   {
     path: '',
     component: LayoutAdminComponent,
@@ -46,8 +29,9 @@ const routes: Routes = [
         children: [
           { path: '', redirectTo: 'news-list', pathMatch: 'full' },
           { path: 'news-list', component: NewsListComponent },
-          { path: 'news-section', component: NewsSectionComponent },
-          { path: 'news-create', component: NewsCreateComponent }
+          { path: 'news-category', component: NewsCategoryComponent },
+          { path: 'news-create', component: NewsCreateComponent },
+          { path: 'edit/:id', component: NewsEditComponent }
         ]
       },
 

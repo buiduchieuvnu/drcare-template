@@ -1,0 +1,65 @@
+<div class="category-page d-flex">
+    <!-- LEFT: FORM -->
+    <div class="left-form ui-col-xl-6">
+        <h3>Thêm chuyên mục</h3>
+
+        <label>Tên</label>
+        <input oh-input [(ngModel)]="form.name" />
+
+        <label>Đường dẫn</label>
+        <input oh-input [(ngModel)]="form.slug" />
+
+        <label>Chuyên mục hiện tại</label>
+        <oh-select [(ngModel)]="form.parentId" ohAllowClear ohPlaceHolder="— Không có —">
+            <oh-option *ngFor="let item of listOfData" [ohValue]="item.id" [ohLabel]="item.name"></oh-option>
+        </oh-select>
+
+        <label>Mô tả</label>
+        <textarea oh-input rows="4" [(ngModel)]="form.description"></textarea>
+
+        <button oh-button ohType="primary" (click)="submitForm()">
+            Thêm chuyên mục
+        </button>
+    </div>
+
+    <!-- RIGHT: SEARCH + TABLE -->
+    <div class="right-table ui-col-xl-18">
+        <!-- SEARCH -->
+        <div class="right-search">
+            <div class="search-wrapper">
+                <input #searchInput oh-input placeholder="Tìm kiếm chuyên mục..." [(ngModel)]="keyword"
+                    (ngModelChange)="onKeywordChange()" (keyup.enter)="onSearch()" />
+                <span *ngIf="!keyword" class="search-icon" oh-icon ohType="search"></span>
+                <span *ngIf="keyword" class="clear-icon" oh-icon ohType="close"
+                    (click)="clearSearch(searchInput)"></span>
+            </div>
+            <button oh-button ohType="primary" (click)="onSearch()">Search</button>
+        </div>
+
+        <!-- TABLE -->
+        <oh-table #rowSelectionTable [ohData]="listOfDisplayData"
+            (ohCurrentPageDataChange)="onCurrentPageDataChange($event)">
+            <thead>
+                <tr>
+                    <th [(ohChecked)]="checked" [ohIndeterminate]="indeterminate"
+                        (ohCheckedChange)="onAllChecked($event)"></th>
+                    <th>Tên</th>
+                    <th>Mô tả</th>
+                    <th>Đường dẫn</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let data of rowSelectionTable.data">
+                    <td [ohChecked]="setOfCheckedId.has(data.id)" (ohCheckedChange)="onItemChecked(data.id, $event)">
+                    </td>
+                    <td>{{ data.name }}</td>
+                    <td class="desc-cell">
+                        {{ data.description || '—' }}
+                    </td>
+                    <td>{{ data.slug }}</td>
+                </tr>
+            </tbody>
+        </oh-table>
+    </div>
+</div>

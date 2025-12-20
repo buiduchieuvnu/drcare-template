@@ -18,10 +18,21 @@
       </div>
 
     </div>
+    <button class="sub-btn" [class.enabled]="canEdit" [class.disabled]="!canEdit" [disabled]="!canEdit"
+      (click)="onEdit()">
+      <span oh-icon ohType="edit"></span>Sửa
+    </button>
 
-    <button class="sub-btn"><span oh-icon ohType="edit" ohTheme="outline"></span>Sửa</button>
-    <button class="sub-btn"><span oh-icon ohType="delete" ohTheme="fabric"></span>Xóa</button>
-    <button class="sub-btn"><span oh-icon ohType="save" ohTheme="fabric"></span>Lưu</button>
+    <button class="sub-btn" [class.enabled]="canDelete" [class.disabled]="!canDelete" [disabled]="!canDelete"
+      (click)="onDelete()">
+      <span oh-icon ohType="delete" ohTheme="fabric"></span>Xóa
+    </button>
+
+    <button class="sub-btn" [class.enabled]="canSave" [class.disabled]="!canSave" [disabled]="!canSave"
+      (click)="onSave()">
+      <span oh-icon ohType="save" ohTheme="fabric"></span>Lưu
+    </button>
+
 
     <div class="menu-second" [class.active]="isActive">
       <a oh-dropdown ohTrigger="click" [ohDropdownMenu]="menu" (click)="onMenuSecondClick($event)">
@@ -52,7 +63,8 @@
     <ul oh-menu ohMode="inline">
       <li oh-submenu ohTitle="Tin tức" ohIcon="appstore">
         <ul>
-          <li oh-menu-item *ngFor="let item of menuItems" [routerLink]="item.path" class="menu-item-custom">
+          <li oh-menu-item *ngFor="let item of menuItems" [routerLink]="item.path" class="menu-item-custom" oh-tooltip
+                  [ohTooltipTitle]="isMenuCollapsed ? item.label : null" ohTooltipPlacement="right" [ohTooltipOverlayClassName]="menu-tooltip">
             <span oh-icon [ohType]="item.icon" ohTheme="outline"></span>
             <span class="menu-text">{{ item.label }}</span>
           </li>
@@ -62,10 +74,11 @@
     </ul>
   </div>
   <div class="menu-toggle-wrapper">
-    <span oh-icon [ohType]="isMenuCollapsed ? 'right' : 'left'" ohTheme="outline" class="menu-toolbar" (click)="toggleMenu()"></span>
+    <span oh-icon [ohType]="isMenuCollapsed ? 'right' : 'left'" ohTheme="outline" class="menu-toolbar"
+      (click)="toggleMenu()"></span>
   </div>
 
   <div class="right-content">
-    <router-outlet></router-outlet>
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
   </div>
 </div>

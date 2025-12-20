@@ -1,5 +1,5 @@
 <header-component [active]="isRightbarOpen" (toggleRightbar)="onToggleRightbar()"></header-component>
-<sidebar-component></sidebar-component>
+<sidebar-component class="sidebar"></sidebar-component>
 <div class="layout">
   <div class="content-wrapper" [class.push-left]="isRightbarOpen">
     <router-outlet></router-outlet>
