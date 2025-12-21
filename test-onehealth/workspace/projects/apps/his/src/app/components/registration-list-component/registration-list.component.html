@@ -64,40 +64,95 @@
 
             <!-- ===== CONTENT ===== -->
             <div class="admin-info-body">
-                <oh-table #columnTable [ohData]="listOfData" [ohScroll]="{ x: '1100px' }">
-      <thead>
-        <tr>
-          <th ohLeft>Full Name</th>
-          <th ohLeft>Age</th>
-          <th>Column 1</th>
-          <th>Column 2</th>
-          <th>Column 3</th>
-          <th>Column 4</th>
-          <th>Column 5</th>
-          <th>Column 6</th>
-          <th>Column 7</th>
-          <th ohRight>Column 8</th>
-          <th ohRight>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let data of columnTable.data">
-          <td ohLeft>{{ data.name }}</td>
-          <td ohLeft>{{ data.age }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td ohRight>{{ data.address }}</td>
-          <td ohRight>
-            <a>action</a>
-          </td>
-        </tr>
-      </tbody>
-    </oh-table>
+                <oh-table [ohData]="filteredData" ohShowSizeChanger [ohScroll]="{ x: '1600px'}" ohBordered #table (ohCurrentPageDataChange)="onCurrentPageDataChange($event)">
+                <thead>
+                    <!-- HEADER -->
+                    <tr class="header-row">
+                    <th class="col-stt">STT</th>
+                    <th class="col-status">Tr.thái</th>
+                    <th class="col-cls">CLS</th>
+                    <th class="col-object">Đối tượng</th>
+
+                    <th class="col-code">Mã BA</th>
+                    <th class="col-id">Mã BN</th>
+                    <th class="col-name">Tên bệnh nhân</th>
+
+                    <th class="col-date">Ngày sinh</th>
+                    <th class="col-gender">GT</th>
+                    <th class="col-bhyt">BHYT</th>
+                    <th class="col-cccd">CCCD</th>
+                    <th class="col-datetime">Tiếp nhận</th>
+                    <th class="col-clinic">Phòng khám</th>
+                    </tr>
+
+                    <!-- FILTER -->
+                    <tr class="filter-row">
+                    <th></th><th></th><th></th>
+                    <th><input oh-input [(ngModel)]="search.objectType" (ngModelChange)="applyFilter()" placeholder="Tìm" /></th>
+                    <th><input oh-input [(ngModel)]="search.patientCode" (ngModelChange)="applyFilter()" placeholder="Tìm"/></th>
+                    <th><input oh-input [(ngModel)]="search.patientId" (ngModelChange)="applyFilter()" placeholder="Tìm"/></th>
+                    <th><input oh-input [(ngModel)]="search.patientName" (ngModelChange)="applyFilter()" placeholder="Tìm"/></th>
+                    <th><input oh-input [(ngModel)]="search.birthDate" (ngModelChange)="applyFilter()" placeholder="Tìm"/></th>
+                    <th><input oh-input [(ngModel)]="search.gender" (ngModelChange)="applyFilter()" placeholder="Tìm"/></th>
+                    <th><input oh-input [(ngModel)]="search.bhyt" (ngModelChange)="applyFilter()" placeholder="Tìm"/></th>
+                    <th><input oh-input [(ngModel)]="search.cccd" (ngModelChange)="applyFilter()" placeholder="Tìm"/></th>
+                    <th><input oh-input [(ngModel)]="search.receivedAt" (ngModelChange)="applyFilter()" placeholder="Tìm"/></th>
+                    <th><input oh-input [(ngModel)]="search.clinic" (ngModelChange)="applyFilter()" placeholder="Tìm"/></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let row of table.data;; let i = index">
+                    <td class="col-stt">{{ i + 1 }}</td>
+                    <td class="col-status">
+                        <span
+                        oh-icon
+                        [ohType]="getStatusIcon(row.status)"
+                        ohTheme="fabric"
+                        [ohColor]="getStatusColor(row.status)"
+                        oh-tooltip
+                        [ohTooltipTitle]="getStatusLabel(row.status)"
+                        ></span>
+                    </td>
+                    <td class="col-cls">
+                        <span
+                        oh-icon
+                        ohType="asterisk-solid"
+                        ohTheme="fabric"
+                        [ohColor]="getClsColor(row.cls)"
+                        ></span>
+                    </td>
+                    <td class="col-object">
+                        <span class="tag" [ngClass]="row.objectType">
+                        {{ row.objectType === 'number' ? 'BN tiếp nhận 1080' : 'VNCare' }}
+                        </span>
+                    </td>
+
+                    <td>{{ row.patientCode }}</td>
+                    <td>{{ row.patientId }}</td>
+                    <td>{{ row.patientName }}</td>
+                    <td>{{ row.birthDate | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ row.gender }}</td>
+                    <td>{{ row.bhyt }}</td>
+                    <td>{{ row.cccd }}</td>
+                    <td>{{ row.receivedAt | date:'dd/MM/yyyy HH:mm' }}</td>
+                    <td>{{ row.clinic }}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                    <td colspan="13">
+                        <div class="legend">
+                        <span><span oh-icon ohType="clock" ohTheme="fabric" [ohColor]="'primary'"></span> Chờ khám</span>
+                        <span><span oh-icon ohType="circle-fill" ohTheme="fabric" ohColor="danger"></span> Đang khám</span>
+                        <span><span oh-icon ohType="box-checkmark-solid" ohTheme="fabric" ohColor="success"></span> Đã khám</span>
+                        <span><span oh-icon ohType="asterisk-solid" ohTheme="fabric" ohColor="warning"></span> CLS</span>
+                        </div>
+                    </td>
+                    </tr>
+                </tfoot>
+                </oh-table>
+
             </div>
         </div>
 
