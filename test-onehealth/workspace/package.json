@@ -13,7 +13,9 @@
         "serve:single-spa:tutorial": "ng s --project tutorial --port 15568",
         "build:single-spa:tutorial": "ng build tutorial --deploy-url /apps/tutorial/ --configuration=production",
         "serve:single-spa:admin": "ng s --project admin --port 15569",
-        "build:single-spa:admin": "ng build admin --deploy-url /apps/admin/news/ --configuration=production"
+        "build:single-spa:admin": "ng build admin --deploy-url /apps/admin/news/ --configuration=production",
+        "serve:single-spa:his": "ng s --project his --port 15570",
+        "build:single-spa:his": "ng build his --deploy-url /apps/his/ --configuration=production"
     },
     "dependencies": {
         "@angular/animations": "^18.0.0",

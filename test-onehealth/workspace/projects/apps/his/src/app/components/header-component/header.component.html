@@ -1,0 +1,189 @@
+<header class="app-header">
+
+  <!-- ===== TOP HEADER ===== -->
+  <!-- <div class="header-top d-flex">
+
+    <div class="ui-col-xl-9 d-flex align-center header-left">
+      <oh-logo [ohColor]="'#ffffff'" [ohSize]="{'size':'lg'}" class="logo"></oh-logo>
+
+      <div class="logo-text">
+        <div class="logo-title">VNPT HIS</div>
+        <div class="logo-subtitle">
+          PHẦN MỀM QUẢN LÝ HỆ THỐNG THÔNG TIN BỆNH VIỆN
+        </div>
+      </div>
+    </div>
+
+    <div class="ui-col-xl-7 d-flex align-center justify-center">
+      <div class="search-box d-flex align-center">
+        <span oh-icon ohType="search"></span>
+        <input type="text" placeholder="Tìm kiếm chức năng ..." />
+      </div>
+    </div>
+
+    <div class="ui-col-xl-8 d-flex align-center justify-end header-right">
+      <span
+        oh-icon
+        ohType="bell"
+        class="notification-icon"
+      ></span>
+      <a
+        oh-dropdown
+        ohTrigger="click"
+        [ohDropdownMenu]="userMenu"
+        class="user-trigger d-flex align-center"
+      >
+      
+        <span oh-icon ohType="user" ohTheme="outline" class="avatar"></span>  
+
+        <div class="user-info">
+          <div class="user-name">Nguyễn Xuân Bình | 0948.423.823</div>
+          <div class="user-role">Bệnh viện Bưu Điện(HN)</div>
+        </div>
+        <span oh-icon ohType="caret-down"></span>
+      </a>
+
+      <oh-dropdown-menu #userMenu="ohDropdownMenu">
+        <ul oh-menu>
+          <li oh-menu-item>
+            <span oh-icon ohType="user"></span>
+            Thông tin tài khoản
+          </li>
+
+          <li oh-menu-item class="logout">
+            <span oh-icon ohType="logout"></span>
+            Đăng xuất
+          </li>
+        </ul>
+      </oh-dropdown-menu>
+
+    </div>
+  </div> -->
+  <his-header [isDetail]="false" [hisInformation]="information" [hisMenuItem]="itemMenu"></his-header>
+  <!-- ===== BOTTOM HEADER ===== -->
+  <div class="header-bottom d-flex menu-bar">
+    <div class="menu-item">
+      Trang chủ
+    </div>
+    <div class="menu-item" [class.active]="isNgoaiTruActive()">
+      <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="outPatientMenu" class="menu-dropdown-trigger">
+        Ngoại trú
+        <span oh-icon ohType="caret-down"></span>
+      </a>
+
+      <oh-dropdown-menu #outPatientMenu="ohDropdownMenu">
+        <ul oh-menu>
+          <li oh-menu-item routerLink="/registration" routerLinkActive="dropdown-active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Tiếp nhận bệnh nhân
+          </li>
+
+          <li oh-menu-item routerLink="/registration-list" routerLinkActive="dropdown-active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Danh sách tiếp nhận
+          </li>
+        </ul>
+      </oh-dropdown-menu>
+    </div>
+
+
+    <div class="menu-item">
+      <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="inPatientMenu" class="menu-dropdown-trigger">
+        Nội trú
+        <span oh-icon ohType="caret-down"></span>
+      </a>
+
+      <oh-dropdown-menu #inPatientMenu="ohDropdownMenu">
+        <ul oh-menu>
+          <li oh-menu-item>Điều trị</li>
+          <li oh-menu-item>Xuất viện</li>
+        </ul>
+      </oh-dropdown-menu>
+    </div>
+
+    <div class="menu-item">
+      <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="insuranceMenu" class="menu-dropdown-trigger">
+        Viện phí & Bảo hiểm
+        <span oh-icon ohType="caret-down"></span>
+      </a>
+
+      <oh-dropdown-menu #insuranceMenu="ohDropdownMenu">
+        <ul oh-menu>
+          <li oh-menu-item>Quản lý viện phí</li>
+          <li oh-menu-item>Bảo hiểm y tế</li>
+        </ul>
+      </oh-dropdown-menu>
+    </div>
+
+    <div class="menu-item">
+      <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="labMenu" class="menu-dropdown-trigger">
+        Cận lâm sàng & Module khác
+        <span oh-icon ohType="caret-down"></span>
+      </a>
+
+      <oh-dropdown-menu #labMenu="ohDropdownMenu">
+        <ul oh-menu>
+          <li oh-menu-item>Xét nghiệm</li>
+          <li oh-menu-item>Chẩn đoán hình ảnh</li>
+        </ul>
+      </oh-dropdown-menu>
+    </div>
+
+    <div class="menu-item">
+      <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="pharmacyMenu" class="menu-dropdown-trigger">
+        Dược
+        <span oh-icon ohType="caret-down"></span>
+      </a>
+
+      <oh-dropdown-menu #pharmacyMenu="ohDropdownMenu">
+        <ul oh-menu>
+          <li oh-menu-item>Kho thuốc</li>
+          <li oh-menu-item>Cấp phát</li>
+        </ul>
+      </oh-dropdown-menu>
+    </div>
+
+    <div class="menu-item">
+      <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="reportMenu" class="menu-dropdown-trigger">
+        Báo cáo và tra cứu
+        <span oh-icon ohType="caret-down"></span>
+      </a>
+
+      <oh-dropdown-menu #reportMenu="ohDropdownMenu">
+        <ul oh-menu>
+          <li oh-menu-item>Báo cáo tổng hợp</li>
+          <li oh-menu-item>Tra cứu dữ liệu</li>
+        </ul>
+      </oh-dropdown-menu>
+    </div>
+
+    <div class="menu-item">
+      <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="categoryMenu" class="menu-dropdown-trigger">
+        Danh mục
+        <span oh-icon ohType="caret-down"></span>
+      </a>
+
+      <oh-dropdown-menu #categoryMenu="ohDropdownMenu">
+        <ul oh-menu>
+          <li oh-menu-item>Danh mục dùng chung</li>
+        </ul>
+      </oh-dropdown-menu>
+    </div>
+
+    <div class="menu-item">
+      <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="adminMenu" class="menu-dropdown-trigger">
+        Quản trị hệ thống
+        <span oh-icon ohType="caret-down"></span>
+      </a>
+
+      <oh-dropdown-menu #adminMenu="ohDropdownMenu">
+        <ul oh-menu>
+          <li oh-menu-item>Người dùng</li>
+          <li oh-menu-item>Phân quyền</li>
+        </ul>
+      </oh-dropdown-menu>
+    </div>
+
+  </div>
+  <!-- <his-menu [hisValues]="menus"></his-menu> -->
+</header>

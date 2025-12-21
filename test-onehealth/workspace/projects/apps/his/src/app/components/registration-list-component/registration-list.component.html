@@ -1,0 +1,105 @@
+<div class="registration">
+    <div class="reg-container">
+        <div class="reg-header d-flex">
+            <div class="reg-tabs d-flex">
+                <div class="reg-tab" routerLink="/registration">
+                    Tiếp nhận bệnh nhân
+                </div>
+
+                <div class="reg-tab active" routerLink="/registration-list">
+                    Danh sách bệnh nhân tiếp nhận
+                </div>
+            </div>
+        </div>
+        <div class="reg-form">
+            <div class="reg-row d-flex">
+                <label class="reg-ba">Mã BA</label>
+                <input oh-input value="BN012399123" class="input-ba" />
+                <label class="date-to-date">Từ ngày-Đến ngày</label>
+                <oh-range-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></oh-range-picker>
+                <label oh-checkbox [(ngModel)]="checked" class="to-date">
+                    Theo ngày ra viện
+                </label>
+                <label class="status">Trạng thái</label>
+                <oh-select ohPlaceHolder="Chọn" class="select-status"></oh-select>
+
+            </div>
+
+            <div class="reg-row d-flex">
+                <label class="clinic">Phòng khám</label>
+                <oh-select ohPlaceHolder="Chọn" class="select-clinic"></oh-select>
+                <label>Đối tượng</label>
+                <oh-select ohPlaceHolder="Chọn" class="select-object"></oh-select>
+                <label>Kênh đăng ký</label>
+                <oh-select ohPlaceHolder="Chọn" class="select-register"></oh-select>
+                <button oh-button ohType="primary" class="btn-search">
+                    Tìm (f3)
+                </button>
+            </div>
+        </div>
+
+        <!-- Danh sách tiếp nhận -->
+        <div class="admin-info">
+
+            <!-- ===== HEADER ===== -->
+            <div class="admin-info-header d-flex">
+                <span class="title">DANH SÁCH TIẾP NHẬN</span>
+                <div class="list-btn">
+                    <button oh-button ohType="default">Nhập mới (F5)</button>
+                    <oh-action-bar [ohConfigs]="buttonConfigs" class="btn-group"></oh-action-bar>
+                    <a oh-dropdown [ohDropdownMenu]="menu">
+                        Khác
+                        <span oh-icon ohType="down"></span>
+                    </a>
+                    <oh-dropdown-menu #menu="ohDropdownMenu">
+                        <ul oh-menu>
+                            <li oh-menu-item (click)="log('1st menu item')">1st menu item</li>
+                            <li oh-menu-item (click)="log('2nd menu item')">2nd menu item</li>
+                            <li oh-menu-item (click)="log('3rd menu item')">3rd menu item</li>
+                        </ul>
+                    </oh-dropdown-menu>
+                    <button oh-button ohType="primary" ohDanger class="delete">Xóa</button>
+                </div>
+            </div>
+
+            <!-- ===== CONTENT ===== -->
+            <div class="admin-info-body">
+                <oh-table #columnTable [ohData]="listOfData" [ohScroll]="{ x: '1100px' }">
+      <thead>
+        <tr>
+          <th ohLeft>Full Name</th>
+          <th ohLeft>Age</th>
+          <th>Column 1</th>
+          <th>Column 2</th>
+          <th>Column 3</th>
+          <th>Column 4</th>
+          <th>Column 5</th>
+          <th>Column 6</th>
+          <th>Column 7</th>
+          <th ohRight>Column 8</th>
+          <th ohRight>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of columnTable.data">
+          <td ohLeft>{{ data.name }}</td>
+          <td ohLeft>{{ data.age }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td ohRight>{{ data.address }}</td>
+          <td ohRight>
+            <a>action</a>
+          </td>
+        </tr>
+      </tbody>
+    </oh-table>
+            </div>
+        </div>
+
+    </div>
+</div>
