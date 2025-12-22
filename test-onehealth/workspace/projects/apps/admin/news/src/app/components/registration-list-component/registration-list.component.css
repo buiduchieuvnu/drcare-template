@@ -1,7 +1,7 @@
 .registration {
     background: #f5f5f5;
     /* min-height: 100vh; */
-    padding: 4px 10px;
+    padding: 4px 18px;
   width: 80vw;
 }
 
@@ -149,53 +149,6 @@
     padding: 10px 12px 0px 12px;
     font-size: 14px;
 }
-
-.list-btn {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.list-btn a {
-    color: #3e84ee;
-    border: 1px solid #3e84ee;
-    background: #fff;
-    border-radius: 5px;
-    padding: 3px 8px;
-}
-
-.delete {
-    border-color: #ff4d4f !important;
-    background-color: #ff4d4f !important;
-    height: 31px !important;
-}
-
-.delete:hover {
-    border-color: #f9383b !important;
-    background-color: #f9383b !important;
-}
-
-::ng-deep .list-btn .ui-btn-primary {
-    border-color: #1359c2;
-    background-color: #1359c2;
-}
-
-::ng-deep .list-btn .ui-btn-primary:hover {
-    border-color: #276ee9;
-    background-color: #276ee9;
-}
-
-::ng-deep .list-btn .ui-btn-default {
-    border-color: #1359c2;
-    color: #1359c2;
-    height: 32px;
-}
-
-::ng-deep .list-btn .ui-btn-default:hover {
-    background: #1359c2;
-    color: #fff;
-}
-
 /* ===== HEADER ===== */
 .header-row th {
     background: #0b2f6b;

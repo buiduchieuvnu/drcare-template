@@ -1,5 +1,6 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, ElementRef, HostListener, ViewChild, OnInit } from '@angular/core';
+import { Router, NavigationEnd  } from '@angular/router';
+import { filter } from 'rxjs/operators'
 
 @Component({
   selector: 'his-component',
@@ -7,61 +8,11 @@ import { Router } from '@angular/router';
   templateUrl: './his.component.html',
   styleUrls: ['./his.component.css']
 })
-export class HisComponent {
+export class HisComponent implements OnInit{
    isMenuCollapsed: boolean = false;
     isOpen = false;
     isActive = false;
-  
-    canEdit = false;
-    canDelete = false;
-    canSave = false;
-    isEditRoute = false;
-    selectedIds: number[] = [];
-    constructor(private router: Router) { }
-  
-    updateActionState(): void {
-      this.canEdit = this.selectedIds.length === 1;
-      this.canDelete = this.selectedIds.length >= 1;
-      this.canSave = this.isEditRoute;
-    }
-  
-    onEdit() {
-      if (this.selectedIds.length === 1) {
-        this.router.navigate(['/news/edit', this.selectedIds[0]]);
-      }
-    }
-    onDelete() {
-      if (!this.canDelete) return;
-      const confirmDelete = alert(
-        `Xóa ${this.selectedIds.length} tin tức đã chọn`
-      );
-      this.selectedIds = [];
-      this.router.navigate(['/news/news-list']);
-    }
-  
-    onSave() {
-      if (!this.isEditRoute) return;
-  
-      alert('Lưu tin tức thành công');
-      this.router.navigate(['/news/news-list']);
-    }
-  
-  
-    onActivate(component: any) {
-      Promise.resolve().then(() => {
-        if (component.selectionChange) {
-          component.selectionChange.subscribe((ids: number[]) => {
-            this.selectedIds = ids;
-            this.updateActionState();
-          });
-        }
-  
-        this.isEditRoute =
-          component.constructor.name === 'NewsEditComponent';
-  
-        this.updateActionState();
-      });
-    }
+  constructor(private router: Router) { }
   
     toggleMenu() {
       this.isMenuCollapsed = !this.isMenuCollapsed;
@@ -97,5 +48,50 @@ export class HisComponent {
       this.isActive = false;
   
     }
-  
+    buttonConfigs = [
+    {
+      "ohId":"button2",
+      "ohTitle":"Dịch vụ CLS (F6)",
+      "ohOnClick": this.demo1.bind(this),
+      "ohType":"primary",
+      "ohStatus":"active",
+    },
+    {
+      "ohId":"button3",
+      "ohTitle":"Lịch sử điều trị",
+      "ohOnClick": this.demo1.bind(this),
+      "ohType":"primary",
+      "ohStatus":"active",
+    },
+  ];
+
+  demo1() {
+    console.log("demo1")
+  }
+  log(data: string): void {
+    console.log(data);
+  }
+
+currentPage: 'tiepnhan' | 'danhsach' | null = null;
+
+ngOnInit(): void {
+  this.detectPage(this.router.url);
+
+  this.router.events
+    .pipe(filter(e => e instanceof NavigationEnd))
+    .subscribe((e: NavigationEnd) => {
+      this.detectPage(e.urlAfterRedirects);
+    });
+}
+
+private detectPage(url: string) {
+  if (url.includes('/his/ds-tiepnhan')) {
+    this.currentPage = 'danhsach';
+  } else if (url.includes('/his/tiepnhan')) {
+    this.currentPage = 'tiepnhan';
+  } else {
+    this.currentPage = null;
+  }
+}
+
 }

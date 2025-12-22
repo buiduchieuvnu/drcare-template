@@ -265,7 +265,9 @@
   align-items: center;
   gap: 8px;
 }
-
+.reg-actions button{
+  height: 31px;
+}
 .btn-design{
     border: 1px solid #0b5ed7;
     color: #0b5ed7;
@@ -280,10 +282,61 @@
   gap: 4px;
   cursor: pointer;
   border-radius: 5px;
-  padding: 3px 6px;
+  padding: 5px 6px;
   background: #0b52bd;
   color: #fff;
 }
 [oh-button], [oh-input]{
     border-radius: 5px;
+}
+
+/* ACTION BAR LIST TIEP NHAN */
+.list-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.list-btn button{
+  height: 31px;
+}
+.list-btn a {
+    color: #3e84ee;
+    border: 1px solid #3e84ee;
+    background: #fff;
+    border-radius: 5px;
+    padding: 3.5px 8px;
+}
+.btn-group{
+  margin-left: -3px;
+}
+.delete {
+    border-color: #ff4d4f !important;
+    background-color: #ff4d4f !important;
+}
+
+.delete:hover {
+    border-color: #f9383b !important;
+    background-color: #f9383b !important;
+}
+::ng-deep .list-btn .ui-btn-primary {
+    border-color: #1359c2;
+    background-color: #1359c2;
+    padding: 3px !important;
+    margin-right: 2px;
+}
+
+::ng-deep .list-btn .ui-btn-primary:hover {
+    border-color: #276ee9;
+    background-color: #276ee9;
+}
+
+::ng-deep .list-btn .ui-btn-default {
+    border-color: #1359c2;
+    color: #1359c2;
+    padding: 0px 14px !important;
+}
+
+::ng-deep .list-btn .ui-btn-default:hover {
+    background: #1359c2;
+    color: #fff;
 }
