@@ -1,0 +1,614 @@
+.registration {
+  background: #f5f5f5;
+  /* min-height: 100vh; */
+  padding: 4px 18px;
+  width: 80vw;
+}
+
+[oh-button], [oh-input]{
+    border-radius: 5px;
+}
+.justify-between{
+    justify-content: space-between;
+}
+.align-center{
+    align-items: center;
+}
+.reg-container {
+  margin: 0 auto;
+}
+
+.reg-header {
+  background: #fff;
+  padding: 8px 12px;
+  border-bottom: 1px solid #e5e5e5;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.reg-tabs {
+  display: flex;
+  gap: 20px;
+}
+
+.reg-tab {
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  font-weight: 600;
+  color: #000;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.reg-tab:hover {
+  border-bottom: 2px solid #ccc;
+  color: #0b5ed7;
+}
+
+.reg-tab.active {
+  color: #0b5ed7;
+  border-bottom: 2px solid #0b5ed7;
+}
+
+.reg-actions {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  gap: 8px;
+}
+.btn-design{
+    border: 1px solid #0b5ed7;
+    color: #0b5ed7;
+}
+.btn-design:hover{
+    background: #0b52bd;
+    color: #fff;
+}
+.history-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 3px 6px;
+  background: #0b52bd;
+  color: #fff;
+}
+
+.reg-form {
+  background: #fff;
+  padding: 6px 12px 1px 12px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.reg-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.reg-row label {
+  white-space: nowrap;
+  font-size: 14px;
+  color: #333;
+}
+.reg-number{
+    margin-right: 60px;
+}
+.reg-number-input{
+    width: 10%;
+}.reg-callback{
+    margin-left: 15px;
+    margin-right: 20px;
+}
+.reg-callback-input{
+    width: 6%;
+}
+.reg-spirit{
+    margin: 0 7% 0 3%;
+}
+.reg-object{
+    margin-right: 53px;
+}
+.btn-padding{
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+.reg-row .reg-bhyt{
+    margin-left: 20px;
+}
+
+/* THÔNG TIN HÀNH CHÍNH */
+/* ===== ADMIN INFO ===== */
+.admin-info {
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+/* HEADER */
+.admin-info-header {
+  background: #e6f2ff;
+  padding: 6px 12px;
+  color: #0b5ed7;
+  border-bottom: 1px solid #cfe2ff;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* BODY */
+.admin-info-body {
+  padding: 10px 12px 0px 12px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ROW */
+.info-row {
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: nowrap;
+}
+.info-patient{
+  margin-right: 55px;
+}
+.inp-patient{
+  width: 15%;
+}
+.fullname{
+  margin: 0px 70px 0px 30px;
+}
+.inp-fullname{
+  width: 26%;
+}
+.birth{
+  margin: 0 14px;
+}
+.year{
+  width: 90px;
+}
+[ohCompact]{
+  border-radius: 5px;
+}
+.picker-date{
+  width: 150px;
+}
+
+.sex{
+  margin-right: 82px;
+}
+.inp-sex{
+  width: 14.8%;
+}
+.job{
+  margin: 0 52px 0 30px;
+}
+.nation{
+  margin: 0 100px 0 80px;
+}
+.nationality{
+  margin: 0 70px 0 50px;
+}
+
+.city{
+  margin-right: 18px;
+}
+.inp-city{
+  width: 38%;
+}
+.city-little{
+  margin: 0 2% 0 5%;
+}
+.ward{
+  margin: 0 3% 0 3.5%;
+}
+
+.home{
+  margin-right: 105px;
+}
+.inp-home{
+  width: 14.5%;
+}
+.address{
+  margin: 0 4% 0 1.7%;
+}
+.inp-address{
+  width: 33%;
+}
+.phone{
+  margin-right: 3%;
+}
+
+.CCCD{
+  margin-right: 79px;
+}
+.inp-CCCD{
+  width: 14.5%;
+}
+.date-CCCD{
+  margin: 0 2% 0 1.6%;
+}
+.add-CCCD{
+  margin: 0 4% 0 7.5%;
+}
+
+.guardian{
+  margin-right: 18px;
+}
+.inp-guardian{
+  width: 14.5%;
+}
+.address-guardian{
+  margin: 0 4% 0 1.6%;
+}
+.inp-address-guardian{
+  width: 27%;
+}
+.relationship{
+  margin: 0 0.8%;
+}
+.phone-guardian{
+  margin: 0 1%;
+}
+
+.name-dad{
+  margin-right: 65px;
+}
+.inp-dad{
+  width: 14.5%;
+}
+.bhxh-dad{
+  margin: 0 1.6% 0 1.8%;
+}
+.name-mom{
+  margin: 0 5% 0 5.5%;
+}
+.bhxh-mom{
+  margin: 0 2.8% 0 2%;
+}
+
+.retirement{
+  margin-right: 10px;
+}
+.unit{
+  margin: 0 1.7% 0 7%;
+}
+.select-unit{
+  width: 9.4%;
+}
+.hrm-retirement{
+  margin-left: 3%;
+}
+
+.rank{
+  margin-right: 80px;
+}
+.inp-rank{
+  width: 14.5%;
+}
+.guest-rank{
+  margin: 0 2.5% 0 1.7%;
+}
+
+.guest{
+  margin-right: 60px;
+}
+.inp-guest{
+  width: 14.5%;
+}
+.inp-nguon{
+  margin-left: 1.7%;
+}
+/* BẢO HIỂM Y TẾ */
+/* ===== INSURANCE INFO ===== */
+.insurance-info {
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  margin-top: 12px;
+}
+
+/* HEADER */
+.insurance-header {
+  background: #e6f2ff;
+  padding: 6px 12px;
+  border-bottom: 1px solid #cfe2ff;
+  color: #0b5ed7;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.insurance-header .sub-title {
+  font-weight: normal;
+  margin-left: 8px;
+  color: #0b5ed7;
+}
+
+/* BODY */
+.insurance-body {
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ROW */
+.ins-row {
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+/* LABEL */
+.ins-row label {
+  white-space: nowrap;
+  color: #333;
+}
+.card{
+  margin-right: 88px;
+}
+.inp-card{
+  width: 14.5%;
+}
+.inp-affect{
+  margin: 0 2% 0 1.7%;
+}
+.card-bhyt{
+  margin: 0 3% 0 5%;
+}
+.card-kcb{
+  margin-right: 1%;
+}
+
+.card-object{
+  margin-right: 52px;
+}
+.inp-card-object{
+  width: 24%;
+}
+.live{
+  margin: 0 1.8% 0 2%;
+}
+.from-card-object{
+  margin: 0 7% 0 5%;
+}
+.to-card-object{
+   margin: 0 7% 0 5%;
+}
+
+.add-bh{
+  margin-right: 66.5px;
+}
+.inp-add-bg{
+  width: 37.6%;
+}
+.gland{
+  margin: 0 7.6% 0 5%;
+}
+.gland1{
+  width: 17.7%;
+}
+
+.five-y{
+  margin-right: 51px;
+}
+.six-m{
+  margin: 0 2.5% 0 6%;
+}
+.free{
+  margin: 0 5% 0 5.4%;
+}
+
+.diagnosis{
+  margin-right: 69px;
+}
+.inp-diagnosis{
+  width: 37.5%;
+}
+.tranfer{
+  margin: 0 5.5% 0 5.4%;
+}
+.select-tranfer{
+  width: 23%;
+}
+.inp-tranfer{
+  width: 12%;
+}
+.transfer-form{
+  margin-right: 27px;
+}
+.inp-transfer-form{
+  width: 37.5%;
+}
+.reason{
+  margin:0 4.5% 0 5.2%;
+}
+
+/* THÔNG TIN PHIẾU KHÁM */
+.receive-hours{
+  margin-right: 25px;
+}
+.reason-receive{
+  margin: 0 2% 0 5%;
+}
+.select-receive{
+  width: 10.6%;
+}
+.card-receive{
+  margin: 0 9% 0 6%;
+}
+.type-receive{
+  margin: 0 2% 0 1%;
+}
+
+.request{
+  margin-right: 18px;
+}
+.inp-request{
+  width: 25%;
+}
+.btn-request{
+  height: 32px;
+}
+.clinic{
+  margin: 0 1%;
+}
+
+.unit-code{
+  margin: 0 2% 0 6.5%;
+}
+
+.company{
+  margin-right: 65px;
+}
+.select-company{
+  width: 30%;
+}
+.vip{
+  margin: 0 1% 0 1%;
+}
+.inp-vip{
+  width: 20%;
+}
+.date-company{
+  margin: 0 1.8%;
+}
+
+.medicine{
+  margin: 0 2% 0 8%;
+}
+.inp-medicine{
+  width: 10%;
+}
+.another{
+  margin: 0 5% 0 6.5%;
+}
+
+.doctor{
+  width: 27%;
+  margin: 0 2% 0 10%;
+}
+.date-confirm{
+  margin: 0 5% 0 4%;
+}
+
+.note{
+  margin-right: 17px;
+}
+/* LABEL */
+.info-row label {
+  white-space: nowrap;
+  color: #333;
+}
+
+.required {
+  color: red;
+}
+
+/* WIDTH UTILS */
+.w-sm {
+  width: 70px;
+}
+
+.w-md {
+  width: 120px;
+}
+
+.w-lg {
+  width: 180px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/* BUTTON */
+.btn-mst {
+  margin: 0 3.5% 0 1%;
+  height: 32px;
+}
+
+/* CHECKBOX */
+.info-row oh-checkbox {
+  margin-left: 8px;
+}
+
+/* INPUT HEIGHT FIX */
+::ng-deep .ui-select:not(.ui-select-customize-input) .ui-select-selector{
+  height: 32px;
+  border-radius: 5px;
+}
+
+
+/* REQUIRED */
+.required {
+  color: red;
+}
+
+/* WIDTH UTILS */
+.w-md {
+  width: 120px;
+}
+
+.w-lg {
+  width: 180px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/* INPUT HEIGHT */
+input[oh-input],
+oh-select {
+  height: 32px;
+}
+
+/* CHECKBOX */
+.ins-row oh-checkbox {
+  margin-right: 6px;
+}
+::ng-deep .ui-btn .ui-btn-primary{
+  background-color: #333!important;
+}
+::ng-deep .admin-info .ui-btn-primary {
+    border-color: #1359c2;
+    background-color: #1359c2 ;
+}
+
+/* ===== TABS ===== */
+.tabs {
+  display: flex;
+  gap: 20px;
+}
+
+.tab {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  color: #0b5ed7;
+}
+
+.tab.active {
+  border-bottom: 2px solid #0b5ed7;
+}
+
+/* ===== TOGGLE ICON ===== */
+
+.insurance-body.ng-animating + .toggle-icon {
+  transform: rotate(180deg);
+}
+.toggle-icon {
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.toggle-icon.rotated {
+  transform: rotate(180deg);
+}

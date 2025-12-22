@@ -1,14 +1,27 @@
 .registration {
-    background: #ebebeb;
+    background: #f5f5f5;
     /* min-height: 100vh; */
-    padding: 4px 18px;
+    padding: 4px 10px;
+  width: 80vw;
 }
 
 [oh-button],
 [oh-input] {
     border-radius: 5px;
 }
-
+.align-center{
+    align-items: center;
+}
+.justify-between{
+    justify-content: space-between;
+}
+.col-ba{
+    align-items: center;
+    justify-content: space-between;
+}
+.inp-ba{
+    width: 80%;
+}
 .reg-container {
     margin: 0 auto;
 }
@@ -91,18 +104,15 @@
 }
 
 .select-clinic {
-    width: 25%;
-    margin: 0 1.5% 0 0.5%;
+    width: 80%;
 }
 
 .select-object {
-    width: 17.7%;
-    margin: 0 1.2% 0 4.6%;
+    width: 65%;
 }
 
 .select-register {
-    width: 17.7%;
-    margin: 0 1% 0 1%;
+    width: 40%;
 }
 
 .btn-search {

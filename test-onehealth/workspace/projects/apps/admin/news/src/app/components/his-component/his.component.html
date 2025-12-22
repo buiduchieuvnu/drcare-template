@@ -1,0 +1,52 @@
+<div class="page-header">
+  <div class="toolbar-top">
+    <h2>Tiếp nhận</h2>
+  </div>
+  <div class="toolbar-bottom">
+    <div class="reg-actions d-flex">
+        <button oh-button ohType="default" class="btn-design">
+          Nhập mới (F5)
+        </button>
+        <button oh-button ohType="primary">
+          Lưu (F4)
+        </button>
+        <a oh-dropdown ohTrigger="click" [ohDropdownMenu]="historyMenu" class="history-trigger">
+          Lịch sử điều trị
+          <span oh-icon ohType="down"></span>
+        </a>
+        <oh-dropdown-menu #historyMenu="ohDropdownMenu">
+          <ul oh-menu>
+            <li oh-menu-item>Lịch sử khám</li>
+            <li oh-menu-item>Lịch sử điều trị</li>
+          </ul>
+        </oh-dropdown-menu>
+      </div>
+  </div>
+</div>
+
+
+<div class="content" [class.menu-collapsed]="isMenuCollapsed">
+
+  <div class="left-menu">
+    <ul oh-menu ohMode="inline">
+      <li oh-submenu ohTitle="Tiếp nhận" ohIcon="appstore">
+        <ul>
+          <li oh-menu-item *ngFor="let item of menuItems" [routerLink]="item.path" class="menu-item-custom" oh-tooltip
+                  [ohTooltipTitle]="isMenuCollapsed ? item.label : null" ohTooltipPlacement="right" [ohTooltipOverlayClassName]="menu-tooltip">
+            <span oh-icon [ohType]="item.icon" ohTheme="outline"></span>
+            <span class="menu-text">{{ item.label }}</span>
+          </li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="menu-toggle-wrapper">
+    <span oh-icon [ohType]="isMenuCollapsed ? 'right' : 'left'" ohTheme="outline" class="menu-toolbar"
+      (click)="toggleMenu()"></span>
+  </div>
+
+  <div class="right-content">
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+  </div>
+</div>

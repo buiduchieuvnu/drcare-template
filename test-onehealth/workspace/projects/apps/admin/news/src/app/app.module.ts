@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OnehealthCoreModule } from '@onehealth/core';
 
 import localeVi from '@angular/common/locales/vi';
-import { CommonLibraryModule, OnehealthModule  } from 'dist/commonLibrary';
+import { CommonLibraryModule, OnehealthModule } from 'dist/commonLibrary';
 import { NewsComponent } from './components/news-component/news.component';
 import { HeaderComponent } from './components/header-component/header.component';
 import { SideBarComponent } from './components/sidebar-component/sidebar.component';
@@ -25,6 +25,15 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 // import { OHCkeditorModule } from '@onehealth/ui/ckeditor';
 import { NewsEditComponent } from './components/news-edit-component/news-edit.component';
+
+import { HisFooterModule } from '@onehealth/ui/his-footer';
+import { HisHeaderModule } from '@onehealth/ui/his-header';
+import { HisMenuModule } from '@onehealth/ui/his-menu';
+import { OHActionBarModule } from '@onehealth/ui/action-bar';
+import { FooterComponent } from './components/footer-component/footer.component';
+import { HisComponent } from './components/his-component/his.component';
+import { RegistrationComponent } from './components/registration-component/registration.component';
+import { RegistrationListComponent } from './components/registration-list-component/registration-list.component';
 registerLocaleData(localeVi);
 
 @NgModule({
@@ -39,6 +48,10 @@ registerLocaleData(localeVi);
     NewsCreateComponent,
     LayoutAdminComponent,
     LoginAdminComponent,
+    FooterComponent,
+    HisComponent,
+    RegistrationComponent,
+    RegistrationListComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -50,7 +63,11 @@ registerLocaleData(localeVi);
     OHIconModule,
     // OHCkeditorModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HisFooterModule,
+    HisHeaderModule,
+    HisMenuModule,
+    OHActionBarModule
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/admin' }
@@ -58,4 +75,4 @@ registerLocaleData(localeVi);
   bootstrap: [AppComponent],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,0 +1,411 @@
+<div class="registration">
+  <div class="reg-container">
+    <!-- STT -->
+    <div class="reg-form">
+      <div class="reg-row d-flex">
+        <label class="reg-number">Số thứ tự</label>
+        <input oh-input value="072" class="reg-number-input" />
+        <button oh-button ohType="default" class="btn-design">
+          Gọi bệnh nhân
+        </button>
+        <label class="reg-callback">Số thứ tự gọi lại</label>
+        <input oh-input value="072" class="reg-callback-input" />
+        <label class="reg-spirit">Quầy</label>
+        <oh-select ohPlaceHolder="Chọn" style="width: 20%;"></oh-select>
+        <button oh-button ohType="default" class="btn-design btn-padding">
+          Gọi lại
+        </button>
+        <button oh-button ohType="default" class="btn-design btn-padding">
+          Màn hình LCD
+        </button>
+      </div>
+
+      <div class="reg-row d-flex">
+        <label class="reg-object">Đối tượng</label>
+        <oh-select ohPlaceHolder="Chọn" style="width: 33%;"></oh-select>
+        <input oh-input placeholder="Mã BN, SĐT, QR CCCD, QR BHYT" class="reg-bhyt" />
+        <label oh-checkbox [(ngModel)]="checked">
+          Kiểm tra BHYT
+        </label>
+        <button oh-button ohType="primary">
+          Tìm BN (F3)
+        </button>
+      </div>
+    </div>
+    <!-- THÔNG TIN HÀNH CHÍNH -->
+    <div class="admin-info" >
+
+      <!-- ===== HEADER ===== -->
+      <div class="admin-info-header d-flex justify-between align-center">
+        <!-- <span class="title">THÔNG TIN HÀNH CHÍNH</span>
+        <span oh-icon ohType="caret-down"></span> -->
+        <div class="tabs">
+          <span class="tab" [class.active]="activeTab === 'admin'" (click)="activeTab = 'admin'">
+            THÔNG TIN HÀNH CHÍNH
+          </span>
+
+          <span class="tab" [class.active]="activeTab === 'ticket'" (click)="activeTab = 'ticket'">
+            THÔNG TIN PHIẾU KHÁM
+          </span>
+        </div>
+
+        <span oh-icon ohType="caret-down" class="toggle-icon" [class.rotated]="!isAdminInfoOpen" (click)="toggleAdminInfo()">
+        </span>
+      </div>
+
+      <!-- ===== CONTENT ===== -->
+      <div class="admin-info-body" *ngIf="isAdminInfoOpen">
+
+        <ng-container *ngIf="activeTab === 'admin'">
+          <!-- ROW 1 -->
+          <div class="info-row d-flex">
+            <label class="info-patient">Mã bệnh nhân</label>
+            <input oh-input placeholder="Nhập" class="inp-patient" />
+
+            <label class="fullname">Họ và tên <span class="required">*</span></label>
+            <input oh-input placeholder="Họ và tên người bệnh" class="inp-fullname" />
+
+            <label class="birth">Sinh ngày <span class="required">*</span></label>
+            <input oh-input placeholder="hh:mm" class="w-sm" />
+            <oh-input-group ohCompact class="picker-date">
+              <oh-date-picker ohPlaceHolder="dd/mm/yyyy"></oh-date-picker>
+            </oh-input-group>
+            <input oh-input class="year" placeholder="Năm sinh" />
+            <input oh-input class="w-sm" placeholder="" />
+            <oh-select ohPlaceHolder="Tuổi"></oh-select>
+          </div>
+
+          <!-- ROW 2 -->
+          <div class="info-row d-flex">
+            <label class="sex">Giới tính <span class="required">*</span></label>
+            <oh-select [ngModel]="'Nam'" class="inp-sex">
+              <oh-option [ohLabel]="'Nam'" [ohValue]="'Nam'"></oh-option>
+              <oh-option [ohLabel]="'Nữ'" [ohValue]="'Nữ'"></oh-option>
+            </oh-select>
+
+            <label class="job">Nghề nghiệp <span class="required">*</span></label>
+            <oh-select ohPlaceHolder="Chọn" class="w-lg"></oh-select>
+
+            <label class="nation">Dân tộc <span class="required">*</span></label>
+            <oh-select ohPlaceHolder="Kinh" class="w-lg"></oh-select>
+
+            <label class="nationality">Quốc tịch <span class="required">*</span></label>
+            <oh-select ohPlaceHolder="Chọn" class="w-lg"></oh-select>
+          </div>
+
+          <!-- ROW 3 -->
+          <div class="info-row d-flex">
+            <label class="city">Tỉnh (TP) / Xã (P) <span class="required">*</span></label>
+            <input oh-input placeholder="Nhập" class="inp-city" />
+
+            <label class="city-little">Tỉnh (Thành phố) <span class="required">*</span></label>
+            <oh-select ohPlaceHolder="Chọn" class="w-lg"></oh-select>
+
+            <label class="ward">Xã (Phường) <span class="required">*</span></label>
+            <oh-select ohPlaceHolder="Chọn" class="w-lg"></oh-select>
+          </div>
+
+          <!-- ROW 4 -->
+          <div class="info-row d-flex">
+            <label class="home">Số nhà</label>
+            <input oh-input placeholder="Nhập" class="inp-home" />
+
+            <label class="address">Địa chỉ BN <span class="required">*</span></label>
+            <input oh-input class="inp-address" />
+
+            <button oh-button ohType="primary" class="btn-mst">
+              MST
+            </button>
+
+            <label class="phone">Số điện thoại <span class="required">*</span></label>
+            <input oh-input placeholder="Nhập" class="w-lg" />
+          </div>
+
+          <!-- ROW 5 -->
+          <div class="info-row d-flex">
+            <label class="CCCD">Số CCCD <span class="required">*</span></label>
+            <input oh-input placeholder="Nhập" class="inp-CCCD" />
+
+            <label class="date-CCCD">Ngày cấp CCCD</label>
+            <oh-input-group ohCompact class="picker-date">
+              <oh-date-picker ohPlaceHolder="dd/mm/yyyy"></oh-date-picker>
+            </oh-input-group>
+
+            <label class="add-CCCD">Nơi cấp CCCD</label>
+            <input oh-input placeholder="Nhập" class="flex-1" />
+          </div>
+
+          <!-- ROW 6 -->
+          <div class="info-row d-flex">
+            <label class="guardian">Người LH / Giám hộ</label>
+            <input oh-input placeholder="Nhập" class="inp-guardian" />
+
+            <label class="address-guardian">Địa chỉ NLH</label>
+            <input oh-input placeholder="Nhập" class="inp-address-guardian" />
+
+            <label class="relationship">MQH với BN</label>
+            <oh-select ohPlaceHolder="Chọn" class="w-lg"></oh-select>
+
+            <label class="phone-guardian">SĐT NLH</label>
+            <input oh-input class="w-lg" />
+          </div>
+
+          <!-- ROW 7 -->
+          <div class="info-row d-flex">
+            <label class="name-dad">Họ và tên bố</label>
+            <input oh-input class="inp-dad" placeholder="Nhập" />
+            <label class="bhxh-dad">Mã BHXH của bố</label>
+            <input oh-input class="w-lg" placeholder="Nhập" />
+
+            <label class="name-mom">Họ và tên mẹ</label>
+            <input oh-input class="w-lg" placeholder="Nhập" />
+            <label class="bhxh-mom">Mã BHXH của mẹ</label>
+            <input oh-input class="w-lg" placeholder="Nhập" />
+          </div>
+
+          <!-- ROW 8 -->
+          <div class="info-row d-flex">
+            <label class="retirement">Ngày quyết định hưu</label>
+            <oh-input-group ohCompact class="picker-date">
+              <oh-date-picker ohPlaceHolder="dd/mm/yyyy"></oh-date-picker>
+            </oh-input-group>
+
+            <label class="unit">Đơn vị công tác <span class="required">*</span></label>
+            <label oh-checkbox [(ngModel)]="checked"></label>
+            <oh-select ohPlaceHolder="-" class="select-unit"></oh-select>
+
+            <oh-select ohPlaceHolder="-" class="flex-1 hrm-retirement"></oh-select>
+            <button oh-button ohType="primary">
+              Kiểm tra HRM
+            </button>
+          </div>
+
+          <!-- ROW 9 -->
+          <div class="info-row d-flex">
+            <label class="rank">Quân hàm</label>
+            <oh-select ohPlaceHolder="Chọn" class="inp-rank"></oh-select>
+
+            <label class="guest-rank">Người giới thiệu</label>
+            <label oh-checkbox [(ngModel)]="checked">Ngoài bệnh viện</label>
+
+            <oh-select ohPlaceHolder="Chọn người giới thiệu" class="flex-1"></oh-select>
+          </div>
+
+          <!-- ROW 10 -->
+          <div class="info-row d-flex">
+            <label class="guest">Nguồn khách</label>
+            <oh-select ohPlaceHolder="Nhóm nguồn" class="inp-guest"></oh-select>
+            <oh-select ohPlaceHolder="Nguồn khách hàng" class="flex-1 inp-nguon"></oh-select>
+          </div>
+        </ng-container>
+
+
+        <ng-container *ngIf="activeTab === 'ticket'">
+          <div class="info-row d-flex">
+            <label class="receive-hours">Giờ tiếp nhận<span class="required">*</span></label>
+            <oh-date-picker ohShowTime ohFormat="yyyy-MM-dd HH:mm:ss" ngModel (ngModelChange)="onChange($event)"
+              (ohOnOk)="onOk($event)"></oh-date-picker>
+
+            <label class="reason-receive">Lý do tiếp nhận</label>
+            <oh-select ohPlaceHolder="Chọn" class="select-receive"></oh-select>
+
+            <label class="card-receive">Thẻ</label>
+            <oh-select ohPlaceHolder="Chọn" class="flex-1"></oh-select>
+            <label class="type-receive">Loại gói</label>
+            <oh-select ohPlaceHolder="Chọn" class="flex-1"></oh-select>
+          </div>
+
+          <!-- ROW 2 -->
+          <div class="info-row d-flex">
+            <label class="request">Yêu cầu khám <span class="required">*</span></label>
+            <input oh-input placeholder="Chọn" class="inp-request" />
+            <button oh-button ohType="primary" class="btn-request">
+              PKSK
+            </button>
+
+            <label class="clinic">Phòng khám<span class="required">*</span></label>
+            <oh-select ohPlaceHolder="Chọn" class="flex-1"></oh-select>
+            <button oh-button ohType="primary" class="btn-request">
+              Chọn PK
+            </button>
+            <label oh-checkbox [(ngModel)]="checked">Ưu tiên</label>
+            <label oh-checkbox [(ngModel)]="checked">Mua dịch vụ</label>
+
+          </div>
+
+          <!-- ROW 3 -->
+          <div class="info-row d-flex">
+            <label class="city">Lý do vào viện<span class="required">*</span></label>
+            <input oh-input placeholder="Nhập" class="inp-city" />
+
+            <label class="unit-code">Mã đơn vị gửi mẫu<span class="required">*</span></label>
+            <oh-select ohPlaceHolder="Chọn" class="w-lg"></oh-select>
+            <label oh-checkbox [(ngModel)]="checked">Khám giám định</label>
+          </div>
+
+          <!-- ROW 4 -->
+          <div class="info-row d-flex">
+            <label class="company">Công ty<span class="required">*</span></label>
+            <oh-select ohPlaceHolder="Chọn" class="select-company"></oh-select>
+
+            <label class="vip">Mã VIP<span class="required">*</span></label>
+            <input oh-input class="inp-vip" placeholder="Nhập" />
+            <label class="date-company">Từ ngày<span class="required">*</span></label>
+            <oh-input-group ohCompact class="picker-date">
+              <oh-date-picker ohPlaceHolder="dd/mm/yyyy"></oh-date-picker>
+            </oh-input-group>
+
+            <label class="date-company">Đến ngày<span class="required">*</span></label>
+            <oh-input-group ohCompact class="picker-date">
+              <oh-date-picker ohPlaceHolder="dd/mm/yyyy"></oh-date-picker>
+            </oh-input-group>
+          </div>
+
+          <!-- ROW 5 -->
+          <div class="info-row d-flex">
+            <label oh-radio ngModel>Nhập thuốc theo hẹn, không khám bệnh</label>
+
+            <label class="medicine">Nơi lĩnh thuốc</label>
+            <oh-select ohPlaceHolder="Chọn" class="inp-medicine"></oh-select>
+
+            <label class="another">Thu khác</label>
+            <input oh-input placeholder="Nhập" class="flex-1" />
+          </div>
+
+          <!-- ROW 6 -->
+          <div class="info-row d-flex">
+            <label oh-radio ngModel>Mời bác sĩ hội chẩn</label>
+            <oh-select ohPlaceHolder="Chọn bác sĩ" class="doctor"></oh-select>
+
+            <label class="date-confirm">Ngày cấp giấy xác nhận</label>
+            <oh-input-group ohCompact class="picker-date">
+              <oh-date-picker ohPlaceHolder="dd/mm/yyyy"></oh-date-picker>
+            </oh-input-group>
+
+            <label class="date-company">Đơn vị cấp giấy</label>
+            <oh-select ohPlaceHolder="Chọn" class="w-lg"></oh-select>
+          </div>
+
+          <!-- ROW 7 -->
+          <div class="info-row d-flex">
+            <label class="note">Ghi chú tiếp đón</label>
+            <input oh-input class="flex-1" placeholder="Nhập" />
+          </div>
+
+          <!-- ROW 8 -->
+          <div class="info-row d-flex">
+            <label oh-checkbox [(ngModel)]="unchecked" class="five-y">Các trường hợp khám bệnh, chữa bệnh theo quy định
+              đối với người mắc bệnh HIV/AIDS</label>
+          </div>
+
+          <!-- ROW 9 -->
+          <div class="info-row d-flex">
+            <label oh-checkbox [(ngModel)]="unchecked" class="five-y">Bệnh nhân đã đọc và đồng ý quy chế bảo vệ dữ liệu
+              cá nhân của [BV Đa khoa Tỉnh]</label>
+          </div>
+        </ng-container>
+      </div>
+
+    </div>
+
+    <!-- BẢO HIỂM Y TẾ -->
+    <div class="insurance-info">
+
+      <!-- ===== HEADER ===== -->
+      <div class="insurance-header d-flex justify-between align-center">
+        <span class="title">
+          BẢO HIỂM Y TẾ
+          <span class="sub-title">
+            DN4014017138394 - 80 - 01/01/2024 -> 01/01/2025 - Phòng khám Trung tâm y tế Quận Thanh Xuân - Quận Thanh
+            Xuân, TP Hà Nội
+          </span>
+        </span>
+        <span oh-icon ohType="caret-down" class="toggle-icon" [class.rotated]="!isInsuranceOpen" (click)="toggleInsurance()"></span>
+      </div>
+
+      <!-- ===== BODY ===== -->
+      <div class="insurance-body" *ngIf="isInsuranceOpen">
+
+        <!-- ROW 1 -->
+        <div class="ins-row d-flex">
+          <label class="card">Mã thẻ <span class="required">*</span></label>
+          <input oh-input placeholder="Nhập" class="inp-card" />
+
+          <input oh-input placeholder="Mức hưởng" class="w-md inp-affect" />
+
+          <label oh-checkbox [(ngModel)]="checked">Thẻ tạm</label>
+          <oh-select ohPlaceHolder="Chọn"></oh-select>
+
+          <label oh-checkbox [(ngModel)]="checked" class="card-bhyt">Giữ thẻ BHYT</label>
+
+          <label class="card-kcb">Nơi đăng ký KCB <span class="required">*</span></label>
+          <oh-select ohPlaceHolder="Chọn" class="flex-1"></oh-select>
+        </div>
+
+        <!-- ROW 2 -->
+        <div class="ins-row d-flex">
+          <label class="card-object">Đối tượng thẻ</label>
+          <input oh-input placeholder="Nhập" class="inp-card-object" />
+
+          <label class="live">Nơi sống</label>
+          <oh-select ohPlaceHolder="Chọn"></oh-select>
+
+          <label class="from-card-object">Từ ngày<span class="required">*</span></label>
+          <oh-input-group ohCompact class="picker-date">
+            <oh-date-picker ohPlaceHolder="dd/mm/yyyy"></oh-date-picker>
+          </oh-input-group>
+
+          <label class="to-card-object">Đến ngày<span class="required">*</span></label>
+          <oh-input-group ohCompact class="picker-date">
+            <oh-date-picker ohPlaceHolder="dd/mm/yyyy"></oh-date-picker>
+          </oh-input-group>
+        </div>
+
+        <!-- ROW 3 -->
+        <div class="ins-row d-flex">
+          <label class="add-bh">Địa chỉ BH <span class="required">*</span></label>
+          <input oh-input placeholder="Nhập" class="inp-add-bg" />
+
+          <label class="gland">Tuyến <span class="required">*</span></label>
+          <oh-select ohPlaceHolder="Chọn" class="gland1"></oh-select>
+
+          <oh-select ohPlaceHolder="Chọn" class="gland1"></oh-select>
+        </div>
+
+        <!-- ROW 4 -->
+        <div class="ins-row d-flex">
+          <label oh-checkbox [(ngModel)]="unchecked" class="five-y">Đủ 5 năm</label>
+          <oh-input-group ohCompact class="picker-date">
+            <oh-date-picker ohPlaceHolder="dd/mm/yyyy"></oh-date-picker>
+          </oh-input-group>
+
+          <label oh-checkbox [(ngModel)]="unchecked" class="six-m">Đủ 6 tháng TCLS</label>
+          <oh-input-group ohCompact class="picker-date">
+            <oh-date-picker ohPlaceHolder="dd/mm/yyyy"></oh-date-picker>
+          </oh-input-group>
+
+          <label class="free">ĐT miễn giảm</label>
+          <oh-select ohPlaceHolder="Chọn" class="flex-1"></oh-select>
+        </div>
+
+        <!-- ROW 5 -->
+        <div class="ins-row d-flex">
+          <label class="diagnosis">C.Đoán TD</label>
+          <input oh-input placeholder="Nhập" class="inp-diagnosis" />
+          <label class="tranfer">Nơi chuyển <span class="required">*</span></label>
+          <oh-select ohPlaceHolder="Chọn" class="select-tranfer"></oh-select>
+          <input oh-input placeholder="Số chuyển viện" class="inp-tranfer" />
+        </div>
+
+        <!-- ROW 6 -->
+        <div class="ins-row d-flex">
+          <label class="transfer-form">Hình thức chuyển</label>
+          <oh-select ohPlaceHolder="1a: Chuyển người bệnh từ tuyến dưới lên tuyến trên liền kề"
+            class="inp-transfer-form"></oh-select>
+          <label class="reason">Lý do chuyển <span class="required">*</span></label>
+          <oh-select ohPlaceHolder="Đủ điều kiện chuyển tuyến" class="flex-1"></oh-select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

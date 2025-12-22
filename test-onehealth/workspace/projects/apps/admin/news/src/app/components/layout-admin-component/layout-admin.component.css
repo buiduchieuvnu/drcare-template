@@ -69,3 +69,8 @@ position: fixed;
 .rightbar-content {
   padding: 16px;
 }
+
+footer-component{
+  /* position: sticky;
+  z-index: 998; */
+}
