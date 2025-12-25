@@ -1,0 +1,33 @@
+<!-- <div class="side-bar">
+
+<his-side-bar
+      [hisSideBarConfig]="hisSideBarConfig"
+      [hisInlineCollapsed]="isCollapsed"
+      [hisHover]="true"
+      hisWidth="54px"
+    ></his-side-bar>
+</div> -->
+
+<div class="side-bar"
+     [class.collapsed]="!isPinned"
+     [class.expanded]="isPinned"
+     (mouseenter)="onHover(true)"
+     (mouseleave)="onHover(false)">
+
+     <div  class="title">
+      <h3>HIS</h3>
+     </div>
+
+     <div class="his-side-bar">
+      <his-side-bar
+        [hisSideBarConfig]="hisSideBarConfig"
+        [hisInlineCollapsed]="!isPinned && !isHover"
+        [hisHover]="false"
+        [class.collapsed]="!isPinned" [class.expanded]="isPinned"
+    ></his-side-bar>
+     </div>
+  
+</div>
+<button class="pin-btn"  [class.sidebar-hover]="isHover" [class.sidebar-pinned]="isPinned" (click)="togglePin()">
+   <span oh-icon ohType="menu" ohTheme="outline"></span>
+  </button>

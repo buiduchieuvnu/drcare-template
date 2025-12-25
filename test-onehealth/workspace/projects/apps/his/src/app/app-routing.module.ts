@@ -5,9 +5,9 @@ import { RegistrationComponent } from './components/registration-component/regis
 import { RegistrationListComponent } from './components/registration-list-component/registration-list.component';
 
 const routes: Routes = [
-  { path: '', component: RegistrationComponent, pathMatch: 'full' },
-  { path: 'registration', component: RegistrationComponent },
-  { path: 'registration-list', component: RegistrationListComponent },
+  { path: '', redirectTo:'tiepnhan', pathMatch: 'full' },
+  { path: 'tiepnhan', component: RegistrationComponent },
+  { path: 'ds-tiepnhan', component: RegistrationListComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,172 @@
+.head-panel {
+  padding: 10px 6px 4px 18px;
+  background: #f5f6f8;
+}
+
+.breadcrumb {
+  margin-bottom: 6px;
+}
+
+.head-route {
+  background: #fff;
+  border-radius: 6px;
+  padding: 10px 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+
+/* ===== TITLE ===== */
+.head-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f1f1f;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.title-text{
+  font-size: 17px;
+}
+/* ===== BUTTON ===== */
+.head-button {
+  margin-bottom: 8px;
+}
+
+.action-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 0;
+}
+
+.btn-outline {
+  border: 1px solid #1359c2;
+  color: #1359c2;
+  height: 30px;
+}
+
+.btn-outline:hover {
+  background: #1359c2;
+  color: #fff;
+}
+.btn-primary{
+  height: 30px;
+}
+.btn-dropdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3.5px 10px;
+  border-radius: 5px;
+  border: 1px solid #3e84ee;
+  color: #3e84ee;
+  cursor: pointer;
+}
+
+.btn-dropdown.primary {
+  background: #1359c2;
+  color: #fff;
+  border-color: #1359c2;
+}
+
+/* ===== FORM ===== */
+.head-form {
+  padding-top: 8px;
+  border-top: 1px solid #e5e7eb;
+}
+[oh-button], [oh-input]{
+    border-radius: 5px;
+}
+.btn-cls, .btn-dieutri{
+  border-color: #1359c2;
+  background-color: #1359c2;
+  color: #fff;
+  height: 30px;
+}
+.btn-cls:hover, .btn-dieutri:hover{
+  border-color: #276ee9;
+  background-color: #276ee9;
+}
+.btn-delete{
+  height: 30px;
+}
+.align-center{
+    align-items: center;
+}
+.justify-between{
+    justify-content: space-between;
+}
+.justify-end{
+  justify-content: end;
+}
+.reg-form {
+    background: #fff;
+    padding: 6px 0px 3px 0px;
+}
+.reg-row {
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap:nowrap;
+    margin-top: 6px;
+}
+/* FORM TIẾP NHẬN */
+.reg-row-tiepnhan{
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap:nowrap;
+  margin-top: 6px;
+  font-weight: 600;
+}
+.inp-stt{
+  width: 55%;
+}
+.inp-stt-call{
+  width: 20%;
+}
+.select-quay{
+  width: 45%;
+}
+
+.select-object-tiepnhan{
+  width: 84%;
+}
+.btn-design{
+    border: 1px solid #0b5ed7;
+    color: #0b5ed7;
+}
+.btn-design:hover{
+    background: #0b52bd;
+    color: #fff;
+}
+.btn-padding{
+  padding: 0 10%;
+}
+
+/* FORM DANH SÁCH TIẾP NHẬN */
+
+
+.inp-ba{
+    width: 80%;
+    font-weight: 700;
+}
+.date-to-date{
+  width: 63%;
+}
+.select-status{
+  width: 50%;
+}
+.select-clinic{
+  width: 80%;
+}
+.select-object{
+  width: 63%;
+}
+.select-register{
+  width: 50%;
+}
+::ng-deep .ui-select:not(.ui-select-customize-input) .ui-select-selector{
+  height: 32px;
+  border-radius: 5px;
+}

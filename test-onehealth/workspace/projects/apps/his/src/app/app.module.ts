@@ -19,6 +19,9 @@ import { HisFooterModule } from '@onehealth/ui/his-footer';
 import { HisHeaderModule } from '@onehealth/ui/his-header';
 import { HisMenuModule } from '@onehealth/ui/his-menu';
 import { OHActionBarModule } from '@onehealth/ui/action-bar';
+import { SideBarComponent } from './components/sidebar-component/sidebar.component';
+import { HisSideBarModule } from '@onehealth/ui/his-side-bar';
+import { HeaderPanelComponent } from './components/head-panel/head-panel.component';
 registerLocaleData(localeVi);
 
 @NgModule({
@@ -27,7 +30,9 @@ registerLocaleData(localeVi);
     HeaderComponent,
     FooterComponent,
     RegistrationComponent,
-    RegistrationListComponent
+    RegistrationListComponent,
+    SideBarComponent,
+    HeaderPanelComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -41,7 +46,8 @@ registerLocaleData(localeVi);
     HisFooterModule,
     HisHeaderModule,
     HisMenuModule,
-    OHActionBarModule
+    OHActionBarModule,
+    HisSideBarModule
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/his' }

@@ -25,10 +25,26 @@ time: Date | null = null;
   isInsuranceOpen = true;
 
   toggleAdminInfo() {
-    this.isAdminInfoOpen = !this.isAdminInfoOpen;
+  this.isAdminInfoOpen = !this.isAdminInfoOpen;
+
+  if (this.isAdminInfoOpen) {
+    setTimeout(() => {
+      document
+        .querySelector('.admin-info')
+        ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   }
+}
+
 
   toggleInsurance() {
     this.isInsuranceOpen = !this.isInsuranceOpen;
+    if (this.isAdminInfoOpen) {
+    setTimeout(() => {
+      document
+        .querySelector('.insurance-info')
+        ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
   }
 }

@@ -1,189 +1,125 @@
 <header class="app-header">
-
-  <!-- ===== TOP HEADER ===== -->
-  <!-- <div class="header-top d-flex">
-
-    <div class="ui-col-xl-9 d-flex align-center header-left">
-      <oh-logo [ohColor]="'#ffffff'" [ohSize]="{'size':'lg'}" class="logo"></oh-logo>
-
-      <div class="logo-text">
-        <div class="logo-title">VNPT HIS</div>
-        <div class="logo-subtitle">
-          PHẦN MỀM QUẢN LÝ HỆ THỐNG THÔNG TIN BỆNH VIỆN
-        </div>
-      </div>
+  <div class="header-left">
+    <div class="logo">
+      <!-- <span class="logo-label">DRCARE247</span> -->
     </div>
 
-    <div class="ui-col-xl-7 d-flex align-center justify-center">
-      <div class="search-box d-flex align-center">
-        <span oh-icon ohType="search"></span>
-        <input type="text" placeholder="Tìm kiếm chức năng ..." />
+    <div class="search" #searchWrapper>
+      <div class="category" *ngIf="isFocus">
+        <button class="category-btn" (click)="toggleCategoryMenu($event)">
+          {{ selectedCategory }}
+          <span oh-icon ohType="down" ohTheme="outline" [class.open]="showCategoryMenu" class="arrow"></span>
+        </button>
+
+        <ul class="category-menu" *ngIf="showCategoryMenu">
+          <li (click)="selectCategory('Tất cả', $event)">Tất cả</li>
+          <li (click)="selectCategory('Tin tức', $event)">Tin tức</li>
+          <li (click)="selectCategory('Khác', $event)">Khác</li>
+        </ul>
+      </div>
+
+      <div class="search-box" [class.focused]="isFocus">
+        <button class="clear-btn" *ngIf="isFocus" (pointerdown)="clearFocus($event)">
+          <span oh-icon ohType="arrow-left" ohTheme="outline"></span>
+        </button>
+
+        <input #searchInput type="text" placeholder="Search" (focus)="onFocus()" />
+
+        <span oh-icon ohType="search" ohTheme="outline" class="search-icon"></span>
       </div>
     </div>
+  </div>
 
-    <div class="ui-col-xl-8 d-flex align-center justify-end header-right">
-      <span
-        oh-icon
-        ohType="bell"
-        class="notification-icon"
-      ></span>
-      <a
-        oh-dropdown
-        ohTrigger="click"
-        [ohDropdownMenu]="userMenu"
-        class="user-trigger d-flex align-center"
-      >
-      
-        <span oh-icon ohType="user" ohTheme="outline" class="avatar"></span>  
+  <!-- Right Icons -->
+  <div class="header-right">
+    <button class="icon-btn" (click)="onBellClick()" [class.active]="active">
+      <span oh-icon ohType="bell" ohTheme="outline"></span>
+    </button>
+
+    <button class="icon-btn" (click)="onSettingClick()">
+      <span oh-icon ohType="setting" ohTheme="outline"></span>
+    </button>
+
+    <div class="account-wrapper" *ngIf="auth.isLoggedIn()">
+      <div class="account" #accountBtn (click)="toggleAccountMenu()">
+        <oh-avatar ohIcon="Contact"></oh-avatar>
+      </div>
+
+      <div class="account-popup" *ngIf="isAccountOpen" #accountPopup>
 
         <div class="user-info">
-          <div class="user-name">Nguyễn Xuân Bình | 0948.423.823</div>
-          <div class="user-role">Bệnh viện Bưu Điện(HN)</div>
+          <oh-avatar ohIcon="Contact"></oh-avatar>
+          <div class="info-text">
+            <div class="name">{{ user?.name }}</div>
+            <div class="email">{{ user?.email }}</div>
+          </div>
         </div>
-        <span oh-icon ohType="caret-down"></span>
-      </a>
 
-      <oh-dropdown-menu #userMenu="ohDropdownMenu">
-        <ul oh-menu>
-          <li oh-menu-item>
-            <span oh-icon ohType="user"></span>
-            Thông tin tài khoản
-          </li>
+        <hr>
 
-          <li oh-menu-item class="logout">
-            <span oh-icon ohType="logout"></span>
-            Đăng xuất
-          </li>
-        </ul>
-      </oh-dropdown-menu>
+        <div class="menu-item">Thông tin tài khoản</div>
+        <div class="menu-item">Đổi mật khẩu</div>
+        <div class="menu-item" (click)="logout()">Đăng xuất</div>
 
+      </div>
     </div>
-  </div> -->
-  <his-header [isDetail]="false" [hisInformation]="information" [hisMenuItem]="itemMenu"></his-header>
-  <!-- ===== BOTTOM HEADER ===== -->
-  <div class="header-bottom d-flex menu-bar">
-    <div class="menu-item">
-      Trang chủ
-    </div>
-    <div class="menu-item" [class.active]="isNgoaiTruActive()">
-      <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="outPatientMenu" class="menu-dropdown-trigger">
-        Ngoại trú
-        <span oh-icon ohType="caret-down"></span>
-      </a>
+  </div>
 
-      <oh-dropdown-menu #outPatientMenu="ohDropdownMenu">
-        <ul oh-menu>
-          <li oh-menu-item routerLink="/registration" routerLinkActive="dropdown-active"
-            [routerLinkActiveOptions]="{ exact: true }">
-            Tiếp nhận bệnh nhân
-          </li>
+  <!-- Nền đen toàn màn hình -->
+  <div class="modal-backdrop" *ngIf="isSettingOpen"></div>
 
-          <li oh-menu-item routerLink="/registration-list" routerLinkActive="dropdown-active"
-            [routerLinkActiveOptions]="{ exact: true }">
-            Danh sách tiếp nhận
-          </li>
-        </ul>
-      </oh-dropdown-menu>
-    </div>
+  <!-- Bắt sự kiện click ngoài popup -->
+  <div class="modal-container" *ngIf="isSettingOpen" (click)="closeSetting()">
 
+    <div class="modal" (click)="$event.stopPropagation()">
+      <div class="modal-body">
+        <div class="d-flex setting-layout">
 
-    <div class="menu-item">
-      <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="inPatientMenu" class="menu-dropdown-trigger">
-        Nội trú
-        <span oh-icon ohType="caret-down"></span>
-      </a>
+          <!-- ===== CẤP 1 ===== -->
+          <div class="ui-col-xl-5 setting-col left">
+            <h2>Thiết đặt</h2>
 
-      <oh-dropdown-menu #inPatientMenu="ohDropdownMenu">
-        <ul oh-menu>
-          <li oh-menu-item>Điều trị</li>
-          <li oh-menu-item>Xuất viện</li>
-        </ul>
-      </oh-dropdown-menu>
-    </div>
+            <input type="text" class="search-setting" placeholder="Tìm kiếm thiết đặt" />
 
-    <div class="menu-item">
-      <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="insuranceMenu" class="menu-dropdown-trigger">
-        Viện phí & Bảo hiểm
-        <span oh-icon ohType="caret-down"></span>
-      </a>
+            <ul class="menu">
+              <li *ngFor="let item of level1" [class.active]="item.key === selectedLevel1?.key"
+                (click)="selectLevel1(item)">
+                <span oh-icon [ohType]="item.icon" ohTheme="outline" class="menu-icon"></span>
+                {{ item.label }}
+              </li>
+            </ul>
+          </div>
 
-      <oh-dropdown-menu #insuranceMenu="ohDropdownMenu">
-        <ul oh-menu>
-          <li oh-menu-item>Quản lý viện phí</li>
-          <li oh-menu-item>Bảo hiểm y tế</li>
-        </ul>
-      </oh-dropdown-menu>
-    </div>
+          <!-- ===== CẤP 2 ===== -->
+          <div class="ui-col-xl-4 setting-col middle">
+            <ul class="submenu" *ngIf="selectedLevel1">
+              <li *ngFor="let child of selectedLevel1.children" [class.active]="child.key === selectedLevel2?.key"
+                (click)="selectLevel2(child)">
+                {{ child.label }}
+              </li>
+            </ul>
+          </div>
 
-    <div class="menu-item">
-      <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="labMenu" class="menu-dropdown-trigger">
-        Cận lâm sàng & Module khác
-        <span oh-icon ohType="caret-down"></span>
-      </a>
+          <!-- ===== CẤP 3 ===== -->
+          <div class="ui-col-xl-15 setting-col right">
+            <!-- Header -->
+            <div class="content-header">
+              <h2>{{ selectedLevel2?.label }}</h2>
 
-      <oh-dropdown-menu #labMenu="ohDropdownMenu">
-        <ul oh-menu>
-          <li oh-menu-item>Xét nghiệm</li>
-          <li oh-menu-item>Chẩn đoán hình ảnh</li>
-        </ul>
-      </oh-dropdown-menu>
-    </div>
+              <span oh-icon ohType="close" ohTheme="outline" class="close-icon" (click)="closeSetting($event)"></span>
+            </div>
 
-    <div class="menu-item">
-      <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="pharmacyMenu" class="menu-dropdown-trigger">
-        Dược
-        <span oh-icon ohType="caret-down"></span>
-      </a>
+            <!-- Content -->
+            <div class="content-body" *ngIf="selectedLevel2">
+              <!-- demo content -->
+              <p>Nội dung của {{ selectedLevel2.label }}</p>
+            </div>
+          </div>
 
-      <oh-dropdown-menu #pharmacyMenu="ohDropdownMenu">
-        <ul oh-menu>
-          <li oh-menu-item>Kho thuốc</li>
-          <li oh-menu-item>Cấp phát</li>
-        </ul>
-      </oh-dropdown-menu>
-    </div>
-
-    <div class="menu-item">
-      <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="reportMenu" class="menu-dropdown-trigger">
-        Báo cáo và tra cứu
-        <span oh-icon ohType="caret-down"></span>
-      </a>
-
-      <oh-dropdown-menu #reportMenu="ohDropdownMenu">
-        <ul oh-menu>
-          <li oh-menu-item>Báo cáo tổng hợp</li>
-          <li oh-menu-item>Tra cứu dữ liệu</li>
-        </ul>
-      </oh-dropdown-menu>
-    </div>
-
-    <div class="menu-item">
-      <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="categoryMenu" class="menu-dropdown-trigger">
-        Danh mục
-        <span oh-icon ohType="caret-down"></span>
-      </a>
-
-      <oh-dropdown-menu #categoryMenu="ohDropdownMenu">
-        <ul oh-menu>
-          <li oh-menu-item>Danh mục dùng chung</li>
-        </ul>
-      </oh-dropdown-menu>
-    </div>
-
-    <div class="menu-item">
-      <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="adminMenu" class="menu-dropdown-trigger">
-        Quản trị hệ thống
-        <span oh-icon ohType="caret-down"></span>
-      </a>
-
-      <oh-dropdown-menu #adminMenu="ohDropdownMenu">
-        <ul oh-menu>
-          <li oh-menu-item>Người dùng</li>
-          <li oh-menu-item>Phân quyền</li>
-        </ul>
-      </oh-dropdown-menu>
+        </div>
+      </div>
     </div>
 
   </div>
-  <!-- <his-menu [hisValues]="menus"></his-menu> -->
+
 </header>

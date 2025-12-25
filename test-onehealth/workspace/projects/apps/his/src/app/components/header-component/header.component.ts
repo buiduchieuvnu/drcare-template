@@ -1,6 +1,7 @@
-import { Component, HostListener, ElementRef } from '@angular/core';
+import { Component, HostListener, ElementRef, ViewChild, EventEmitter, Output, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { AuthService } from '../../../service/auth.service';
 
 @Component({
   selector: 'header-component',
@@ -9,177 +10,159 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-    constructor(private router: Router) {}
-
-  isNgoaiTruActive(): boolean {
-    return (
-      this.router.url.startsWith('/registration')
-    );
-  }
-  itemMenu = [
-    {
-      menuName: 'Hồ sơ cá nhân',
-      icon: 'user',
-      route: ''
-    },
-    {
-      menuName: 'Đổi mật khẩu',
-      icon: 'lock',
-      route: ''
-    },
-    {
-      menuName: 'Đăng Xuất',
-      icon: 'logout',
-      route: '/his/overview/vi',
-      click: () => {
-        console.log('Logout button clicked');
-        alert("Thực hiện logic đăng xuất tại đây")
-        // Thực hiện logic đăng xuất tại đây
+     // SEARCH
+      @ViewChild('searchWrapper') searchWrapper!: ElementRef;
+      @ViewChild('searchInput') searchInput!: ElementRef<HTMLInputElement>;
+    
+      isFocus = false;
+      showCategoryMenu = false;
+      selectedCategory = 'Tất cả';
+    
+      user: any;
+      constructor(
+        public auth: AuthService,
+        private router: Router
+      ) { }
+      ngOnInit() {
+        this.user = this.auth.getUser();
+    
+        // 1. mặc định chọn account
+        this.selectedLevel1 = this.level1.find(
+          item => item.key === 'account'
+        );
+    
+        // 2. mặc định chọn child đầu tiên
+        if (this.selectedLevel1?.children?.length) {
+          this.selectedLevel2 = this.selectedLevel1.children[0];
+        }
       }
-    }
-  ];
-
-  information = {
-    Name:"Nguyễn Xuân Bình",
-    NumberPhone:"0987898767",
-    Hospital:"Bệnh viện Bưu điện(HN)",
-    Avatar:"https://gw.alipayobjects.com/zos/alicdn/fNUKzY1sk/Button.svg"
-  }
-  // menus: any[] = [];
-  meuns2: any[] = []
-  menus = [
-    {
-      level: 1,
-      title: 'Trang chủ',
-      open: true,
-      selected: false,
-      disabled: false,
-      route:'/trang-chu'
-    },
-    {
-      level: 1,
-      title: 'Ngoại trú',
-      open: false,
-      selected: false,
-      disabled: false,
-      children: [
+    
+      onFocus() {
+        this.isFocus = true;
+      }
+    
+      clearFocus() {
+        this.isFocus = false;
+        this.showCategoryMenu = false;
+        this.searchInput.nativeElement.value = '';
+      }
+    
+      toggleCategoryMenu(event: Event) {
+        event.stopPropagation();
+        this.showCategoryMenu = !this.showCategoryMenu;
+      }
+    
+      selectCategory(name: string, event: Event) {
+        event.stopPropagation();
+        this.selectedCategory = name;
+        this.showCategoryMenu = false;
+        this.isFocus = true;
+      }
+    
+      // NOTIFICATION
+      @Input() active = false;
+      @Output() toggleRightbar = new EventEmitter<void>();
+    
+      onBellClick() {
+        this.toggleRightbar.emit();
+      }
+    
+      // POPUP SETTING
+      isSettingOpen = false;
+      onSettingClick() {
+        this.isSettingOpen = true;
+      }
+      closeSetting(event?: Event) {
+        if (event) event.stopPropagation();
+        this.isSettingOpen = false;
+      }
+    
+      // POPUP ACCOUNT
+      isAccountOpen = false;
+      @ViewChild('accountPopup') accountPopup!: ElementRef;
+      @ViewChild('accountBtn') accountBtn!: ElementRef;
+      toggleAccountMenu() {
+        this.isAccountOpen = !this.isAccountOpen;
+      }
+    
+      @HostListener('document:click', ['$event'])
+      onDocumentClick(event: Event) {
+        const target = event.target as HTMLElement;
+        // SEARCH
+        if (this.searchWrapper && !this.searchWrapper.nativeElement.contains(target)) {
+          if (!this.searchInput.nativeElement.value) {
+            this.isFocus = false;
+          }
+          this.showCategoryMenu = false;
+        }
+        // ACCOUNT POPUP
+        if (this.isAccountOpen) {
+          const popup = this.accountPopup?.nativeElement;
+          const btn = this.accountBtn?.nativeElement;
+    
+          if (!btn.contains(target) && !popup.contains(target)) {
+            this.isAccountOpen = false;
+          }
+        }
+    
+        //  SETTING: CLICK OUTSIDE TO CLOSE
+        if (this.isSettingOpen) {
+          const overlayClicked = (target.classList.contains('modal-container'));
+          if (overlayClicked) this.isSettingOpen = false;
+        }
+      }
+      logout() {
+        this.auth.logout();
+        this.router.navigate(['/login']);
+      }
+      level1 = [
         {
-          level: 2,
-          title: 'Tiếp nhận khám bệnh',
-          selected: false,
-          disabled: false,
-          route: '',
-         
-        },
-        {
-          level: 2,
-          title: 'Khám bệnh',
-          selected: false,
-          disabled: false,
-          route: '/ngt/kb/ds-khambenh',
-        },
-      ],
-    },
-    {
-      level: 1,
-      title: 'Viện phí và bảo hiểm',
-      selected: false,
-      disabled: false,
-      route:'/trangchu'
-    },
-    {
-      level: 1,
-      title: 'Cận lâm sàng & Module khác',
-      selected: false,
-      disabled: false,
-    },
-    {
-      level: 1,
-      title: 'Nội trú',
-      icon: 'caret-down',
-      selected: true,
-      disabled: false,
-      children: [
-        {
-          level: 2,
-          title: 'User 1',
+          key: 'account',
+          label: 'Tài khoản',
           icon: 'user',
-          selected: false,
-          disabled: false,
-          route: '/team-group/user-1',
+          children: [
+            { key: 'account_email', label: 'Tài khoản email' },
+            { key: 'sign', label: 'Chữ ký' }
+          ]
         },
         {
-          level: 2,
-          title: 'User 2',
-          icon: 'user',
-          selected: false,
-          disabled: false,
-          route: '/team-group/user-2',
-        },
-      ],
-    },
-    {
-      level: 1,
-      title: 'Dược',
-      icon: 'caret-down',
-      selected: false,
-      disabled: false,
-      children: [
-        {
-          level: 2,
-          title: 'User 1',
-          icon: 'user',
-          selected: false,
-          disabled: false,
-          route: '/team-group/user-1',
+          key: 'general',
+          label: 'Chung',
+          icon: 'setting',
+          children: [
+            { key: 'language', label: 'Ngôn ngữ và thời gian' },
+            { key: 'display', label: 'Giao diện' },
+            { key: 'notification', label: 'Thông báo' }
+          ]
         },
         {
-          level: 2,
-          title: 'User 2',
-          icon: 'user',
-          selected: false,
-          disabled: false,
-          route: '/team-group/user-2',
-        },
-      ],
-    },
-    {
-      level: 1,
-      title: 'Báo cáo và tra cứu',
-      icon: 'caret-down',
-      open: false,
-      selected: false,
-      disabled: false,
-      children: [
-        {
-          level: 2,
-          title: 'User 1',
-          icon: 'user',
-          selected: false,
-          disabled: false,
-          route: '/team-group/user-1',
-        },
-        {
-          level: 2,
-          title: 'User 2',
-          icon: 'user',
-          selected: false,
-          disabled: false,
-          route: '/team-group/user-2',
-        },
-      ],
-    },
-    {
-      level: 1,
-      title: 'Danh mục',
-      selected: false,
-      disabled: false,
-    },
-    {
-      level: 1,
-      title: 'Quản trị hệ thống',
-      selected: false,
-      disabled: false,
-    },
-  ];
+          key: 'mail',
+          label: 'Thư',
+          icon: 'mail',
+          children: [
+            { key: 'Arrange', label: 'Bố trí' },
+            { key: 'Attachments', label: 'Tệp đính kèm' },
+            { key: 'mail_trash', label: 'Thư rác' }
+          ]
+        }
+      ];
+    
+    
+      selectedLevel1: any;
+      selectedLevel2: any;
+    
+      selectLevel1(item: any) {
+        this.selectedLevel1 = item;
+    
+        // luôn auto select child đầu tiên
+        if (item.children?.length) {
+          this.selectedLevel2 = item.children[0];
+        } else {
+          this.selectedLevel2 = null;
+        }
+      }
+    
+      selectLevel2(child: any) {
+        this.selectedLevel2 = child;
+      }
 }

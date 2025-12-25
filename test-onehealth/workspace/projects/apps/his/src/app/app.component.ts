@@ -8,5 +8,9 @@ import { NavigationEnd, Router } from '@angular/router';
   standalone: false,
 })
 export class AppComponent {
+isSidebarPinned = false;
 
+  onToggleSidebarPin(pinned: boolean) {
+    this.isSidebarPinned = pinned;
+  }
 }

@@ -1,6 +1,6 @@
 <div class="registration">
     <div class="reg-container">
-        <div class="reg-form">
+        <!-- <div class="reg-form">
             <div class="reg-row d-flex">
                 <label class="reg-ba ui-col-xl">Mã BA</label>
                 <input oh-input value="BN012399123" class="input-ba" />
@@ -25,8 +25,8 @@
                     Tìm (f3)
                 </button>
             </div>
-        </div>
-        <!-- <div class="reg-form">
+        </div> -->
+        <div class="reg-form">
             <div class="reg-row d-flex">
                 <div class="ui-col-xl-9 d-flex col-ba">
 
@@ -70,7 +70,7 @@
                 </button>   
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <!-- Danh sách tiếp nhận -->
         <div class="admin-info">
@@ -83,7 +83,8 @@
 
             <!-- ===== CONTENT ===== -->
             <div class="admin-info-body">
-                <oh-table [ohData]="filteredData" ohShowSizeChanger [ohScroll]="{ x: '1600px'}" ohBordered #table (ohCurrentPageDataChange)="onCurrentPageDataChange($event)">
+                <!-- [ohScroll]="{ x: '700px'}" -->
+                <oh-table [ohData]="filteredData" ohShowSizeChanger  ohBordered #table  (ohCurrentPageDataChange)="onCurrentPageDataChange($event)">
                 <thead>
                     <!-- HEADER -->
                     <tr class="header-row">
@@ -106,7 +107,9 @@
 
                     <!-- FILTER -->
                     <tr class="filter-row">
-                    <th></th><th></th><th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                     <th><input oh-input [(ngModel)]="search.objectType" (ngModelChange)="applyFilter()" placeholder="Tìm" /></th>
                     <th><input oh-input [(ngModel)]="search.patientCode" (ngModelChange)="applyFilter()" placeholder="Tìm"/></th>
                     <th><input oh-input [(ngModel)]="search.patientId" (ngModelChange)="applyFilter()" placeholder="Tìm"/></th>

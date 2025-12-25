@@ -1,0 +1,165 @@
+<div class="head-panel">
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <oh-breadcrumb>
+      <oh-breadcrumb-item>
+        <span oh-icon ohType="home"></span>
+      </oh-breadcrumb-item>
+      <oh-breadcrumb-item>
+        <span>Tiếp nhận</span>
+      </oh-breadcrumb-item>
+      <oh-breadcrumb-item>
+        {{ pageTitle }}
+      </oh-breadcrumb-item>
+    </oh-breadcrumb>
+  </div>
+
+  <!-- HEAD ROUTE -->
+  <div class="head-route">
+    <!-- ===== TITLE ===== -->
+    <div class="head-title">
+      <span class="title-text">{{ pageTitle }}</span>
+      <span oh-icon ohType="caret-down" ohTheme="outline"></span>
+    </div>
+
+    <!-- ===== BUTTON ===== -->
+    <div class="head-button">
+      <!-- TIẾP NHẬN -->
+      <ng-container *ngIf="isTiepNhan">
+        <div class="action-group">
+          <button oh-button ohType="default" class="btn-outline">
+            Nhập mới (F5)
+          </button>
+          <button oh-button ohType="primary" class="btn-primary">
+            Lưu (F4)
+          </button>
+
+          <a oh-dropdown ohTrigger="click" [ohDropdownMenu]="historyMenu" class="btn-dropdown primary">
+            Lịch sử điều trị
+            <span oh-icon ohType="down"></span>
+          </a>
+
+          <oh-dropdown-menu #historyMenu="ohDropdownMenu">
+            <ul oh-menu>
+              <li oh-menu-item>Lịch sử khám</li>
+              <li oh-menu-item>Lịch sử điều trị</li>
+            </ul>
+          </oh-dropdown-menu>
+        </div>
+      </ng-container>
+
+      <!-- DANH SÁCH TIẾP NHẬN -->
+      <ng-container *ngIf="isDanhSach">
+        <div class="action-group">
+          <button oh-button ohType="default" class="btn-outline">Nhập mới (F5)</button>
+
+          <button oh-button ohType="default" class="btn-cls">Dịch vụ CLS(F6)</button>
+          <button oh-button ohType="default" class="btn-dieutri">Lịch sử điều trị</button>
+
+          <a oh-dropdown [ohDropdownMenu]="menu" class="btn-dropdown">
+            Khác
+            <span oh-icon ohType="down"></span>
+          </a>
+
+          <oh-dropdown-menu #menu="ohDropdownMenu">
+            <ul oh-menu>
+              <li oh-menu-item>Xuất Excel</li>
+              <li oh-menu-item>In danh sách</li>
+            </ul>
+          </oh-dropdown-menu>
+
+          <button oh-button ohType="primary" ohDanger class="btn-delete">Xóa</button>
+        </div>
+      </ng-container>
+    </div>
+
+    <!-- ===== FORM ===== -->
+    <div class="head-form">
+      <ng-container *ngIf="isTiepNhan">
+        <div class="reg-form">
+          <div class="reg-row-tiepnhan d-flex">
+            <div class="ui-col-xl-8 d-flex align-center justify-between">
+              <label class="">Số thứ tự</label>
+              <input oh-input value="072" class="inp-stt" />
+              <button oh-button ohType="default" class="btn-design">Gọi bệnh nhân</button>
+            </div>
+            <div class="ui-col-xl-10 d-flex align-center justify-between">
+              <label class="">Số thứ tự gọi lại</label>
+              <input oh-input value="072" class="inp-stt-call" />
+              <label class="">Quầy</label>
+              <oh-select ohPlaceHolder="Chọn" class="select-quay"></oh-select>
+            </div>
+            
+            <div class="ui-col-xl-5 d-flex align-center justify-between">
+              <button oh-button ohType="default" class="btn-design ui-col-xl-11">Gọi lại </button>
+              <button oh-button ohType="default" class="btn-design ui-col-xl-12">Màn hình LCD </button>
+            </div>
+          </div>
+
+          <div class="reg-row-tiepnhan d-flex">
+            <div class="ui-col-xl-8 d-flex align-center justify-between">
+              <label class="">Đối tượng</label>
+              <oh-select ohPlaceHolder="Chọn" class="select-object-tiepnhan"></oh-select>
+            </div>
+            <div class="ui-col-xl-10 d-flex align-center justify-between">
+              <input oh-input placeholder="Mã BN, SĐT, QR CCCD, QR BHYT"/>
+            </div>
+            <div class="ui-col-xl-5 d-flex align-center justify-between">
+              <label oh-checkbox [(ngModel)]="checked">
+                Kiểm tra BHYT
+              </label>
+              <button oh-button ohType="primary" class="ui-col-xl-11">
+                Tìm BN (F3)
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="isDanhSach">
+        <div class="reg-form">
+          <div class="reg-row d-flex">
+            <div class="ui-col-xl-8 d-flex align-center justify-between">
+
+              <label class="">Mã BA</label>
+              <input oh-input value="BN012399123" class="inp-ba" />
+            </div>
+            <div class="ui-col-xl-7 d-flex align-center justify-between">
+
+              <label class="">Từ ngày-Đến ngày</label>
+              <oh-range-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"
+                class="date-to-date"></oh-range-picker>
+            </div>
+            <div class="ui-col-xl-8 d-flex align-center justify-between">
+
+              <label oh-checkbox [(ngModel)]="checked" class="">
+                Theo ngày ra viện
+              </label>
+              <label class="">Trạng thái</label>
+              <oh-select ohPlaceHolder="Chọn" class="select-status"></oh-select>
+            </div>
+
+          </div>
+
+          <div class="reg-row d-flex">
+            <div class="ui-col-xl-8 d-flex align-center justify-between">
+              <label class="">Phòng khám</label>
+              <oh-select ohPlaceHolder="Chọn" class="select-clinic"></oh-select>
+            </div>
+            <div class="ui-col-xl-7 d-flex align-center justify-between">
+              <label>Đối tượng</label>
+              <oh-select ohPlaceHolder="Chọn" class="select-object"></oh-select>
+            </div>
+            <div class="ui-col-xl-8 d-flex align-center justify-between">
+              <label>Kênh đăng ký</label>
+              <oh-select ohPlaceHolder="Chọn" class="select-register"></oh-select>
+              <button oh-button ohType="primary" class="">
+                Tìm (f3)
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
