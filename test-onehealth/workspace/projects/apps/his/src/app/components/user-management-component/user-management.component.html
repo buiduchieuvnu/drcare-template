@@ -1,0 +1,133 @@
+<div class="registration">
+    <div class="reg-container">
+
+        <!-- Danh sách tiếp nhận -->
+        <div class="admin-info">
+            <!-- <div class="admin-info-header">
+                <span class="title">DANH SÁCH TIẾP NHẬN</span>
+            </div> -->
+
+            <!-- ===== CONTENT ===== -->
+            <div class="admin-info-body d-flex">
+                <!-- [ohScroll]="{ x: '1600px'}" -->
+                <div class="ui-col-xl-14">
+                    <oh-table [ohData]="filteredData" ohShowSizeChanger ohBordered #table
+                        (ohCurrentPageDataChange)="onCurrentPageDataChange($event)">
+                        <thead>
+                            <!-- HEADER -->
+                            <tr class="header-row">
+                                <th class="col-stt">STT</th>
+                                <th class="text-center">Phân quyền</th>
+                                <th>Mã người dùng</th>
+                                <th>Tên người dùng</th>
+                                <th>Nhóm người dùng</th>
+                            </tr>
+
+                            <tr class="filter-row">
+                                <th></th>
+                                <th>
+                                    <input oh-input [(ngModel)]="search.roleName" (ngModelChange)="applyFilter()"
+                                        placeholder="Tìm quyền" />
+                                </th>
+                                <th>
+                                    <input oh-input [(ngModel)]="search.userCode" (ngModelChange)="applyFilter()"
+                                        placeholder="Tìm" />
+                                </th>
+                                <th>
+                                    <input oh-input [(ngModel)]="search.userName" (ngModelChange)="applyFilter()"
+                                        placeholder="Tìm" />
+                                </th>
+                                <th>
+                                    <input oh-input [(ngModel)]="search.userGroup" (ngModelChange)="applyFilter()"
+                                        placeholder="Tìm" />
+                                </th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let row of table.data; let i = index" (click)="selectRow(row)"
+                                [class.row-selected]="selectedRow?.id === row.id" class="content">
+                                <td class="text-center">{{ i + 1 }}</td>
+                                <td class="text-center">
+                                    <ng-container *ngFor="let role of row.roles">
+                                        <span oh-icon [ohType]="role.icon" [ohColor]="role.color" ohTheme="fabric"
+                                            class="mr-4"></span>
+                                    </ng-container>
+                                </td>
+                                <td>{{ row.userCode }}</td>
+                                <td>{{ row.userName }}</td>
+                                <td>{{ row.userGroup }}</td>
+                            </tr>
+                        </tbody>
+                    </oh-table>
+                    <div class="d-flex note-table">
+                        <div class="d-flex note-child">
+                            <span oh-icon [ohType]="'system'" [ohColor]="'success'" ohTheme="fabric"></span>
+                            <p>Phân quyền Control</p>
+                        </div>
+                        <div class="d-flex note-child">
+                            <span oh-icon [ohType]="'entitlement-policy'" [ohColor]="'danger'" ohTheme="fabric">Phân
+                                quyền dữ liệu</span>
+                            <p>Phân quyền dữ liệu</p>
+                        </div>
+                        <div class="d-flex note-child">
+                            <span oh-icon [ohType]="'fabric-open-folder-horizontal'" [ohColor]="'primary'"
+                                ohTheme="fabric">Phân quyền Menu</span>
+                            <p>Phân quyền Menu</p>
+                        </div>
+                        <div class="d-flex note-child">
+                            <span oh-icon [ohType]="'bar-chart4'" [ohColor]="'warning'" ohTheme="fabric">Phân quyền
+                                Report</span>
+                            <p>Phân quyền Report</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui-col-xl-10">
+                    <div class="header-form">
+                        Thông tin nhân viên
+                    </div>
+                    <div class=" content-form">
+                        <div class="d-flex info-row">
+                            <label class="ui-col-xl-6">Tên người dùng<span class="required">*</span></label>
+                            <input oh-input placeholder="Nhập" class="ui-col-xl-17" />
+                        </div>
+                        <div class="d-flex info-row">
+                            <label class="ui-col-xl-6">Tên tài khoản<span class="required">*</span></label>
+                            <input oh-input placeholder="Nhập" class="ui-col-xl-5" />
+                            <label class="ui-col-xl-5">Tên tài khoản <span class="required">*</span></label>
+                            <input oh-input placeholder="Nhập" class="ui-col-xl-5" />
+                        </div>
+                        <div class="d-flex info-row">
+                            <label class="ui-col-xl-6">Nhóm người dùng<span class="required">*</span></label>
+                            <oh-select ohPlaceHolder="Chọn" class="ui-col-xl-17"></oh-select>
+                        </div>
+                        <div class="d-flex info-row">
+                            <label class="ui-col-xl-6">Mức truy cập<span class="required">*</span></label>
+                            <oh-select ohPlaceHolder="Chọn" class="ui-col-xl-5"></oh-select>
+                            <label class="ui-col-xl-5">Loại tài khoản<span class="required">*</span></label>
+                            <oh-select ohPlaceHolder="Chọn" class="ui-col-xl-5"></oh-select>
+                        </div>
+                        <div class="d-flex info-row">
+                            <label oh-checkbox [(ngModel)]="checked" class="ui-col-xl-7 d-flex">Xác thực 2 yếu tố</label>
+                            <div class="d-flex ui-col-xl-11 xacthuc">
+                                <label class="ui-col-xl-12">Loại xác thực 2FA<span class="required">*</span></label>
+                                <oh-select ohPlaceHolder="Chọn" class="ui-col-xl-11"></oh-select>
+                            </div>
+                        </div>
+                        <div class="d-flex ">
+                            <label oh-checkbox [(ngModel)]="checked" class="ui-col-xl-7 d-flex">Hoạt động</label>
+                            <label oh-checkbox [(ngModel)]="checked" class="ui-col-xl-7 d-flex">Khám OL</label>
+                            
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

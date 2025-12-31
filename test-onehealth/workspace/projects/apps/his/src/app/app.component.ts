@@ -13,4 +13,9 @@ isSidebarPinned = false;
   onToggleSidebarPin(pinned: boolean) {
     this.isSidebarPinned = pinned;
   }
+  isRightbarOpen = false;
+
+  onToggleRightbar() {
+    this.isRightbarOpen = !this.isRightbarOpen;
+  }
 }

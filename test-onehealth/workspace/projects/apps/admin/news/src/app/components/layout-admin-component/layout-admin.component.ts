@@ -8,10 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./layout-admin.component.css']
 })
 export class LayoutAdminComponent {
+isSidebarPinned = false;
+
+  onToggleSidebarPin(pinned: boolean) {
+    this.isSidebarPinned = pinned;
+  }
   isRightbarOpen = false;
 
   onToggleRightbar() {
     this.isRightbarOpen = !this.isRightbarOpen;
   }
-  
 }

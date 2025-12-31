@@ -1,0 +1,243 @@
+<div class="registration">
+    <div class="reg-container">
+        <div class="tabs">
+            <oh-tabset>
+                <oh-tab ohTitle="Thông tin">Content of Tab Pane 1</oh-tab>
+                <oh-tab ohTitle="Xét nghiệm">
+                    <!-- DANH SÁCH XÉT NGHIỆM -->
+                    <div class="admin-info">
+                        <div class="admin-info-header d-flex">
+                            <span class="title">DANH SÁCH XÉT NGHIỆM</span>
+                            <div class="button-header">
+                                <his-action-bar [hisActionBarConfig]="hisActionBarXetNghiem"
+                                    hisTrigger="hover"></his-action-bar>
+                            </div>
+                        </div>
+
+                        <!-- ===== CONTENT ===== -->
+                        <div class="admin-info-body">
+                            <!-- [ohScroll]="{ x: '1600px'}" -->
+                            <oh-table #table [ohData]="filteredData" ohShowSizeChanger ohBordered
+                                (ohCurrentPageDataChange)="onCurrentPageDataChange($event)">
+                                <thead>
+                                    <!-- HEADER -->
+                                    <tr class="header-row">
+                                        <th class="col-stt">STT</th>
+
+                                        <!-- CHECK ALL -->
+                                        <th class="checkbox-col" [ohChecked]="checked" [ohIndeterminate]="indeterminate"
+                                            (ohCheckedChange)="onAllChecked($event)"></th>
+
+                                        <th class="icon-col"></th>
+                                        <th class="icon-col"></th>
+
+                                        <th class="barcode">Barcode</th>
+                                        <th>Số phiếu</th>
+                                        <th>Phiếu điều trị</th>
+                                        <th>Bác sĩ chỉ định</th>
+                                        <th>TG chỉ định</th>
+                                        <th>P thực hiện</th>
+                                        <th class="stt-th">STT thực hiện</th>
+                                        <th>Phòng khám</th>
+                                        <th>Phòng CK</th>
+                                        <th>Tình trạng</th>
+                                        <th>Trạng thái</th>
+                                    </tr>
+
+                                    <!-- FILTER (4 cột đầu KHÔNG CÓ) -->
+                                    <tr class="filter-row">
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+
+                                        <th><input oh-input [(ngModel)]="search.barcode" (ngModelChange)="applyFilter()"
+                                                placeholder="Tìm" /></th>
+                                        <th><input oh-input [(ngModel)]="search.soPhieu" (ngModelChange)="applyFilter()"
+                                                placeholder="Tìm" /></th>
+                                        <th><input oh-input [(ngModel)]="search.phieuDieuTri"
+                                                (ngModelChange)="applyFilter()" placeholder="Tìm" /></th>
+                                        <th><input oh-input [(ngModel)]="search.bacSiChiDinh"
+                                                (ngModelChange)="applyFilter()" placeholder="Tìm" /></th>
+                                        <th><input oh-input [(ngModel)]="search.tgChiDinh"
+                                                (ngModelChange)="applyFilter()" placeholder="Tìm" /></th>
+                                        <th><input oh-input [(ngModel)]="search.phongThucHien"
+                                                (ngModelChange)="applyFilter()" placeholder="Tìm" /></th>
+                                        <th><input oh-input [(ngModel)]="search.sttThucHien"
+                                                (ngModelChange)="applyFilter()" placeholder="Tìm" /></th>
+                                        <th><input oh-input [(ngModel)]="search.phongKham"
+                                                (ngModelChange)="applyFilter()" placeholder="Tìm" /></th>
+                                        <th><input oh-input [(ngModel)]="search.phongChuyenKhoa"
+                                                (ngModelChange)="applyFilter()" placeholder="Tìm" /></th>
+                                        <th><input oh-input [(ngModel)]="search.tinhTrang"
+                                                (ngModelChange)="applyFilter()" placeholder="Tìm" /></th>
+                                        <th><input oh-input [(ngModel)]="search.trangThai"
+                                                (ngModelChange)="applyFilter()" placeholder="Tìm" /></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let row of table.data; let i = index" class="content">
+                                        <td class="text-center">{{ i + 1 }}</td>
+
+                                        <!-- CHECKBOX -->
+                                        <td class="checkbox-col" [ohChecked]="setOfCheckedId.has(row.id)"
+                                            (ohCheckedChange)="onItemChecked(row.id, $event)"></td>
+
+                                        <!-- ICON 1 (random) -->
+                                        <td class="text-center">
+                                            <span oh-icon
+                                                [ohType]="row.icon1 === 'ok' ? 'check-square' : 'minus-circle'"
+                                                [ohColor]="row.icon1 === 'ok' ? 'success' : 'danger'"
+                                                ohTheme="fill"></span>
+                                        </td>
+
+                                        <!-- ICON 2 -->
+                                        <td class="text-center">
+                                            <span oh-icon ohType="sun" ohTheme="fill" [ohColor]="'warning'"></span>
+                                        </td>
+
+                                        <td>{{ row.barcode }}</td>
+                                        <td>{{ row.soPhieu }}</td>
+                                        <td>{{ row.phieuDieuTri }}</td>
+                                        <td>{{ row.bacSiChiDinh }}</td>
+                                        <td>{{ row.tgChiDinh }}</td>
+                                        <td>{{ row.phongThucHien }}</td>
+                                        <td class="text-center">{{ row.sttThucHien }}</td>
+                                        <td>{{ row.phongKham }}</td>
+                                        <td>{{ row.phongChuyenKhoa }}</td>
+
+                                        <!-- TÌNH TRẠNG -->
+                                        <td class="text-center">
+                                            <span class="badge"
+                                                [ngClass]="row.tinhTrang === 'kem' ? 'badge-danger' : 'badge-normal'">
+                                                {{ row.tinhTrang === 'kem' ? 'Kém' : 'Bình thường' }}
+                                            </span>
+                                        </td>
+
+                                        <!-- TRẠNG THÁI -->
+                                        <td class="text-center">
+                                            <span class="badge"
+                                                [ngClass]="row.trangThai === 'chuagui' ? 'badge-danger' : 'badge-success'">
+                                                {{ row.trangThai === 'chuagui' ? 'Chưa gửi phiếu' : 'Đã gửi phiếu' }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </oh-table>
+
+                        </div>
+                    </div>
+
+
+                    <!-- DANH SÁCH DỊCH VỤ CHỈ ĐỊNH -->
+                    <oh-tabset>
+                        <oh-tab ohTitle="Dịch vụ chỉ định">
+                            <div class="admin-info">
+                                <div class="admin-info-header d-flex">
+                                    <span class="title">DANH SÁCH DỊCH VỤ CHỈ ĐỊNH</span>
+                                    <div class="button-header">
+                                        <his-action-bar [hisActionBarConfig]="hisActionBarDichVu"
+                                            hisTrigger="hover"></his-action-bar>
+                                    </div>
+                                </div>
+
+                                <!-- ===== CONTENT ===== -->
+                                <div class="admin-info-body">
+                                    <!-- [ohScroll]="{ x: '1600px'}" -->
+                                    <oh-table [ohData]="filteredTestOrderData" ohShowSizeChanger ohBordered #testTable>
+
+                                        <thead>
+                                            <!-- ===== HEADER ===== -->
+                                            <tr class="header-row">
+                                                <th>STT</th>
+                                                <th>Mã xét nghiệm</th>
+                                                <th>Số phiếu</th>
+                                                <th>Tên xét nghiệm</th>
+                                                <th>Loại MBP</th>
+                                                <th>Thuốc, VT đi kèm</th>
+                                                <th>Loại thanh toán</th>
+                                                <th>Số lượng</th>
+                                                <th>Trạng thái</th>
+                                                <th>Ghi chú</th>
+                                            </tr>
+
+                                            <!-- ===== FILTER ===== -->
+                                            <tr class="filter-row">
+                                                <th></th>
+                                                <th><input oh-input [(ngModel)]="searchTestOrder.maXetNghiem"
+                                                        (ngModelChange)="applyTestOrderFilter()" placeholder="Tìm" />
+                                                </th>
+                                                <th><input oh-input [(ngModel)]="searchTestOrder.soPhieu"
+                                                        (ngModelChange)="applyTestOrderFilter()" placeholder="Tìm" />
+                                                </th>
+                                                <th><input oh-input [(ngModel)]="searchTestOrder.tenXetNghiem"
+                                                        (ngModelChange)="applyTestOrderFilter()" placeholder="Tìm" />
+                                                </th>
+                                                <th> <input oh-input [(ngModel)]="searchTestOrder.loaiMBP"
+                                                        (ngModelChange)="applyTestOrderFilter()" placeholder="Tìm" />
+                                                </th>
+                                                <th><input oh-input [(ngModel)]="searchTestOrder.thuocKem"
+                                                        (ngModelChange)="applyTestOrderFilter()" placeholder="Tìm" />
+                                                </th>
+                                                <th><input oh-input [(ngModel)]="searchTestOrder.loaiThanhToan"
+                                                        (ngModelChange)="applyTestOrderFilter()" placeholder="Tìm" />
+                                                </th>
+                                                <th><input oh-input [(ngModel)]="searchTestOrder.soLuong"
+                                                        (ngModelChange)="applyTestOrderFilter()" placeholder="Tìm" />
+                                                </th>
+                                                <th><input oh-input [(ngModel)]="searchTestOrder.trangThai"
+                                                        (ngModelChange)="applyTestOrderFilter()" placeholder="Tìm"/>
+                                                </th>
+                                                <th><input oh-input [(ngModel)]="searchTestOrder.ghiChu"
+                                                        (ngModelChange)="applyTestOrderFilter()" placeholder="Tìm"/>
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr *ngFor="let row of testTable.data; let i = index" class="content">
+                                                <td class="text-center">{{ i + 1 }}</td>
+                                                <td>{{ row.maXetNghiem }}</td>
+                                                <td>{{ row.soPhieu }}</td>
+                                                <td>{{ row.tenXetNghiem }}</td>
+                                                <td>{{ row.loaiMBP }}</td>
+                                                <td>{{ row.thuocKem }}</td>
+
+                                                <td>
+                                                    {{ row.loaiThanhToan === 'tienmat'
+                                                    ? 'Tiền mặt'
+                                                    : row.loaiThanhToan === 'nganhang'
+                                                    ? 'Thẻ ngân hàng'
+                                                    : 'Thẻ VISA' }}
+                                                </td>
+
+                                                <td class="text-center soLuong">{{ row.soLuong }}</td>
+
+                                                <!-- ===== TRẠNG THÁI ===== -->
+                                                <td class="text-center">
+                                                    <span class="status-badge" [ngClass]="row.trangThai === 'chuagui'
+                                                    ? 'status-pending'
+                                                    : 'status-done'">
+
+                                                        {{ row.trangThai === 'chuagui'
+                                                        ? 'Chưa gửi phiếu'
+                                                        : 'Đã gửi phiếu' }}
+                                                    </span>
+                                                </td>
+
+                                                <td>{{ row.ghiChu }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </oh-table>
+                                </div>
+                            </div>
+                        </oh-tab>
+                        <oh-tab ohTitle="Kết quả xét nghiệm"></oh-tab>
+                    </oh-tabset>
+                </oh-tab>
+            </oh-tabset>
+        </div>
+
+    </div>
+</div>

@@ -1,5 +1,5 @@
 .head-panel {
-  padding: 10px 6px 0px 18px;
+  padding: 10px 6px 4px 18px;
   background: #f5f5f5;
 }
 
@@ -37,27 +37,128 @@
   transform: rotate(180deg);
 }
 /* ===== BUTTON ===== */
-::ng-deep .ui-his-action-bar__button{
-  border-radius: 5px !important;
-}
 .head-button {
   margin-bottom: 8px;
 }
-.patient-info{
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 4px;
-}
+
 .action-group {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 3px 0;
 }
-.action-group-quantri{
-  display: inline-block;
-  line-height: 40px;
+
+/* DANH SÁCH TIN TỨC */
+.new-btn-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1px;
 }
+
+.new-btn, .arrow-btn {
+  padding: 5px 8px;
+  border: 1px solid #0078d4;
+  background: #0078d4;
+  color: white;
+  cursor: pointer;
+}
+
+.new-btn {
+  border-radius: 4px 0 0 4px;
+}
+
+.arrow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 4px 4px 0;
+  padding: 8px 8px;
+  margin-left: 1px;
+  width: 32px;
+}
+
+.new-btn:hover,
+.arrow-btn:hover {
+  background: #0b5ed7;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background: white;
+  border: 1px solid #ccc;
+  width: 165px;
+  padding: 6px 0;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 50;
+}
+
+.dropdown-menu .item {
+  padding: 8px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dropdown-menu .item:hover {
+  background: #f2f2f2;
+}
+
+.sub-btn {
+  padding: 5px 10px;
+  margin-left: 5px;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+  color: #333;
+  transition: all 0.2s ease;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.sub-btn.enabled {
+  opacity: 1;
+  font-weight: 500;
+  pointer-events: auto;
+}
+
+.sub-btn.disabled {
+  opacity: 0.35;
+}
+.sub-btn span {
+  margin-right: 4px;
+}
+.sub-btn:hover {
+  background: #e2e2e2;
+  border-radius: 4px;
+}
+.menu-second{
+  display: block;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 7px 5px 8px;
+  border-radius: 4px;
+}
+.menu-second:hover{
+  background: #e2e2e2;
+}
+.menu-second.active {
+  background-color: #e2e2e2;
+}
+[oh-dropdown]{
+  color: black;
+}
+[oh-menu]{
+  top: 5px;
+  left: -10px
+}
+/* -------------- */
+
 .btn-outline {
   border: 1px solid #1359c2;
   color: #1359c2;
@@ -70,10 +171,6 @@
 }
 .btn-primary{
   height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
 }
 .btn-dropdown {
   display: inline-flex;
@@ -105,10 +202,6 @@
   background-color: #1359c2;
   color: #fff;
   height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 4px;
 }
 .btn-cls:hover, .btn-dieutri:hover{
   border-color: #276ee9;

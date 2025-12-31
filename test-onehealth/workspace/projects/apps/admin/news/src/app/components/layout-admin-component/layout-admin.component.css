@@ -1,4 +1,4 @@
-.sidebar{
+/* .sidebar{
 position: fixed;
   z-index: 800;
 }
@@ -16,7 +16,6 @@ position: fixed;
   padding: 52px 16px 0px 0px; 
 }
 
-/* Rightbar */
 .rightbar {
   width: 0;
   background: #fff;
@@ -24,6 +23,92 @@ position: fixed;
   transition: width 0.1s ease;
   overflow: hidden;
   padding-top: 55px;
+}
+
+.rightbar.open {
+  width: 300px;
+}
+
+.content-wrapper.push-left {
+  margin-right: 2px;
+}
+
+.rightbar-header {
+  height: 55px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  background: #fafafa;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.icon-btn:hover {
+  opacity: 0.7;
+}
+
+.rightbar-content {
+  padding: 16px;
+}
+ */
+
+ header-component {
+  
+}
+
+.page-content {
+  min-height: calc(100vh - 52px);
+  transition: margin-left 0.25s ease;
+  padding-left:  16px;
+}
+
+.page-content.sidebar-collapsed {
+  margin-left: 35px;
+}
+
+.page-content.sidebar-expanded {
+  margin-left: 200px;
+}
+
+.layout {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+
+.content-wrapper {
+  flex: 1;
+  transition: margin-right 0.3s ease;
+}
+.news-content{
+  padding: 5px 8px 5px 18px;
+}
+/* Rightbar */
+.rightbar {
+  width: 0;
+  background: #fff;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+  transition: width 0.1s ease;
+  overflow: hidden;
 }
 
 .rightbar.open {
@@ -68,9 +153,4 @@ position: fixed;
 
 .rightbar-content {
   padding: 16px;
-}
-
-footer-component{
-  /* position: sticky;layout
-  z-index: 998; */
 }

@@ -1,12 +1,14 @@
 .category-page {
-    /* display: grid;
-  grid-template-columns: 320px 1fr; */
-    padding: 0px 12px 0px 12px;
+    padding-right: 20px;
     gap: 20px;
 }
-
+[oh-input], [oh-button]{
+    border-radius: 5px;
+}
 .left-form {
     background: #fff;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 .left-form label {
@@ -21,6 +23,8 @@
 
 .right-table {
     background: #fff;
+    padding: 4px 10px;
+    border-radius: 5px;
 }
 
 .right-search {

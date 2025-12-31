@@ -1,0 +1,79 @@
+.registration {
+    background: #f5f5f5;
+    padding: 8px 6px 4px 18px;
+}
+
+[oh-button],
+[oh-input] {
+    border-radius: 5px;
+}
+.reg-container {
+    margin: 0 auto;
+}
+
+/* HEADER */
+
+.admin-info {
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+}
+.admin-info-header {
+    background: #e6f2ff;
+    padding: 6px 12px;
+    color: #0b5ed7;
+    border-bottom: 1px solid #cfe2ff;
+    font-size: 15px;
+    font-weight: 700;
+}
+.admin-info-body {
+    padding: 10px 12px 0px 12px;
+    font-size: 14px;
+    gap: 6px;
+}
+.header-row th {
+    background: #0b2f6b;
+    color: #fff;
+    text-align: center;
+    padding: 4px;
+}
+
+.filter-row input {
+}
+.filter-row th{
+    padding: 3px 12px;
+}
+.content td{
+    padding: 4px 8px;
+}
+.date{
+    text-align: center;
+    width: 36%;
+}
+::ng-deep .ui-tabs-tab+.ui-tabs-tab{
+    margin: 0 4px;
+}
+::ng-deep .ui-tabs-top>.ui-tabs-nav{
+    margin: 0 0 7px 0 !important;
+}
+.head-right{
+    background: #e6f2ff;
+    padding: 2px 12px 0px 12px;
+    color: #0b5ed7;
+    font-weight: 600;
+    border-radius: 8px;
+}
+.head-bottom{
+    margin-top: 10px;
+    gap: 12px;
+}
+.head-bottom p{
+    font-weight: 500;
+}
+.right-table th {
+    background: #e8edf5;
+    color: #2362f4;
+    text-align: center;
+    padding: 4px 8px;
+    white-space: nowrap;
+}

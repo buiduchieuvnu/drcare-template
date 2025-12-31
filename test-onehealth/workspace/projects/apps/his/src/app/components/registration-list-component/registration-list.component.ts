@@ -1,20 +1,6 @@
 import { Component, OnInit, OnDestroy, ElementRef, AfterViewInit, ViewChild, HostListener } from '@angular/core';
-interface PatientRow {
-  id: number;
-  status: 'pending' | 'doing' | 'done';
-  cls: 'none' | 'doing' | 'done';
-  objectType: 'number' | 'vncare';
-  patientCode: string;
-  patientId: string;
-  patientName: string;
-  birthDate: string;
-  gender: 'Nam' | 'Nữ';
-  bhyt: string;
-  cccd: string;
-  receivedAt: string;
-  clinic: string;
-}
-
+import { PatientRow } from '../../../models/patient.model';
+import { PatientContextService } from '../../../service/patient-context.service';
 
 @Component({
   selector: 'registration-list-component',
@@ -23,36 +9,6 @@ interface PatientRow {
   styleUrls: ['./registration-list.component.css']
 })
 export class RegistrationListComponent {
-  checked = true;
-  date = null;
-
-  onChange(result: Date[]): void {
-    console.log('onChange: ', result);
-  }
-
-  buttonConfigs = [
-    {
-      "ohId":"button2",
-      "ohTitle":"Dịch vụ CLS (F6)",
-      "ohOnClick": this.demo1.bind(this),
-      "ohType":"primary",
-      "ohStatus":"active",
-    },
-    {
-      "ohId":"button3",
-      "ohTitle":"Lịch sử điều trị",
-      "ohOnClick": this.demo1.bind(this),
-      "ohType":"primary",
-      "ohStatus":"active",
-    },
-  ];
-
-  demo1() {
-    console.log("demo1")
-  }
-  log(data: string): void {
-    console.log(data);
-  }
 listOfData: PatientRow[] = [];
 filteredData: PatientRow[] = [];
 listOfCurrentPageData: PatientRow[] = [];
@@ -148,5 +104,19 @@ applyFilter(): void {
     )
   );
 }
+selectedRow: PatientRow | null = null;
+
+constructor(private patientCtx: PatientContextService) {}
+
+selectRow(row: PatientRow) {
+  if (this.selectedRow?.id === row.id) {
+    this.selectedRow = null;
+    this.patientCtx.clear();
+    return;
+  }
+  this.selectedRow = row;
+  this.patientCtx.set(row);
+}
+
 
 }

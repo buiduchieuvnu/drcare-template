@@ -1,33 +1,30 @@
-<!-- <div class="side-bar">
+<div class="side-bar" [class.collapsed]="!isPinned" [class.expanded]="isPinned" (mouseenter)="onHover(true)"
+  (mouseleave)="onHover(false)">
+  <div class="redirect">
+    <a *ngIf="!isHover && !isPinned" href="/admin" class="redirect-icon">
+      <span oh-icon ohType="arrow-left" ohTheme="outline"></span>
+      <span class="mini-text">Admin</span>
+    </a>
 
-<his-side-bar
-      [hisSideBarConfig]="hisSideBarConfig"
-      [hisInlineCollapsed]="isCollapsed"
-      [hisHover]="true"
-      hisWidth="54px"
-    ></his-side-bar>
-</div> -->
+    <!-- Khi hover HOẶC pin -->
+    <a *ngIf="isHover || isPinned" href="/admin" class="redirect-text">
+      Chuyển trang Admin
+    </a>
+  </div>
+  <div class="title">
+    <h3>HIS</h3>
+  </div>
 
-<div class="side-bar"
-     [class.collapsed]="!isPinned"
-     [class.expanded]="isPinned"
-     (mouseenter)="onHover(true)"
-     (mouseleave)="onHover(false)">
+  <div class="his-side-bar">
+    <his-side-bar [hisSideBarConfig]="hisSideBarConfig" [hisInlineCollapsed]="!isPinned && !isHover" [hisHover]="false"
+      [class.collapsed]="!isPinned" [class.expanded]="isPinned"></his-side-bar>
 
-     <div  class="title">
-      <h3>HIS</h3>
-     </div>
-
-     <div class="his-side-bar">
-      <his-side-bar
-        [hisSideBarConfig]="hisSideBarConfig"
-        [hisInlineCollapsed]="!isPinned && !isHover"
-        [hisHover]="false"
-        [class.collapsed]="!isPinned" [class.expanded]="isPinned"
-    ></his-side-bar>
-     </div>
+    <his-side-bar [hisSideBarConfig]="hisSideBarConfigQuanTri" [hisInlineCollapsed]="!isPinned && !isHover"
+      ></his-side-bar>
+  </div>
   
+
 </div>
-<button class="pin-btn"  [class.sidebar-hover]="isHover" [class.sidebar-pinned]="isPinned" (click)="togglePin()">
-   <span oh-icon ohType="menu" ohTheme="outline"></span>
-  </button>
+<button class="pin-btn" [class.sidebar-hover]="isHover" [class.sidebar-pinned]="isPinned" (click)="togglePin()">
+  <span oh-icon ohType="menu" ohTheme="outline"></span>
+</button>

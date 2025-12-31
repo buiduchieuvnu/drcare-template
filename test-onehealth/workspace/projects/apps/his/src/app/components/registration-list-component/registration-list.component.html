@@ -9,7 +9,8 @@
 
             <!-- ===== CONTENT ===== -->
             <div class="admin-info-body">
-                <oh-table [ohData]="filteredData" ohShowSizeChanger [ohScroll]="{ x: '1600px'}" ohBordered #table (ohCurrentPageDataChange)="onCurrentPageDataChange($event)">
+                <!-- [ohScroll]="{ x: '1600px'}" -->
+                <oh-table [ohData]="filteredData" ohShowSizeChanger  ohBordered #table (ohCurrentPageDataChange)="onCurrentPageDataChange($event)">
                 <thead>
                     <!-- HEADER -->
                     <tr class="header-row">
@@ -23,7 +24,7 @@
                     <th class="col-name">Tên bệnh nhân</th>
 
                     <th class="col-date">Ngày sinh</th>
-                    <th class="col-gender">GT</th>
+                    <th class="col-gender">Giới tính</th>
                     <th class="col-bhyt">BHYT</th>
                     <th class="col-cccd">CCCD</th>
                     <th class="col-datetime">Tiếp nhận</th>
@@ -47,7 +48,7 @@
                 </thead>
 
                 <tbody>
-                    <tr *ngFor="let row of table.data;; let i = index">
+                    <tr *ngFor="let row of table.data;; let i = index" (click)="selectRow(row)" [class.row-selected]="selectedRow?.id === row.id">
                     <td class="col-stt">{{ i + 1 }}</td>
                     <td class="col-status">
                         <span

@@ -1,0 +1,141 @@
+<div class="head-panel">
+  <!-- HEAD ROUTE -->
+  <div class="head-route">
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <oh-breadcrumb>
+      <oh-breadcrumb-item>
+        <span oh-icon ohType="home"></span>
+      </oh-breadcrumb-item>
+      <oh-breadcrumb-item>
+        <span>Tin tức</span>
+      </oh-breadcrumb-item>
+      <oh-breadcrumb-item>
+        {{ pageTitle }}
+      </oh-breadcrumb-item>
+    </oh-breadcrumb>
+  </div>
+    <!-- ===== TITLE ===== -->
+    <div class="head-title" (dblclick)="toggleHead()">
+      <span class="title-text">{{ pageTitle }}</span>
+      <span oh-icon ohType="caret-down" ohTheme="outline" class="toggle-icon" [class.rotated]="!isHead"
+        (click)="toggleHead()"></span>
+    </div>
+
+    <!-- ===== BUTTON ===== -->
+    <div class="head-body" *ngIf="isHead">
+      <div class="head-button">
+        <!-- DANH SÁCH TIN TỨC -->
+        <ng-container *ngIf="isDanhSachTinTuc ">
+          <div class="action-group">
+            <div class="new-btn-wrapper">
+              <button class="new-btn" [routerLink]="['/news/news-create']">
+                <span oh-icon ohType="form" ohTheme="outline"></span> Thêm tin mới
+              </button>
+              <button #dropdownRef class="arrow-btn" (click)="toggleDropdown()">
+                <span oh-icon ohType="caret-down" ohTheme="outline"></span>
+              </button>
+              <div class="dropdown-menu" *ngIf="isOpen">
+                <div class="item" [routerLink]="['/news/news-create']"><span oh-icon ohType="form" ohTheme="outline"></span>
+                  Tin mới
+                </div>
+                <div class="item"><span oh-icon ohType="alert" ohTheme="outline"></span> Sự kiện</div>
+                <div class="item"><span oh-icon ohType="container" ohTheme="outline"></span> Tài liệu</div>
+              </div>
+
+            </div>
+            <button class="sub-btn" [class.enabled]="canEdit" [class.disabled]="!canEdit" [disabled]="!canEdit"
+              (click)="onEdit()">
+              <span oh-icon ohType="edit"></span>Sửa
+            </button>
+
+            <button class="sub-btn" [class.enabled]="canDelete" [class.disabled]="!canDelete" [disabled]="!canDelete"
+              (click)="onDelete()">
+              <span oh-icon ohType="delete" ohTheme="fabric"></span>Xóa
+            </button>
+
+            <button class="sub-btn" [class.enabled]="canSave" [class.disabled]="!canSave" [disabled]="!canSave"
+              (click)="onSave()">
+              <span oh-icon ohType="save" ohTheme="fabric"></span>Lưu
+            </button>
+
+
+            <div class="menu-second" [class.active]="isActive">
+              <a oh-dropdown ohTrigger="click" [ohDropdownMenu]="menu" (click)="onMenuSecondClick($event)">
+                <span oh-icon ohType="ellipsis" ohTheme="outline"></span>
+              </a>
+              <oh-dropdown-menu #menu="ohDropdownMenu">
+                <ul oh-menu>
+                  <li oh-menu-item>1st menu item</li>
+                  <li oh-menu-item>2nd menu item</li>
+                  <li oh-menu-divider></li>
+                  <li oh-menu-item ohDisabled>disabled menu item</li>
+                  <li oh-submenu ohTitle="sub menu">
+                    <ul>
+                      <li oh-menu-item>3rd menu item</li>
+                      <li oh-menu-item>4th menu item</li>
+                    </ul>
+                  </li>
+                </ul>
+              </oh-dropdown-menu>
+            </div>
+          </div>
+        </ng-container>
+
+        <!-- CHUYÊN MỤC TIN -->
+      </div>
+
+      <!-- ===== FORM ===== -->
+      <div class="head-form">
+       
+
+        <ng-container *ngIf="isDanhSach">
+          <div class="reg-form">
+            <div class="reg-row d-flex">
+              <div class="ui-col-xl-8 d-flex align-center justify-between">
+
+                <label class="">Mã BA</label>
+                <input oh-input value="BN012399123" class="inp-ba" />
+              </div>
+              <div class="ui-col-xl-7 d-flex align-center justify-between">
+
+                <label class="">Từ ngày-Đến ngày</label>
+                <oh-range-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"
+                  class="date-to-date"></oh-range-picker>
+              </div>
+              <div class="ui-col-xl-8 d-flex align-center justify-between">
+
+                <label oh-checkbox [(ngModel)]="checked" class="">
+                  Theo ngày ra viện
+                </label>
+                <label class="">Trạng thái</label>
+                <oh-select ohPlaceHolder="Chọn" class="select-status"></oh-select>
+              </div>
+
+            </div>
+
+            <div class="reg-row d-flex">
+              <div class="ui-col-xl-8 d-flex align-center justify-between">
+                <label class="">Phòng khám</label>
+                <oh-select ohPlaceHolder="Chọn" class="select-clinic"></oh-select>
+              </div>
+              <div class="ui-col-xl-7 d-flex align-center justify-between">
+                <label>Đối tượng</label>
+                <oh-select ohPlaceHolder="Chọn" class="select-object"></oh-select>
+              </div>
+              <div class="ui-col-xl-8 d-flex align-center justify-between">
+                <label>Kênh đăng ký</label>
+                <oh-select ohPlaceHolder="Chọn" class="select-register"></oh-select>
+                <button oh-button ohType="primary" class="">
+                  Tìm (f3)
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+
+      </div>
+    </div>
+  </div>
+</div>

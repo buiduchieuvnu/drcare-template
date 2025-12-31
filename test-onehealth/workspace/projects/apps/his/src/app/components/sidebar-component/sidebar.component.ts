@@ -10,6 +10,7 @@ export class SideBarComponent {
   @Output() pinChange = new EventEmitter<boolean>();
 
   isHover = false;
+  isCollapsed = true;
 
   togglePin() {
     this.isPinned = !this.isPinned;
@@ -22,7 +23,6 @@ export class SideBarComponent {
     }
   }
 
-  isCollapsed = true;
   
   hisSideBarConfig = [
     {
@@ -35,7 +35,7 @@ export class SideBarComponent {
         {
           hisLevel: 1,
           hisTitle: 'Tiếp nhận bệnh nhân',
-          hisIcon: 'bars',
+          hisIcon: 'usergroup-add',
           hisLink: '/tiepnhan',
           hisDisabled: false
         },
@@ -44,6 +44,31 @@ export class SideBarComponent {
           hisTitle: 'Danh sách tiếp nhận',
           hisIcon: 'bars',
           hisLink: '/ds-tiepnhan',
+          hisDisabled: false
+        }
+      ]
+    },
+  ];
+  hisSideBarConfigQuanTri = [
+    {
+      hisLevel: 1,
+      hisTitle: 'Quản trị hệ thống',
+      hisIcon: 'tool',
+      hisOpen: true,
+      hisDisabled: false,
+      hisChildren: [
+        {
+          hisLevel: 1,
+          hisTitle: 'Quản lý người dùng',
+          hisIcon: 'user',
+          hisLink: '/quan-ly-nguoi-dung',
+          hisDisabled: false
+        },
+        {
+          hisLevel: 1,
+          hisTitle: 'Quản lý nhân viên',
+          hisIcon: 'team',
+          hisLink: '/quan-ly-nhan-vien',
           hisDisabled: false
         }
       ]

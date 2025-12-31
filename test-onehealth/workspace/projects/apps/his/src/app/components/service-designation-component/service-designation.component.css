@@ -1,0 +1,112 @@
+.registration {
+    background: #f5f5f5;
+    padding: 8px 6px 4px 18px;
+}
+
+[oh-button],
+[oh-input] {
+    border-radius: 5px;
+}
+.reg-container {
+    margin: 0 auto;
+}
+.tabs{
+    background-color: #fff;
+    padding: 0 10px;
+}
+/* HEADER */
+
+.admin-info {
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+}
+.admin-info-header {
+    background: #e6f2ff;
+    padding: 6px 12px;
+    color: #0b5ed7;
+    border-bottom: 1px solid #cfe2ff;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.admin-info-body {
+    padding: 10px 12px 0px 12px;
+    font-size: 14px;
+}
+.header-row th {
+    background: #0b2f6b;
+    color: #fff;
+    text-align: center;
+    padding: 4px;
+}
+
+.filter-row input {
+    width: 100%;
+}
+.filter-row th{
+    padding: 3px 6px;
+}
+.content td{
+    padding: 3px 6px;
+}
+
+.barcode{
+    width: 5%;
+}
+.stt-th{
+    width: 5%;
+}
+.badge {
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 14px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.badge-danger {
+  border: 1px solid #ff4d4f;
+  background: #fff1f0;
+  color: #cf1322;
+}
+
+.badge-success {
+  border: 1px solid #52c41a;
+  background: #f6ffed;
+  color: #237804;
+}
+
+.badge-normal {
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  color: #595959;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Chưa gửi */
+.status-pending {
+  color: #cf1322;
+  background: #fff1f0;
+  border: 1px solid #ffa39e;
+}
+
+/* Đã gửi */
+.status-done {
+  color: #389e0d;
+  background: #f6ffed;
+  border: 1px solid #b7eb8f;
+}
+.soLuong{
+    width: 5%;
+}

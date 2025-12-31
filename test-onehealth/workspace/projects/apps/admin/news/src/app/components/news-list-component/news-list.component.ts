@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { News } from '../../../models/news.model';
 import { Router } from '@angular/router';
 import { ColumnItem } from '../../../models/columnItem.model';
+import { NewsActionStateService } from '../../../service/news-action.service';
 
 @Component({
   selector: 'news-list-component',
@@ -10,14 +11,11 @@ import { ColumnItem } from '../../../models/columnItem.model';
   styleUrls: ['./news-list.component.css']
 })
 export class NewsListComponent implements OnInit {
-  @Output() selectionChange = new EventEmitter<number[]>();
   
   listOfData: News[] = [];
   listOfDisplayData: News[] = [];
   checked = false;
   indeterminate = false;
-  keyword = '';
-
   setOfCheckedId = new Set<number>();
   listOfCurrentPageData: readonly News[] = [];
 
@@ -74,7 +72,9 @@ export class NewsListComponent implements OnInit {
     }
   ];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private actionState: NewsActionStateService
+  ) { }
 
   ngOnInit(): void {
     this.listOfData = Array.from({ length: 30 }).map((_, i) => ({
@@ -87,28 +87,6 @@ export class NewsListComponent implements OnInit {
     }));
 
     this.listOfDisplayData = [...this.listOfData];
-  }
-
-  onKeywordChange(): void {
-    if (!this.keyword) {
-      this.listOfDisplayData = [...this.listOfData];
-    }
-  }
-
-  clearSearch(input: HTMLInputElement): void {
-    this.keyword = '';
-    this.listOfDisplayData = [...this.listOfData];
-    input.focus();
-  }
-
-  onSearch(): void {
-    const kw = this.keyword.trim().toLowerCase();
-
-    this.listOfDisplayData = this.listOfData.filter(item =>
-      item.title.toLowerCase().includes(kw) ||
-      item.author.toLowerCase().includes(kw) ||
-      item.category.toLowerCase().includes(kw)
-    );
   }
 
   onItemChecked(id: number, checked: boolean): void {
@@ -143,10 +121,7 @@ export class NewsListComponent implements OnInit {
     this.checked = total > 0 && checkedCount === total;
     this.indeterminate = checkedCount > 0 && checkedCount < total;
     
-    this.selectionChange.emit( Array.from(this.setOfCheckedId));
-  }
-  goToEdit(id: number): void {
-    this.router.navigate(['/news/edit', id]);
+    this.actionState.setSelectedIds(Array.from(this.setOfCheckedId));
   }
 
 }

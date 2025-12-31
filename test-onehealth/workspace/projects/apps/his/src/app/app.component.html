@@ -7,19 +7,36 @@
   <footer-component></footer-component> -->
 
 
-<sidebar-component
-  [isPinned]="isSidebarPinned"
-  (pinChange)="onToggleSidebarPin($event)">
+<sidebar-component [isPinned]="isSidebarPinned" (pinChange)="onToggleSidebarPin($event)">
 </sidebar-component>
 
-<div class="page-content"
-     [class.sidebar-collapsed]="!isSidebarPinned"
-     [class.sidebar-expanded]="isSidebarPinned">
-     
-  <header-component></header-component>
-  <head-panel-component></head-panel-component>
-  <router-outlet></router-outlet>
-<footer-component></footer-component>
+<div class="page-content" [class.sidebar-collapsed]="!isSidebarPinned" [class.sidebar-expanded]="isSidebarPinned">
+
+  <header-component [active]="isRightbarOpen" (toggleRightbar)="onToggleRightbar()"></header-component>
+  <div class="layout">
+    <div class="content-wrapper" [class.push-left]="isRightbarOpen">
+      <head-panel-component></head-panel-component>
+      <router-outlet></router-outlet>
+    </div>
+
+    <div class="rightbar" [class.open]="isRightbarOpen">
+      <div class="rightbar-header">
+        <span class="title">Thông báo</span>
+
+        <div class="actions">
+          <button class="icon-btn">
+            <span oh-icon ohType="setting" ohTheme="outline"></span>
+          </button>
+
+          <button class="icon-btn close-btn" (click)="onToggleRightbar()">
+            <span oh-icon ohType="close" ohTheme="outline"></span>
+          </button>
+        </div>
+      </div>
+      <div class="rightbar-content">
+        <p>Chưa có thông báo mới...</p>
+      </div>
+    </div>
+  </div>
+  <footer-component></footer-component>
 </div>
-
-

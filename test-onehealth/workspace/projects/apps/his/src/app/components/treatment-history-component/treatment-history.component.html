@@ -1,0 +1,153 @@
+<div class="registration">
+    <div class="reg-container">
+
+        <!-- Danh sách tiếp nhận -->
+        <div class="admin-info">
+            <div class="admin-info-header">
+                <span class="title">LỊCH SỬ KHÁM CHỮA BỆNH TẠI CSYT</span>
+            </div>
+
+            <!-- ===== CONTENT ===== -->
+            <div class="admin-info-body d-flex">
+                <div class="ui-col-xl-6">
+                    <!-- [ohScroll]="{ x: '1600px'}" [ohScroll]="{ y: '350px'}"-->
+                    <oh-table [ohData]="filteredData" ohShowSizeChanger ohBordered #table
+                        (ohCurrentPageDataChange)="onCurrentPageDataChange($event)">
+                        <thead>
+                            <!-- HEADER -->
+                            <tr class="header-row">
+                                <th class="">Tên CSKCB</th>
+                                <th class="">Ngày khám</th>
+                            </tr>
+
+                            <!-- FILTER -->
+                            <tr class="filter-row">
+                                <th><input oh-input [(ngModel)]="search.facilityName" (ngModelChange)="applyFilter()"
+                                        placeholder="Tìm" /></th>
+                                <th><input oh-input [(ngModel)]="search.visitDate" (ngModelChange)="applyFilter()"
+                                        placeholder="Tìm" /></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let row of table.data;; let i = index" class="content">
+
+                                <td class="">{{ row.facilityName }}</td>
+                                <td class="date">{{ row.visitDate | date:'dd/MM/yyyy' }}</td>
+                            </tr>
+                        </tbody>
+                    </oh-table>
+                </div>
+                <div class="ui-col-xl-18 right-content">
+                    <oh-tabset>
+                        <oh-tab ohTitle="Hành chính">
+                            Hành chính
+                        </oh-tab>
+                        <oh-tab ohTitle="Khám">Content of Tab Pane 2</oh-tab>
+                        <oh-tab ohTitle="Điều trị">Content of Tab Pane 3</oh-tab>
+                        <oh-tab ohTitle="XN">
+                            <div class="head-right">
+                                DANH SÁCH XÉT NGHIỆM
+                            </div>
+                            <div class="head-bottom d-flex">
+                                <p>Kiểu xem:</p>
+                                <label oh-radio ngModel>Theo phiếu chỉ định</label>
+                                <label oh-radio ngModel>Theo dịch vụ chỉ định</label>
+                            </div>
+                            <div class="body-content">
+                                <oh-table [ohData]="filteredDataXN" ohShowSizeChanger ohBordered #tableXN
+                                    (ohCurrentPageDataChange)="onCurrentPageDataChangeXN($event)">
+                                    <thead>
+                                        <tr class="right-table">
+                                            <th>Thao tác</th>
+                                            <th>STT</th>
+                                            <th>Trạng thái</th>
+                                            <th>Ký số</th>
+                                            <th>Barcode</th>
+                                            <th>Số phiếu</th>
+                                            <th>Phiếu điều trị</th>
+                                            <th>Khoa chỉ định</th>
+                                            <th>Phòng chỉ định</th>
+                                            <th>TG thực hiện</th>
+                                        </tr>
+                                        <tr class="filter-row">
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th>
+                                                <input oh-input [(ngModel)]="searchXN.barcode"
+                                                    (ngModelChange)="applyFilterXN()" placeholder="Tìm" />
+                                            </th>
+                                            <th>
+                                                <input oh-input [(ngModel)]="searchXN.receiptNo"
+                                                    (ngModelChange)="applyFilterXN()" placeholder="Tìm" />
+                                            </th>
+                                            <th>
+                                                <input oh-input [(ngModel)]="searchXN.treatmentNo"
+                                                    (ngModelChange)="applyFilterXN()" placeholder="Tìm" />
+                                            </th>
+                                            <th>
+                                                <input oh-input [(ngModel)]="searchXN.department"
+                                                    (ngModelChange)="applyFilterXN()" placeholder="Tìm" />
+                                            </th>
+                                            <th>
+                                                <input oh-input [(ngModel)]="searchXN.room"
+                                                    (ngModelChange)="applyFilterXN()" placeholder="Tìm" />
+                                            </th>
+                                            <th>
+                                                <input oh-input [(ngModel)]="searchXN.executedAt"
+                                                    (ngModelChange)="applyFilterXN()" placeholder="Tìm" />
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let row of tableXN.data; let i = index" class="content">
+                                            <td class="text-center">
+                                                <span oh-icon ohType="ellipsis" ohTheme="outline"></span>
+                                            </td>
+                                            <td class="text-center">
+                                                {{ i + 1 }}
+                                            </td>
+                                            <td class="text-center">
+                                                <span
+                                                    *ngIf="row.status === 'done'"
+                                                    oh-icon ohType="check-circle" ohTheme="fill" [ohColor]="'success'">
+                                                </span>
+
+                                                <span
+                                                    *ngIf="row.status === 'pending'" oh-icon
+                                                    ohType="close-circle" ohTheme="fill" [ohColor]="'danger'">
+                                                </span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span oh-icon ohType="check" ohTheme="outline" [ohColor]="'primary'" *ngIf="row.signed">
+                                                </span>
+                                            </td>
+                                            <td>{{ row.barcode }}</td>
+                                            <td>{{ row.receiptNo }}</td>
+                                            <td>{{ row.treatmentNo }}</td>
+                                            <td>{{ row.department }}</td>
+                                            <td>{{ row.room }}</td>
+                                            <td>{{ row.executedAt | date:'dd/MM/yyyy HH:mm' }}</td>
+                                        </tr>
+                                    </tbody>
+                                </oh-table>
+                            </div>
+                        </oh-tab>
+                        <oh-tab ohTitle="CĐHA">Content of Tab Pane 2</oh-tab>
+                        <oh-tab ohTitle="PTTT">Content of Tab Pane 3</oh-tab>
+                        <oh-tab ohTitle="Chăm sóc">Content of Tab Pane 1</oh-tab>
+                        <oh-tab ohTitle="Suất ăn">Content of Tab Pane 2</oh-tab>
+                        <oh-tab ohTitle="Truyền dịch">Content of Tab Pane 3</oh-tab>
+                        <oh-tab ohTitle="Thử phản ứng thuốc">Content of Tab Pane 1</oh-tab>
+                        <oh-tab ohTitle="Hội chẩn">Content of Tab Pane 2</oh-tab>
+                        <oh-tab ohTitle="Thuốc">Content of Tab Pane 3</oh-tab>
+                        <oh-tab ohTitle="Máu">Content of Tab Pane 1</oh-tab>
+                        <oh-tab ohTitle="Vật tư">Content of Tab Pane 2</oh-tab>
+                    </oh-tabset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

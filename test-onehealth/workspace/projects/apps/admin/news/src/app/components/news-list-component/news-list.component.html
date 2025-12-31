@@ -1,4 +1,4 @@
-<div class="table-toolbar">
+<!-- <div class="table-toolbar">
   <div class="toolbar-left">
     <div class="search-wrapper">
       <input
@@ -21,7 +21,7 @@
 
     <button oh-button ohType="primary" (click)="onSearch()">Search</button>
   </div>
-</div>
+</div> -->
 
 <oh-table #newsTable [ohData]="listOfDisplayData" ohTableLayout="fixed" (ohCurrentPageDataChange)="onCurrentPageDataChange($event)">
   <thead>
@@ -53,7 +53,7 @@
         (ohCheckedChange)="onItemChecked(item.id, $event)"
       ></td>
 
-      <td class="link" (click)="goToEdit(item.id)">
+      <td class="link">
         {{ item.title }}
       </td>
       <td>{{ item.author }}</td>

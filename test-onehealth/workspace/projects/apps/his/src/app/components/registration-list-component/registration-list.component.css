@@ -1,6 +1,6 @@
 .registration {
     background: #f5f5f5;
-    padding: 4px 6px 4px 18px;
+    padding: 8px 6px 4px 18px;
 }
 
 [oh-button],
@@ -10,6 +10,14 @@
 .reg-container {
     margin: 0 auto;
 }
+tr {
+  cursor: pointer;
+}
+tr.row-selected {
+  background: #e6f4ff !important;
+  box-shadow: inset 3px 0 0 #1677ff;
+}
+
 /* HEADER */
 
 .admin-info {

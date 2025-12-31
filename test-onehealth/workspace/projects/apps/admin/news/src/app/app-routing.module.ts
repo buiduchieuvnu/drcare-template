@@ -9,9 +9,6 @@ import { LoginAdminComponent } from './components/login-admin-component/login-ad
 import { LayoutAdminComponent } from './components/layout-admin-component/layout-admin.component';
 import { AuthGuard } from './auth.guard';
 import { NewsEditComponent } from './components/news-edit-component/news-edit.component';
-import { HisComponent } from './components/his-component/his.component';
-import { RegistrationComponent } from './components/registration-component/registration.component';
-import { RegistrationListComponent } from './components/registration-list-component/registration-list.component';
 
 const routes: Routes = [
   {
@@ -36,17 +33,6 @@ const routes: Routes = [
           { path: 'edit/:id', component: NewsEditComponent }
         ]
       },
-
-      { path: 'his', 
-        component: HisComponent ,
-        children: [
-          
-            { path: '', redirectTo:'tiepnhan', pathMatch: 'full' },
-            { path: 'tiepnhan', component: RegistrationComponent },
-            { path: 'ds-tiepnhan', component: RegistrationListComponent },
-        ]
-
-      }
     ]
   }
 ];

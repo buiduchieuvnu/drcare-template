@@ -9,11 +9,5 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class AppComponent {
 
-isRightbarOpen = false;
-
-onToggleRightbar() {
-  this.isRightbarOpen = !this.isRightbarOpen;
-}
-
   
 }
