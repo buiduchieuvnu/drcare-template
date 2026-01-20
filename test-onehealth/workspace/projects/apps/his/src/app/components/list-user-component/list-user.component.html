@@ -1,0 +1,180 @@
+<div class="registration">
+    <div class="reg-container">
+
+        <div class="admin-info">
+
+
+            <!-- ===== CONTENT ===== -->
+            <div class="admin-info-body d-flex">
+                <div class="ui-col-xl-10">
+                    <div class="admin-info-header">
+                        <span class="title">DANH SÁCH NHÓM NGƯỜI DÙNG</span>
+                    </div>
+
+                    <div class="table">
+                        <oh-table [ohData]="filteredData" ohShowSizeChanger ohBordered #table
+                            (ohCurrentPageDataChange)="onCurrentPageDataChange($event)">
+                            <thead>
+                                <tr class="right-table">
+                                    <th>STT</th>
+                                    <th>Thao tác</th>
+                                    <th>Mã nhóm ND</th>
+                                    <th>Tên nhóm ND</th>
+                                    <th>Mô tả</th>
+                                </tr>
+                                <tr class="filter-row">
+                                    <th></th>
+                                    <th></th>
+                                    <th>
+                                        <input oh-input [(ngModel)]="search.maNhomND" (ngModelChange)="applyFilter()"
+                                            placeholder="Tìm" />
+                                    </th>
+                                    <th>
+                                        <input oh-input [(ngModel)]="search.tenNhomND" (ngModelChange)="applyFilter()"
+                                            placeholder="Tìm" />
+                                    </th>
+                                    <th>
+                                        <input oh-input [(ngModel)]="search.mota" (ngModelChange)="applyFilter()"
+                                            placeholder="Tìm" />
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of table.data; let i = index" class="content">
+                                    <td class="text-center">
+                                        {{ row.id }}
+                                    </td>
+                                    <td class="text-center">
+                                        <a oh-dropdown ohTrigger="hover" [ohDropdownMenu]="menu" class="action">
+                                            <span oh-icon ohType="ellipsis" ohTheme="outline"></span>
+                                        </a>
+                                        <oh-dropdown-menu #menu="ohDropdownMenu">
+                                            <!-- <ul oh-menu class="menu-action">
+                                                <li oh-menu-item><span oh-icon ohType="edit"
+                                                        ohTheme="outline"></span>Sửa</li>
+                                                <li oh-menu-item><span oh-icon ohType="delete"
+                                                        ohTheme="outline"></span>Xóa</li>
+                                                <li oh-menu-item><span oh-icon ohType="check-square"
+                                                        ohTheme="outline"></span>Phân quyền chức năng</li>
+                                                <li oh-menu-item><span oh-icon ohType="check-circle"
+                                                        ohTheme="outline"></span>Phân quyền thao tác</li>
+                                                <li oh-menu-item><span oh-icon ohType="switcher"
+                                                        ohTheme="outline"></span>Phân quyền báo cáo</li>
+                                            </ul> -->
+                                            <ul oh-menu class="menu-action">
+                                                <li oh-menu-item (click)="openTab('edit', row)">
+                                                    <span oh-icon ohType="edit"></span>Sửa
+                                                </li>
+                                                <li oh-menu-item>
+                                                    <span oh-icon ohType="delete"></span>Xóa
+                                                </li>
+                                                <li oh-menu-item (click)="openTab('func', row)">
+                                                    <span oh-icon ohType="check-square"></span>Phân quyền chức năng
+                                                </li>
+                                                <li oh-menu-item (click)="openTab('action', row)">
+                                                    <span oh-icon ohType="check-circle"></span>Phân quyền thao tác
+                                                </li>
+                                                <li oh-menu-item (click)="openTab('report', row)">
+                                                    <span oh-icon ohType="switcher"></span>Phân quyền báo cáo
+                                                </li>
+                                            </ul>
+
+                                        </oh-dropdown-menu>
+                                    </td>
+                                    <td>{{ row.maNhomND }}</td>
+                                    <td>{{ row.tenNhomND }}</td>
+                                    <td>{{ row.mota }}</td>
+                                </tr>
+                            </tbody>
+                        </oh-table>
+                    </div>
+
+                </div>
+                <div class="ui-col-xl-13 right-content">
+                    <!-- <oh-tabset [ohTabBarExtraContent]="extraTemplate" ohType="editable-card" (ohClose)="closeTab($event)">
+                         <oh-tab *ngFor="let tab of tabs" ohClosable [ohTitle]="tab">Content of {{ tab }}</oh-tab>
+                    </oh-tabset>
+                    <ng-template #extraTemplate>
+                        <button oh-button>Extra Action</button>
+                    </ng-template> -->
+
+                    <oh-tabset [(ohSelectedIndex)]="activeTabIndex" (ohSelectedIndexChange)="onTabChange($event)"
+                        [ohTabBarExtraContent]="extraTemplate" ohType="editable-card" (ohClose)="closeTab($event)">
+
+                        <oh-tab *ngFor="let tab of tabs" [ohClosable]="tab.closable" [ohTitle]="tab.title">
+
+                            <!-- CONTENT TAB -->
+                            <div class="tab-content">
+                                <ng-container [ngSwitch]="tab.type">
+
+                                    <div *ngSwitchCase="'edit'">
+                                        <div class="d-flex info-row">
+                                            <label class="ui-col-xl-3">Mã nhóm ND<span class="required">*</span></label>
+                                            <input oh-input placeholder="Nhập" class="ui-col-xl-20" />
+                                        </div>
+                                        <div class="d-flex info-row">
+                                            <label class="ui-col-xl-3">Tên nhóm ND<span
+                                                    class="required">*</span></label>
+                                            <input oh-input placeholder="Nhập" class="ui-col-xl-20" />
+                                        </div>
+                                        <div class="d-flex info-row">
+                                            <label class="ui-col-xl-3">Nhóm khoa<span class="required">*</span></label>
+                                            <oh-select ohPlaceHolder="Chọn" class="ui-col-xl-20"></oh-select>
+                                        </div>
+                                        <div class="d-flex info-row">
+                                            <label class="ui-col-xl-3">Mô tả</label>
+                                            <textarea rows="2" oh-input [(ngModel)]="inputValue"
+                                                class="ui-col-xl-20"></textarea>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div *ngSwitchCase="'func'">
+                                        <oh-transfer
+                                            [ohDataSource]="list"
+                                            ohShowSearch
+                                            [ohFilterOption]="filterOption"
+                                            (ohSearchChange)="searchCN($event)"
+                                            (ohSelectChange)="select($event)"
+                                            (ohChange)="change($event)"
+                                        ></oh-transfer>
+                                    </div>
+
+                                    <div *ngSwitchCase="'action'">
+                                        <h4>Phân quyền thao tác</h4>
+                                    </div>
+
+                                    <div *ngSwitchCase="'report'">
+                                        <h4>Phân quyền báo cáo</h4>
+                                    </div>
+
+                                </ng-container>
+                            </div>
+                        </oh-tab>
+
+                    </oh-tabset>
+                    <ng-template #extraTemplate>
+                        <ng-container [ngSwitch]="activeTab?.type">
+                            <div *ngSwitchCase="'edit'">
+                                <his-action-bar [hisActionBarConfig]="hisActionBarEdit"></his-action-bar>
+                            </div>
+                            <div *ngSwitchCase="'func'">
+                                <button oh-button ohType="primary">Cập nhật</button>
+                            </div>
+                            <div *ngSwitchCase="'action'">
+                                <button oh-button>Lưu thao tác</button>
+                            </div>
+                            <div *ngSwitchCase="'report'">
+                                <button oh-button ohType="primary">Cập nhật</button>
+                            </div>
+
+                        </ng-container>
+                    </ng-template>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

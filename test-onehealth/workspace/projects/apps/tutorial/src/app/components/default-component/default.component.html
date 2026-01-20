@@ -2,13 +2,8 @@
   <!-- HERO -->
   <section class="py-10 px-6" id="hero">
     <!-- Cuộn lên đầu -->
-    <button 
-      class="scroll-top" 
-      [class.show]="showScrollTop"
-      (click)="scrollToTop()">
-      <span oh-icon ohType="to-top" ohTheme="outline"></span>
-    </button>
-
+    
+    <oh-back-top></oh-back-top>
     <div class="d-xl-flex d-xs-none">
       <!-- Cột text -->
       <div class="ui-col-xl-11 ui-col-xs-24 ui-col-xxl-12 pl-xl-6" data-aos="fade-right">
@@ -429,45 +424,47 @@
           <div class="">
             <a class="active" routerLink="/health">Kiến thức sức khỏe</a>
           </div>
-          <div>
-            <a class="ml-2" routerLink="/news">Tin tức, sự kiện</a>
-          </div>
         </div>
         <div>
-          <a routerLink="" class="text-primary fw-semibold">Xem thêm tin tức &rarr;</a>
+          <a routerLink="/health" class="text-primary fw-semibold">Xem thêm tin tức &rarr;</a>
         </div>
       </div>
-
-      <!-- Content -->
-      <!-- Bài viết chính -->
-      <div class="d-xl-flex">
-        <div class="ui-col-xl-9 banner-content">
-          <h5 class="fw-bold font-size-xl-9 font-size-xs-8">
-            Người 60 tuổi có nên trồng răng không? Phương pháp trồng răng nào an toàn, hiệu quả?
-          </h5>
-          <p class="text-gray">
-            Empower Your Data Management Strategy with Highly Versatile and Scalable Block Storage Solutions for
-            Seamless Accessibility and Enhanced Performance
-          </p>
-          <a routerLink="/health" class="banner-btn">Đọc tiếp ngay &rarr;</a>
-        </div>
-        <div class="ui-col-xl-14 ml-xl-10">
-          <img src="/assets/img/banner_content.png" class="banner-content-img" alt="Main article">
-        </div>
-      </div>
-
-      <!-- Các bài nhỏ -->
-      <section class="news-container mt-6">
-        <div class="news-card p-2" *ngFor="let item of newsList">
-          <div class="news-image">
-            <img [src]="item.image" alt="">
+      <!-- SLIDE -->
+      <oh-carousel ohAutoPlay *ngIf="slides.length">
+        @for (slide of slides; track slide.id) {
+          <div oh-carousel-content>
+            <div class="news-slide d-flex">
+              <div class="slide-left ui-col-xl-12">
+                <h2 class="title">{{ slide.title }}</h2>
+                <p class="description">
+                  {{ slide.description | slice:0:100  }}...
+                </p>
+                <button class="read-more"
+                        (click)="goToDetail(slide.id)">
+                  Đọc chi tiết &rarr;
+                </button>
+              </div>
+              <div class="slide-right ui-col-xl-12">
+                <img [src]="slide.thumbnail" [alt]="slide.title" />
+              </div>
+            </div>
           </div>
-          <div class="news-body">
-            <h6 class="text-gray">{{ item.category }}</h6>
-            <p class="title">{{ item.title }}</p>
-            <p class="date">{{ item.describe }}</p>
-          </div>
-        </div>
+        }
+      </oh-carousel>
+      <!-- NEWS-CHILD -->
+      <section class="news-container">
+          @for (item of articles; track item.id) {
+            <div (click)="goToDetail(item.id)" class="news-card p-2">
+              <div class="news-image">
+                <img [src]="item.thumbnail" [alt]="item.title" />
+              </div>
+              <div class="news-body">
+                <h6 class="text-gray">{{ item.categoryName }}</h6>
+                <p class="title">{{ item.title }}</p>
+                <p class="descrip">{{ item.description | slice:0:80 }}...</p>
+              </div>
+            </div>
+          }
       </section>
     </div>
   </section>

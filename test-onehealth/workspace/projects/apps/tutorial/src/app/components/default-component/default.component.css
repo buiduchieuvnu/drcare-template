@@ -5,41 +5,13 @@
 .al-center {
   align-items: center;
 }
-/* Nút cuộn lên đầu trang */
-.scroll-top {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 48px;
-  height: 48px;
-  background: #4297f2;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.4);
-  opacity: 0;
-  transform: scale(0.6);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-
-  z-index: 9999;
+::ng-deep .ui-back-top-content{
+  background-color: #4297f2;
+  margin-left: 70px;
 }
-
-.scroll-top.show {
-  opacity: 1;
-  transform: scale(1);
+::ng-deep .ui-back-top-content:hover{
+background-color: #5aa4f3;
 }
-
-.scroll-top:hover {
-  transform: scale(1.15);
-  box-shadow: 0 0 15px rgba(0, 123, 255, 0.55);
-}
-
-
 /* HERO SECTION */
 #hero {
   overflow: hidden;
@@ -521,6 +493,7 @@
   cursor: pointer;
 }
 /* BANNER NEWS */
+
 .banner-tap {
   align-items: center;
   justify-content: space-between;
@@ -565,6 +538,59 @@
   transition: background 0.3s;
 }
 /* BANNER NEWS LITTLE */
+.news-slide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 8px 12px;
+}
+
+.slide-left {
+  flex: 1;
+}
+
+.slide-left .title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.slide-left .description {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+::ng-deep .slick-list{
+  height: 520px !important;
+}
+.read-more {
+  border: none;
+  background: #fff;
+  color: #4fa8e4;
+  cursor: pointer;
+  border-radius: 7px;
+  border: solid 1px rgb(133, 171, 253);
+  padding: 8px 12px;
+}
+
+.read-more:hover {
+  color: white;
+  background-color: #007bff;
+  transition: background 0.3s;
+}
+.slide-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.slide-right img {
+  width: 100%;
+  max-width: 620px;
+  border-radius: 12px;
+}
 .news-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -617,7 +643,7 @@
   margin-bottom: 4px;
 }
 
-.news-body .date {
+.news-body .descrip {
   font-size: 12px;
   color: #777;
 }

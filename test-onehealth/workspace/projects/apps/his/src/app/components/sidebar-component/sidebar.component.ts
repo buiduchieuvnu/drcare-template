@@ -70,7 +70,14 @@ export class SideBarComponent {
           hisIcon: 'team',
           hisLink: '/quan-ly-nhan-vien',
           hisDisabled: false
-        }
+        },
+        {
+          hisLevel: 1,
+          hisTitle: 'Danh sách nhóm người dùng',
+          hisIcon: 'user',
+          hisLink: '/danh-sach-nhom-nguoi-dung',
+          hisDisabled: false
+        },
       ]
     },
   ];

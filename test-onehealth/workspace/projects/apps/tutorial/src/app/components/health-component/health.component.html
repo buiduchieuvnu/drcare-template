@@ -3,25 +3,27 @@
   <img src="/assets/img/ellipse.png" alt="" class="position-absolute ellipse2">
   <img src="/assets/img/ellipse-top-right1.png" alt="" class="position-absolute ellipse3">
   <img src="/assets/img/ellipse-top-right2.png" alt="" class="position-absolute ellipse4">
-  <div class="d-xl-flex d-xs-none banner p-8">
-    <div class="ui-col-xl-11" data-aos="fade-right">
-      <img src="/assets/img/banner_health.png" alt="Người cao tuổi" class="" />
+  <oh-carousel ohAutoPlay *ngIf="slides.length">
+    @for (slide of slides; track slide.id) {
+    <div oh-carousel-content class="d-xl-flex d-xs-none banner p-8">
+      <div class="ui-col-xl-11" data-aos="fade-right">
+        <img [src]="slide.thumbnail" [alt]="slide.title" />
+      </div>
+      <div class="ui-col-xl-10 text-white banner-text" data-aos="fade-left">
+        <p class="text-uppercase opacity-75 small mb-2">Bài viết nổi bật</p>
+        <h2 class="text-white font-size-xl-11 lh-sm mb-3">
+          {{ slide.title }}
+        </h2>
+        <p class="opacity-90 mb-4">
+          {{ slide.description | slice:0:100 }}...
+        </p>
+        <a (click)="goToDetail(slide.id)" class="btn-banner">
+          Xem chi tiết →
+        </a>
+      </div>
     </div>
-    <div class="ui-col-xl-10 text-white banner-text" data-aos="fade-left">
-      <p class="text-uppercase opacity-75 small mb-2">Bài viết nổi bật</p>
-      <h2 class="text-white font-size-xl-11 lh-sm mb-3">
-        Người 60 tuổi có nên trồng răng không?
-      </h2>
-      <p class="opacity-90 mb-4">
-        Theo công bố mới nhất tháng 9/2022 của Viện Tiêu chuẩn và Công nghệ quốc gia Mỹ (NIST),
-        công nghệ nhận diện và tìm kiếm khuôn mặt của VNPT (VNPT FaceID) vượt qua nhiều tên tuổi
-        lớn trên thế giới...
-      </p>
-      <a routerLink="/news" class="btn-banner">
-        Xem chi tiết →
-      </a>
-    </div>
-  </div>
+    }
+  </oh-carousel>
 </section>
 
 <section class="news-section">
@@ -29,28 +31,40 @@
 
   <!-- Thanh tìm kiếm -->
   <div class="search-bar d-flex mb-8">
-    <input type="text" placeholder="Nhập tìm kiếm..." />
-    <button>Tìm kiếm</button>
-  </div>
+  <input
+    type="text"
+    placeholder="Nhập tìm kiếm..."
+    [(ngModel)]="searchKeyword"
+    (keyup.enter)="onSearch()"
+  />
+  <span oh-icon ohType="close" ohTheme="outline" class="clear-btn" *ngIf="searchKeyword" (click)="clearSearch()"></span>
+  <button (click)="onSearch()">Tìm kiếm</button>
+</div>
+
 
   <!-- Danh sách bài viết -->
-  <div class="news-grid px-xl-7">
-    <div class="news-item" *ngFor="let item of articles">
-      <img [src]="item.image" [alt]="item.title" />
-      <div class="news-content">
-        <span class="category">{{ item.category }}</span>
-        <a routerLink="/news" class="title font-size-xl-5 font-size-xs-4">{{ item.title }}</a>
-        <p class="desc">{{ item.description }}</p>
+
+  <section class="news-container">
+  @for (item of pagedArticles; track item.id) {
+    <div (click)="goToDetail(item.id)" class="news-card p-2">
+      <div class="news-image">
+        <img [src]="item.thumbnail" [alt]="item.title" />
+      </div>
+      <div class="news-body">
+        <h6 class="text-gray">{{ item.categoryName }}</h6>
+        <p class="title">{{ item.title }}</p>
+        <p class="descrip">
+          {{ item.description | slice:0:80 }}...
+        </p>
       </div>
     </div>
-  </div>
+  }
+</section>
 
-  <!-- Phân trang -->
-  <div class="pagination">
-    <button>&lt;</button>
-    <button class="active">1</button>
-    <button>2</button>
-    <button>3</button>
-    <button>&gt;</button>
-  </div>
+<oh-pagination
+  [ohPageIndex]="pageIndex"
+  [ohTotal]="total"
+  [ohPageSize]="pageSize"
+  (ohPageIndexChange)="onPageIndexChange($event)" class="pagination">
+</oh-pagination>
 </section>

@@ -80,6 +80,9 @@
   white-space: nowrap;
 }
 
+::ng-deep .image img{
+  max-width: 100% !important;
+}
 @media (max-width: 768px){
 
 }

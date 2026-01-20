@@ -16,6 +16,7 @@ import { ContactComponent } from './components/contact-component/contact.compone
 import { NewsComponent } from './components/news-component/news.component';
 import { HeaderComponent } from './components/header-component/header.component';
 import { FooterComponent } from './components/footer-component/footer.component';
+import { FormsModule } from '@angular/forms';
 registerLocaleData(localeVi);
 
 @NgModule({
@@ -36,6 +37,7 @@ registerLocaleData(localeVi);
     OnehealthModule,
     OnehealthCoreModule,
     OHIconModule,
+    FormsModule
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/tutorial' }

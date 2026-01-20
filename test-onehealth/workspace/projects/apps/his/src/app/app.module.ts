@@ -26,6 +26,7 @@ import { TreatmentHistoryComponent } from './components/treatment-history-compon
 import { ServiceDesignationComponent } from './components/service-designation-component/service-designation.component';
 import { HisActionBarModule } from '@onehealth/ui/his-action-bar';
 import { UserManagementComponent } from './components/user-management-component/user-management.component';
+import { ListUserComponent } from './components/list-user-component/list-user.component';
 registerLocaleData(localeVi);
 
 @NgModule({
@@ -39,7 +40,8 @@ registerLocaleData(localeVi);
     HeaderPanelComponent,
     TreatmentHistoryComponent,
     ServiceDesignationComponent,
-    UserManagementComponent
+    UserManagementComponent,
+    ListUserComponent
   ],
   imports: [
     BrowserAnimationsModule,

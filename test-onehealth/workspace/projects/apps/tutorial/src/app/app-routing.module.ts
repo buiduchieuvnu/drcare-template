@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'default', component: DefaultComponent },
   // { path: '**', component: EmptyRouteComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'news', component: NewsComponent },
+  { path: 'news/:id', component: NewsComponent },
   { path: 'health', component: HealthComponent },
 ];
 

@@ -1,4 +1,7 @@
 import { Component, OnInit, OnDestroy, ElementRef, AfterViewInit, ViewChild, HostListener } from '@angular/core';
+import { NewsView } from '../../../models/news-view.model';
+import { NewsService } from '../../../service/news.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'default-component',
@@ -7,9 +10,6 @@ import { Component, OnInit, OnDestroy, ElementRef, AfterViewInit, ViewChild, Hos
   styleUrls: ['./default.component.css']
 })
 export class DefaultComponent implements OnInit, OnDestroy, AfterViewInit {
-
-  constructor() { }
-  showScrollTop = false;
 
   activeSection: 'hospital' | 'doctor' = 'hospital';
   hospitalSlides: any[][] = [];
@@ -166,21 +166,11 @@ export class DefaultComponent implements OnInit, OnDestroy, AfterViewInit {
       avatar: '/assets/img/avatar_feedback.png'
     }
   ];
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const scrollY = window.scrollY || document.documentElement.scrollTop;
 
-    // Hiện nút nếu cuộn > 350px
-    this.showScrollTop = scrollY > 350;
-  }
+  slides: NewsView[] = [];
+  articles: NewsView[] = [];
 
-  // Cuộn lên đầu trang
-  scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }
+  constructor( private newsService: NewsService, private router: Router ) { }
   ngOnInit() {
     this.hospitalSlides = this.chunk(this.hospitals, 4);
     this.doctorSlides = this.chunk(this.doctors, 4);
@@ -190,11 +180,32 @@ export class DefaultComponent implements OnInit, OnDestroy, AfterViewInit {
     this.timers.push(setInterval(() => this.nextSlide('hospital'), 5000));
     this.timers.push(setInterval(() => this.nextSlide('doctor'), 5000));
     this.timers.push(setInterval(() => this.nextSlide('healthcare'), 6000));
+
+    // Hiển thị dữ liệu tin tức
+    this.loadNews();
   }
+  loadNews(): void {
+    this.newsService.getNews({
+      categoryId: '69659ee36191628e703967c7'
+    }).subscribe({
+      next: (data) => {
+        this.slides = data.filter(item => item.publishOnMain === 1);
+        this.articles = data
+        .filter(item => item.publishOnMain === 0)
+        .slice(0, 4);
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
+  goToDetail(id: string): void {
+    this.router.navigate(['/news', id]);
+  }
+
   ngOnDestroy() {
     this.timers.forEach(timer => clearInterval(timer));
   }
-
 
   toggleSection(section: 'hospital' | 'doctor') {
     this.activeSection = section;

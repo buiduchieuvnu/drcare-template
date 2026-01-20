@@ -6,6 +6,7 @@ import { RegistrationListComponent } from './components/registration-list-compon
 import { TreatmentHistoryComponent } from './components/treatment-history-component/treatment-history.component';
 import { ServiceDesignationComponent } from './components/service-designation-component/service-designation.component';
 import { UserManagementComponent } from './components/user-management-component/user-management.component';
+import { ListUserComponent } from './components/list-user-component/list-user.component';
 
 const routes: Routes = [
   { path: '', redirectTo:'tiepnhan', pathMatch: 'full' },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'ds-tiepnhan', component: RegistrationListComponent},
   { path: 'lich-su-dieu-tri/:id', component: TreatmentHistoryComponent },
   { path: 'chi-dinh-dich-vu/:id', component: ServiceDesignationComponent},
-  { path: 'quan-ly-nguoi-dung', component: UserManagementComponent}
+  { path: 'quan-ly-nguoi-dung', component: UserManagementComponent},
+  { path: 'danh-sach-nhom-nguoi-dung', component: ListUserComponent}
 ];
 
 @NgModule({

@@ -264,6 +264,7 @@ export class HeaderPanelComponent implements OnDestroy {
   isTiepNhan = false;
   isDanhSach = false;
   pageTitle = '';
+  pageTitleLV1 = '';
 
   isLichSu = false;
   isChiDinh = false;
@@ -271,7 +272,8 @@ export class HeaderPanelComponent implements OnDestroy {
   patientAge: number | null = null;
   patientInfoText = '';
 
-  isNguoiDung=false;
+  isNguoiDung = false;
+  isNhomNguoiDung = false;
 
   selectedPatient: PatientRow | null = null;
 
@@ -295,8 +297,6 @@ export class HeaderPanelComponent implements OnDestroy {
       }
     });
   }
-
-  // Event button của Danh sách bệnh nhân
   private handleRequirePatient(action: () => void) {
     const patient = this.patientCtx.value;
     if (!patient) {
@@ -404,6 +404,7 @@ export class HeaderPanelComponent implements OnDestroy {
     this.isLichSu = false;
     this.isChiDinh = false;
     this.isNguoiDung = false;
+    
   }
 
   private resolveHeader() {
@@ -416,11 +417,13 @@ export class HeaderPanelComponent implements OnDestroy {
     switch (true) {
       case path === 'tiepnhan':
         this.isTiepNhan = true;
+        this.pageTitleLV1 = 'Tiếp nhận ';
         this.pageTitle = 'Tiếp nhận bệnh nhân';
         break;
 
       case path === 'ds-tiepnhan':
         this.isDanhSach = true;
+        this.pageTitleLV1 = 'Tiếp nhận ';
         this.pageTitle = 'Danh sách tiếp nhận';
         this.patientCtx.clear();
         this.selectedPatient = null;
@@ -428,17 +431,26 @@ export class HeaderPanelComponent implements OnDestroy {
 
       case path === 'lich-su-dieu-tri/:id':
         this.isLichSu = true;
+        this.pageTitleLV1 = 'Tiếp nhận ';
         this.pageTitle = 'Lịch sử điều trị';
         break;
 
       case path === 'chi-dinh-dich-vu/:id':
         this.isChiDinh = true;
+        this.pageTitleLV1 = 'Tiếp nhận ';
         this.pageTitle = 'Chỉ định dịch vụ';
         break;
       
       case path === 'quan-ly-nguoi-dung':
         this.isNguoiDung = true;
+        this.pageTitleLV1 =  'Quản trị hệ thống';
         this.pageTitle = 'Quản lý người dùng';
+        break;
+
+      case path === 'danh-sach-nhom-nguoi-dung':
+        this.isNhomNguoiDung = true;
+        this.pageTitleLV1 =  'Quản trị hệ thống';
+        this.pageTitle = 'Danh sách nhóm người dùng';
         break;
 
       default:

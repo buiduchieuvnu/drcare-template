@@ -8,7 +8,7 @@
           <span oh-icon ohType="home"></span>
         </oh-breadcrumb-item>
         <oh-breadcrumb-item>
-          <span>Tiếp nhận</span>
+          <span>{{pageTitleLV1}}</span>
         </oh-breadcrumb-item>
         <oh-breadcrumb-item>
           {{ pageTitle }}
@@ -67,6 +67,13 @@
             <his-action-bar [hisActionBarConfig]="hisActionBarNguoiDungChucNang"></his-action-bar>
             <his-action-bar [hisActionBarConfig]="hisActionBarNguoiDungExport"></his-action-bar>
 
+          </div>
+        </ng-container>
+
+        <!-- DANH SÁCH NHÓM NGƯỜI DÙNG -->
+        <ng-container *ngIf="isNhomNguoiDung">
+          <div class="action-group">
+          
           </div>
         </ng-container>
       </div>
