@@ -583,7 +583,7 @@ background-color: #5aa4f3;
 .slide-right {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .slide-right img {

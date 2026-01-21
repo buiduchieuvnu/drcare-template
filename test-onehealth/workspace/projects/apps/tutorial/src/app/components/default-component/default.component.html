@@ -434,6 +434,9 @@
         @for (slide of slides; track slide.id) {
           <div oh-carousel-content>
             <div class="news-slide d-flex">
+              <div class="slide-right ui-col-xl-12">
+                <img [src]="slide.thumbnail" [alt]="slide.title" draggable="false"/>
+              </div>
               <div class="slide-left ui-col-xl-12">
                 <h2 class="title">{{ slide.title }}</h2>
                 <p class="description">
@@ -443,9 +446,6 @@
                         (click)="goToDetail(slide.id)">
                   Đọc chi tiết &rarr;
                 </button>
-              </div>
-              <div class="slide-right ui-col-xl-12">
-                <img [src]="slide.thumbnail" [alt]="slide.title" />
               </div>
             </div>
           </div>
