@@ -28,7 +28,7 @@ export class NewsService {
 
         const headers = new HttpHeaders({
             hospitalCode: '99999'
-        });
+        }); 
 
         return this.http.get<NewsApiResponse>(this.API_URL, {
             headers,

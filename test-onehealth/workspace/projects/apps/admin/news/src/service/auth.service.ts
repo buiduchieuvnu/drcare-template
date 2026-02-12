@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  // 🔒 MOCK ACCOUNT
   private readonly Account = {
     username: 'admin',
     password: '123456',

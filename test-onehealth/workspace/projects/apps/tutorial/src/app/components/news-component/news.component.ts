@@ -11,7 +11,7 @@ import { NewsView } from '../../../models/news-view.model';
 })
 export class NewsComponent {
 
-   news!: NewsView;
+  news!: NewsView;
   relatedPosts: NewsView[] = [];
 
   constructor(

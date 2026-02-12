@@ -40,7 +40,9 @@ registerLocaleData(localeVi);
     FormsModule
   ],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/tutorial' }
+    // { provide: APP_BASE_HREF, useValue: '/tutorial' }
+    { provide: APP_BASE_HREF, useValue: '/' }
+
   ],
   bootstrap: [AppComponent],
 })

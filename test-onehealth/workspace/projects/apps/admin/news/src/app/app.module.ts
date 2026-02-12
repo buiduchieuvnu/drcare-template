@@ -23,7 +23,6 @@ import { LoginAdminComponent } from './components/login-admin-component/login-ad
 import { FormsModule } from '@angular/forms';
 
 import { ReactiveFormsModule } from '@angular/forms';
-// import { OHCkeditorModule } from '@onehealth/ui/ckeditor';
 import { NewsEditComponent } from './components/news-edit-component/news-edit.component';
 
 import { HisFooterModule } from '@onehealth/ui/his-footer';
@@ -33,6 +32,8 @@ import { OHActionBarModule } from '@onehealth/ui/action-bar';
 import { FooterComponent } from './components/footer-component/footer.component';
 import { HisSideBarModule } from '@onehealth/ui/his-side-bar';
 import { HeaderPanelComponent } from './components/head-panel/head-panel.component';
+
+import { OHCkeditorModule } from '@onehealth/ui/ckeditor';
 registerLocaleData(localeVi);
 
 @NgModule({
@@ -59,7 +60,7 @@ registerLocaleData(localeVi);
     OnehealthModule,
     OnehealthCoreModule,
     OHIconModule,
-    // OHCkeditorModule,
+    OHCkeditorModule,
     FormsModule,
     ReactiveFormsModule,
     HisFooterModule,

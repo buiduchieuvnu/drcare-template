@@ -13,6 +13,7 @@ import { combineLatest } from 'rxjs';
 export class HeaderPanelComponent {
   isDanhSachTinTuc = false;
   isChuyenMuc = false;
+  isThemTinTuc = false;
   pageTitle = '';
   
   canEdit = false;
@@ -69,11 +70,14 @@ export class HeaderPanelComponent {
 
     this.isDanhSachTinTuc = url.includes('/news/news-list');
     this.isChuyenMuc = url.includes('/news/news-category');
+    this.isThemTinTuc = url.includes('/news/news-create');
 
     if (this.isDanhSachTinTuc) {
       this.pageTitle = 'Danh sách tin tức';
     } else if (this.isChuyenMuc) {
       this.pageTitle = 'Chuyên mục tin';
+    } else if (this.isThemTinTuc) {
+      this.pageTitle = 'Thêm tin tức';
     } else {
       this.pageTitle = '';
     }

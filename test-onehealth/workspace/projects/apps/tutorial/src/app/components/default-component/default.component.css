@@ -550,8 +550,8 @@ background-color: #5aa4f3;
   flex: 1;
 }
 
-.slide-left .title {
-  font-size: 28px;
+.slide-left .slide-title {
+  /* font-size: 28px; */
   font-weight: 600;
   margin-bottom: 16px;
 }
@@ -589,6 +589,7 @@ background-color: #5aa4f3;
 .slide-right img {
   width: 100%;
   max-width: 620px;
+  max-height: 430px;
   border-radius: 12px;
 }
 .news-container {
@@ -895,6 +896,7 @@ background-color: #5aa4f3;
   .news-image {
     width: 100%;
   }
+
   /* CONTACT */
      .input-row {
     flex-direction: column;

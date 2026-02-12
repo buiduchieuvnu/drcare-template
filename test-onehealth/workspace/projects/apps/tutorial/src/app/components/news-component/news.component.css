@@ -8,24 +8,15 @@
     width: 32px;
     border-radius: 20px;
 }
-
+::ng-deep .main-content img{
+  max-width: 100%;
+}
 .category{
     background-color: rgb(241, 241, 241);
     border-radius: 6px;
     display: inline-block;
     color: rgb(122, 122, 122);
 }
-.fs-7 {
-    font-size: 0.7rem;
-}
-.noidung{
-    text-align: justify;
-}
-.img-essay{
-    width: 100%;
-    border-radius: 2px;
-}
-
 .related-posts {
   display: flex;
   flex-direction: column;
@@ -58,6 +49,7 @@
 
 .thumb img {
   width: 100%;
+  height: 60px;
   object-fit: cover;
   border-radius: 8px;
 }

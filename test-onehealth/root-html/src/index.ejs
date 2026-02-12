@@ -94,7 +94,8 @@
     <% } else { %>
       <script>
         var appConfigs = {
-          tutorial: "/tutorial/main.js",
+          // tutorial: "/tutorial/main.js",
+          tutorial: "/main.js",
           admin: "/admin/news/main.js",
           his: "/his/main.js",
           "@vnpt/root-config": "/vnpt-root-config.js",
@@ -103,20 +104,27 @@
       <% } %>
         <script>
           var layout = `
-        <redirect from="/" to="/tutorial"></redirect>
-        <route path="/tutorial"><application name="tutorial"></application></route>
-        <route default><application name="tutorial"></application></route>
 
+        <!-- ADMIN -->
         <redirect from="/admin" to="/admin/news"></redirect>
-        <route path="/admin"><application name="admin"></application></route>
+        <route path="/admin">
+          <application name="admin"></application>
+        </route>
 
+        <!-- HIS -->
         <redirect from="/his" to="/his/tiepnhan"></redirect>
-        <route path="/his"><application name="his"></application></route>
+        <route path="/his">
+          <application name="his"></application>
+        </route>
+
+        <!-- TUTORIAL (ROOT APP) -->
+        <route default>
+          <application name="tutorial"></application>
+        </route>
       `;
           var onehealthUI = new OnehealthUI(appConfigs, layout);
           System.import("@vnpt/root-config");
         </script>
-
 </body>
 
 </html>

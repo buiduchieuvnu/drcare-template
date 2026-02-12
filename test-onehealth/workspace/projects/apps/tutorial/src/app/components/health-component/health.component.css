@@ -1,4 +1,7 @@
 /* BANNER */
+.banner{
+  justify-content: space-between;
+}
 .section-banner {
   position: relative; 
   background: linear-gradient(111.91deg, #2356BB 1.09%, #214EBE 100%);
@@ -17,17 +20,21 @@
 .ellipse2 { top: 80px; right: 10%; max-width: 320px;}
 .ellipse3 { top: 0; right: 0%; max-width: 110px;}
 .ellipse4 { top: 0; right: 0%; max-width: 180px;}
-
+.banner-img-left{
+  display: flex;
+  justify-content: center;
+}
 .banner img {
   position: absolute;
-  left: 8%;
-  max-width: 450px;
-  z-index: 2;
+  width: 80%;
+  max-width: 500px;
+  max-height: 350px;
+  font-weight: 600;
   border-radius: 8px;
+  z-index: 0;
 }
 .banner-text{
   position: relative;
-  z-index: 3;
 }
 .btn-banner {
   background-color: white;
@@ -164,7 +171,9 @@
   margin-top: 10px;
 }
 @media (max-width: 768px) {
-
+  .banner img{
+    max-height: 200px;
+  }
   .news-section{
     padding: 40px;
   }
