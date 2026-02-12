@@ -557,7 +557,6 @@ background-color: #5aa4f3;
 }
 
 .slide-left .description {
-  font-size: 15px;
   line-height: 1.6;
   opacity: 0.9;
   margin-bottom: 20px;
@@ -572,7 +571,7 @@ background-color: #5aa4f3;
   cursor: pointer;
   border-radius: 7px;
   border: solid 1px rgb(133, 171, 253);
-  padding: 8px 12px;
+  padding: 8px 11px;
 }
 
 .read-more:hover {

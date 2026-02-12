@@ -433,13 +433,13 @@
       <oh-carousel ohAutoPlay *ngIf="slides.length">
         @for (slide of slides; track slide.id) {
           <div oh-carousel-content>
-            <div class="news-slide d-flex">
-              <div class="slide-right ui-col-xl-12">
+            <div class="news-slide d-xl-flex">
+              <div class="slide-right ui-col-xl-11">
                 <img [src]="slide.thumbnail" [alt]="slide.title" draggable="false"/>
               </div>
               <div class="slide-left ui-col-xl-12">
-                <p class="slide-title font-size-xl-11 font-size-xs-1">{{ slide.title }}</p>
-                <p class="description font-size-xs-1">
+                <p class="slide-title font-size-xl-11 font-size-xs-2">{{ slide.title }}</p>
+                <p class="description font-size-xl-6 font-size-xs-1">
                   {{ slide.description | slice:0:100  }}...
                 </p>
                 <button class="read-more"
