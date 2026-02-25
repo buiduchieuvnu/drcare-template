@@ -28,16 +28,16 @@
           <div class="d-flex hero-app">
             <!-- Google Play -->
             <div class="">
-              <img src="/assets/img/qr.png" alt="QR Google Play" class="qr-banner pr-1" />
-              <a href="#" class="ms-1">
+              <img src="/assets/img/qr_chplay.png" alt="QR Google Play" class="qr-banner pr-1" />
+              <a href="https://play.google.com/store/apps/details?id=com.vnptit.drcare247.doctor" class="ms-1">
                 <img src="/assets/img/googleplay.png" alt="Google Play" class="app-mobile" />
               </a>
             </div>
 
             <!-- App Store -->
             <div class="">
-              <img src="/assets/img/qr.png" alt="QR App Store" class="qr-banner pr-1" />
-              <a href="#" class="ms-1">
+              <img src="/assets/img/qr_appstore.png" alt="QR App Store" class="qr-banner pr-1" />
+              <a href="https://apps.apple.com/vn/app/drcare247/id6753866702" class="ms-1">
                 <img src="/assets/img/appstore.png" alt="App Store" class="app-mobile" />
               </a>
             </div>
@@ -187,7 +187,7 @@
         </div>
       </div>
       <div class="mt-5 text-center">
-        <a href="#" class="px-4 py-2 btn-experience">
+        <a href="https://play.google.com/store/apps/details?id=com.vnptit.drcare247.doctor" class="px-4 py-2 btn-experience">
           Trải nghiệm App ngay
         </a>
       </div>
@@ -430,27 +430,49 @@
         </div>
       </div>
       <!-- SLIDE -->
-      <oh-carousel ohAutoPlay *ngIf="slides.length">
-        @for (slide of slides; track slide.id) {
-          <div oh-carousel-content>
-            <div class="news-slide d-xl-flex">
-              <div class="slide-right ui-col-xl-11">
-                <img [src]="slide.thumbnail" [alt]="slide.title" draggable="false"/>
+      <div class="d-flex slide-news">
+        <div class="ui-col-xl-14">
+          <oh-carousel ohAutoPlay >
+            @for (slide of slides; track slide.id) {
+              <div oh-carousel-content>
+                <div class="news-slide d-xl-flex">
+                  <div class="slide-right ui-col-xl-11">
+                    <img [src]="slide.thumbnail" [alt]="slide.title" draggable="false"/>
+                  </div>
+                  <div class="slide-left ui-col-xl-12">
+                    <p class="slide-title font-size-xl-9 font-size-xs-2">{{ slide.title }}</p>
+                    <p class="description font-size-xl-4 font-size-xs-1">
+                      {{ slide.description | slice:0:100  }}...
+                    </p>
+                    <button class="read-more"
+                            (click)="goToDetail(slide.id)">
+                      Đọc chi tiết &rarr;
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div class="slide-left ui-col-xl-12">
-                <p class="slide-title font-size-xl-11 font-size-xs-2">{{ slide.title }}</p>
-                <p class="description font-size-xl-6 font-size-xs-1">
-                  {{ slide.description | slice:0:100  }}...
-                </p>
-                <button class="read-more"
-                        (click)="goToDetail(slide.id)">
-                  Đọc chi tiết &rarr;
-                </button>
+            }
+          </oh-carousel>
+        </div>
+        <div class="ui-col-xl-9">
+          <p class="slide-news-text">Các bài viết liên quan</p>
+          <section class="">
+            @for (item of slides; track item.id) {
+              <div (click)="goToDetail(item.id)" class="slide-news-card p-2">
+                <div class="slide-news-image">
+                  <img [src]="item.thumbnail" [alt]="item.title" />
+                </div>
+                <div class="slide-news-body">
+                  <h6 class="text-gray">{{ item.categoryName }}</h6>
+                  <p class="title">{{ item.title }}</p>
+                  <p class="descrip">{{ item.description | slice:0:80 }}...</p>
+                </div>
               </div>
-            </div>
-          </div>
-        }
-      </oh-carousel>
+            }
+        </section>
+        </div>
+      </div>
+      
       <!-- NEWS-CHILD -->
       <section class="news-container">
           @for (item of articles; track item.id) {

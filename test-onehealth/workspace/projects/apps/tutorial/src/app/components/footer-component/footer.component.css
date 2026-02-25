@@ -66,6 +66,7 @@ h6 {
 
 .qr-img {
   padding: 4px;
+  border-radius: 5px;
   width: 72px;
   height: 72px;
 }

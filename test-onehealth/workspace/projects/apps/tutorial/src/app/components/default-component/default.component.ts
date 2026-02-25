@@ -142,28 +142,28 @@ export class DefaultComponent implements OnInit, OnDestroy, AfterViewInit {
       avatar: '/assets/img/avatar_feedback.png'
     },
     {
-      content: 'Từ khi tích hợp đặt lịch trên DRCARE247, số lượng bệnh nhân đến đều và ổn định hơn, giảm hẳn tình trạng trùng lịch. Hệ thống cũng giúp lưu hồ sơ bệnh nhân đồng bộ, tiện theo dõi lâu dài',
-      name: 'Phùng Thị Yến – 35 Tuổi',
-      desc: 'Đại diện Phòng khám Đa Khoa TTYTQ8',
-      avatar: '/assets/img/avatar_feedback.png'
+      content: 'Ứng dụng rất dễ dùng, chỉ vài thao tác là đặt được lịch khám. Tôi đặc biệt thích tính năng nhắc lịch tự động vì giúp không bị quên lịch tái khám.',
+      name: 'Nguyễn Văn Hòa – 42 Tuổi',
+      desc: 'Quận Cầu Giấy, Hà Nội',
+      avatar: '/assets/img/avatar_null.png'
     },
     {
-      content: 'Từ khi tích hợp đặt lịch trên DRCARE247, số lượng bệnh nhân đến đều và ổn định hơn, giảm hẳn tình trạng trùng lịch. Hệ thống cũng giúp lưu hồ sơ bệnh nhân đồng bộ, tiện theo dõi lâu dài',
-      name: 'Phùng Thị Yến – 35 Tuổi',
-      desc: 'Sống tại Hà Nội',
-      avatar: '/assets/img/avatar_feedback.png'
+      content: 'Trước đây mỗi lần đi khám phải chờ rất lâu, nhưng từ khi dùng app thì đến đúng giờ là được vào khám. Thông tin bác sĩ và chuyên khoa hiển thị rõ ràng, dễ chọn.',
+      name: 'Lê Thị Mai – 29 Tuổi',
+      desc: 'TP. Hồ Chí Minh',
+      avatar: '/assets/img/avatar_null.png'
     },
     {
-      content: 'Từ khi tích hợp đặt lịch trên DRCARE247, số lượng bệnh nhân đến đều và ổn định hơn, giảm hẳn tình trạng trùng lịch. Hệ thống cũng giúp lưu hồ sơ bệnh nhân đồng bộ, tiện theo dõi lâu dài',
-      name: 'Phùng Thị Yến – 35 Tuổi',
-      desc: 'Đại diện Phòng khám Đa Khoa TTYTQ8',
-      avatar: '/assets/img/avatar_feedback.png'
+      content: 'Tôi thường xuyên theo dõi hồ sơ sức khỏe của cả gia đình trên ứng dụng. Việc lưu trữ kết quả khám giúp bác sĩ nắm được tiền sử bệnh nhanh hơn.',
+      name: 'Trần Quốc Bảo – 38 Tuổi',
+      desc: 'Đà Nẵng',
+      avatar: '/assets/img/avatar_null.png'
     },
     {
-      content: 'Từ khi tích hợp đặt lịch trên DRCARE247, số lượng bệnh nhân đến đều và ổn định hơn, giảm hẳn tình trạng trùng lịch. Hệ thống cũng giúp lưu hồ sơ bệnh nhân đồng bộ, tiện theo dõi lâu dài',
-      name: 'Phùng Thị Yến – 35 Tuổi',
-      desc: 'Sống tại Hà Nội',
-      avatar: '/assets/img/avatar_feedback.png'
+      content: 'App hỗ trợ rất tốt cho người lớn tuổi trong gia đình tôi. Giao diện đơn giản, chữ rõ, dễ thao tác và có thông báo mỗi khi có lịch khám mới.',
+      name: 'Phạm Thị Hồng – 50 Tuổi',
+      desc: 'Đại diện phòng khám TDI Hải Phòng',
+      avatar: '/assets/img/avatar_null.png'
     }
   ];
 

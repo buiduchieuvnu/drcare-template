@@ -8,6 +8,9 @@
     width: 32px;
     border-radius: 20px;
 }
+.main-content{
+  text-align: justify;
+}
 ::ng-deep .main-content img{
   max-width: 100%;
 }
