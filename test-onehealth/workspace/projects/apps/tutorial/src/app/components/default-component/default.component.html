@@ -457,7 +457,7 @@
         <div class="ui-col-xl-9">
           <p class="slide-news-text">Các bài viết liên quan</p>
           <section class="">
-            @for (item of slides; track item.id) {
+            @for (item of slides3; track item.id) {
               <div (click)="goToDetail(item.id)" class="slide-news-card p-2">
                 <div class="slide-news-image">
                   <img [src]="item.thumbnail" [alt]="item.title" />

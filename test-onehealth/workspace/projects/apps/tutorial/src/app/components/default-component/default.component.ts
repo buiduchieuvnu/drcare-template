@@ -168,6 +168,7 @@ export class DefaultComponent implements OnInit, OnDestroy, AfterViewInit {
   ];
 
   slides: NewsView[] = [];
+  slides3: NewsView[] = [];
   articles: NewsView[] = [];
 
   constructor( private newsService: NewsService, private router: Router ) { }
@@ -190,6 +191,9 @@ export class DefaultComponent implements OnInit, OnDestroy, AfterViewInit {
     }).subscribe({
       next: (data) => {
         this.slides = data.filter(item => item.publishOnMain === 1);
+        this.slides3 = data
+        .filter(item => item.publishOnMain === 1)
+        .slice(0, 3);
         this.articles = data
         .filter(item => item.publishOnMain === 0)
         .slice(0, 4);

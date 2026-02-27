@@ -678,16 +678,17 @@ background-color: #5aa4f3;
 .news-image {
   flex: 1;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 .news-image img {
   border-radius: 8px;
   max-width: 90%;
-  max-height: 90%;
-  object-fit: cover;
+  max-height: 80%;
 }
 .news-body {
   flex: 2;
-  padding: 15px;
+  padding:2px 0px;
 }
 .news-body h6 {
   font-size: 13px;
@@ -784,7 +785,7 @@ background-color: #5aa4f3;
 
 .contact-image{
   position: absolute;
-  z-index: 10;
+  z-index: 8;
 }
 .contact-image.left {
   left: 0;

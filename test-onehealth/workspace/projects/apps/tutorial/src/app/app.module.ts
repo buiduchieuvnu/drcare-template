@@ -17,6 +17,7 @@ import { NewsComponent } from './components/news-component/news.component';
 import { HeaderComponent } from './components/header-component/header.component';
 import { FooterComponent } from './components/footer-component/footer.component';
 import { FormsModule } from '@angular/forms';
+import { AboutComponent } from './components/about-component/about.component';
 registerLocaleData(localeVi);
 
 @NgModule({
@@ -28,6 +29,7 @@ registerLocaleData(localeVi);
     HealthComponent,
     ContactComponent,
     NewsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserAnimationsModule,

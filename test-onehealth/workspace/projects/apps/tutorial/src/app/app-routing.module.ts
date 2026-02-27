@@ -5,6 +5,7 @@ import { DefaultComponent } from './components/default-component/default.compone
 import { ContactComponent } from './components/contact-component/contact.component';
 import { NewsComponent } from './components/news-component/news.component';
 import { HealthComponent } from './components/health-component/health.component';
+import { AboutComponent } from './components/about-component/about.component';
 
 const routes: Routes = [
   { path: '', component: DefaultComponent, pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'news/:id', component: NewsComponent },
   { path: 'health', component: HealthComponent },
+  { path: 'about', component: AboutComponent },
 ];
 
 @NgModule({
